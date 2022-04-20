@@ -13,11 +13,6 @@ const userSchema = new Schema(
         required: true,
       },
       reviewList: [reviews],
-    },
-    {
-      toJSON: {
-        virtuals: true,
-      },
     }
 );
 
