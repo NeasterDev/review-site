@@ -20,6 +20,4 @@ const reviewSchema = new Schema({
     }
 });
 
-const Review = model('Review', reviewSchema);
-
-module.export = Review;
+module.export = reviewSchema;
