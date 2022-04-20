@@ -51,7 +51,7 @@ const resolvers = {
         },
 
         // delete Review
-        updateReview: async (parent, args, context) => {
+        deleteReview: async (parent, args, context) => {
             if (context.user) {
 
             }

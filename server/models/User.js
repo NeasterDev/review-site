@@ -14,13 +14,7 @@ const userSchema = new Schema(
         type: String,
         required: true,
       },
-      reviewList: [reviewSchema],
-      reviews: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Review'
-            }
-        ]
+      reviewList: [reviewSchema]
     }
 );
 
