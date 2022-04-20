@@ -13,6 +13,12 @@ const userSchema = new Schema(
         required: true,
       },
       reviewList: [reviews],
+      reviews: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Review'
+            }
+        ]
     }
 );
 
