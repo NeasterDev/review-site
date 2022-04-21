@@ -20,7 +20,7 @@ const resolvers = {
     },
 
     // perform POST, PUT, DELETE request on GraphQL API
-    Mutations: {
+    Mutation: {
         // add User
         addUser: async (parent, args) => {
 

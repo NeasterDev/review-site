@@ -21,7 +21,7 @@ const startServer = async () => {
 
 startServer();
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json);
+app.use(express.json());
 
 
 // once we are in production use build folder that react creates
@@ -30,6 +30,6 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 db.once('open', () => {
-    app.listen(PORT, () => console.log(` Now listening on localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
 });
 

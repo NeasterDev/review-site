@@ -10,10 +10,10 @@ const typeDefs = gql`
     }
 
     type Review {
+        _id: ID,
         review_text: String
         rating: String
         username: String
-        reviewId: String
     }
 
     type Auth {
