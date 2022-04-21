@@ -45,6 +45,16 @@ module.exports = {
     res.json({ token, user });
   },
 
+  // update user (e.g. change username)
+  async updateUser() {
+
+  },
+
+  // delete a user
+  async deleteUser() {
+
+  },
+
   // save a review to a user's `savedReviews` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
   async saveReview({ user, body }, res) {
