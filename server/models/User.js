@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const reviewSchema = require('./Review');
+
 const userSchema = new Schema(
     {
       username: {
@@ -8,16 +10,16 @@ const userSchema = new Schema(
         required: true,
         unique: true,
       },
+      email: {
+        type: String,
+        required: true,
+        unique: true
+      },
       password: {
         type: String,
         required: true,
       },
-      reviewList: [reviews],
-    },
-    {
-      toJSON: {
-        virtuals: true,
-      },
+      reviewList: [reviewSchema]
     }
 );
 
