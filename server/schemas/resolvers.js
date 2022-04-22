@@ -16,8 +16,15 @@ const resolvers = {
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
-        }
+        },
+
+
+        users: async (parent, args) => {
+            const users = await User.find({});
+            return users;
+        },
     },
+
 
     // perform POST, PUT, DELETE request on GraphQL API
     Mutation: {
