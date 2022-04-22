@@ -49,7 +49,7 @@ const resolvers = {
 
         // update User
         updateUser: async (parent, args) => {
-
+        
         },
 
         // remove User
@@ -61,7 +61,16 @@ const resolvers = {
         addReview: async (parent, args) => {
             // verify that User is logged in
             if (context.user) {
-
+              const  newReview= await .findOneAndUpdate(
+              { _id: thoughtId },
+                      { $push: { reactions: { reactionBody, username: context.user.username } } },
+                      { new: true, runValidators: true }
+                    );
+            
+                    return updatedThought;
+                  }
+            
+                  throw new AuthenticationError('You need to be logged in!');
             }
 
         },
