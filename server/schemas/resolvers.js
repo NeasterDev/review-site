@@ -20,7 +20,8 @@ const resolvers = {
 
 
         users: async (parent, args) => {
-            const users = await User.find({});
+            const users = await User.find({})
+            .select('-password -__v');
             return users;
         },
     },
@@ -30,7 +31,10 @@ const resolvers = {
     Mutation: {
         // add User
         addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
 
+            return { token, user };
         },
 
         // allow User login
