@@ -7,6 +7,7 @@ const resolvers = {
     // perform GET request from GraphQL API
     Query: {
         me: async (parent, args, context) => {
+            //console.log(context);
             // permit only logged in users access to query
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
