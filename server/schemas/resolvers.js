@@ -25,7 +25,7 @@ const resolvers = {
             return users;
         },
 
-        review: async (parent, args) => {
+        reviews: async (parent, args) => {
             const reviews = await Review.find({})
             .select('-password -__v');
             return reviews;
