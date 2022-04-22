@@ -37,9 +37,9 @@ const resolvers = {
         },
 
         // allow User login
-        // accept username and password as parameters
-        login: async (parent, { username, password }) => {
-            const user = await User.findOne({ username });
+        // accept email and password as parameters
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
 
             if (!user) {
                 throw new AuthenticationError('Incorrect credentials');
