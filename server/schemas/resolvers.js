@@ -18,7 +18,6 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-
         users: async (parent, args) => {
             const users = await User.find({})
             .select('-password -__v');
