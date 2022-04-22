@@ -23,15 +23,33 @@ const resolvers = {
     Mutation: {
         // add User
         addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
 
+            return { token, user };
         },
 
         // allow User login
-        login: async (parent, { password }) => {
+        // accept username and password as parameters
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
 
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+    
+            const correctPw = await user.isCorrectPassword(password);
+    
+            if (!correctPw) {
+                // return authentication error if user submits incorrect username or password
+                throw new AuthenticationError('Incorrect credentials');
+            }
+    
+            const token = signToken(user);
+            return { token, user };
         },
 
-        // update User
+        // update User (e.g. change username)
         updateUser: async (parent, args) => {
 
         },
@@ -41,20 +59,39 @@ const resolvers = {
 
         },
 
-        // add Review
+        // add Review if user is logged in
         addReview: async (parent, args) => {
             // verify that User is logged in
             if (context.user) {
+                const review = await Review.create({ ...args, username: context.user.username });
 
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    // prevent duplicate saves by using $addToSet instead of $push
+                    { $addToSet: { reviews: review._id }},
+                    { new: true }
+                  );
+          
+                return review;
             }
+            throw new AuthenticationError('You need to be logged in!');
 
         },
 
-        // delete Review
+        // delete Review if user is logged in
         deleteReview: async (parent, args, context) => {
             if (context.user) {
+                const review = await Review.destroy({ ...args, username: context.user.username });
 
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { reviews: review._id }},
+                    { new: true }
+                );
+
+                return review;
             }
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 }
