@@ -116,7 +116,7 @@ const resolvers = {
                 return review;
             }
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
     }
 }
 
