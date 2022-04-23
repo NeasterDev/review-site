@@ -93,7 +93,7 @@ const resolvers = {
         const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
-          { $addToSet: { 
+          { $push: { 
               savedReviews: {
                 ...args,
                 username: context.user.username
@@ -111,10 +111,10 @@ const resolvers = {
     // delete Review if user is logged in
     deleteReview: async (parent, args, context) => {
       if (context.user) {
-        const review = await Review.destroy({
-          ...args,
-          username: context.user.username,
-        });
+        // const review = await Review.destroy({
+        //   ...args,
+        //   username: context.user.username,
+        // });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
