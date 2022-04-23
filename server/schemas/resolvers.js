@@ -61,7 +61,7 @@ const resolvers = {
     },
 
     // update User (e.g. change username)
-    updateUser: async (parent, args) => {
+    updateUser: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -73,21 +73,8 @@ const resolvers = {
       }
     },
 
-<<<<<<< HEAD
-        //         await User.findByIdAndUpdate(
-        //             { _id: context.user._id },
-        //             // prevent duplicate saves by using $addToSet instead of $push
-        //             { $addToSet: { reviews: review._id }},
-        //             { new: true }
-        //           );
-          
-        //         return review;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
-=======
     // remove User
-    removeUser: async (parent, args) => {
+    removeUser: async (parent, args, context) => {
       if (context.user) {
         const userRemove = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -97,37 +84,33 @@ const resolvers = {
 
         return userRemove;
       }
->>>>>>> c263a349dc0ca706356703443ff770544601f0e0
 
       throw new AuthenticationError("You need to be logged in!");
     },
 
     //add Review if user is logged in
-    addReview: async (parent, args) => {
+    addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const review = await Review.create({
-          ...args,
-          username: context.user.username,
-        });
+        // const review = await Review.create({
+        //   ...args,
+        //   username: context.user.username,
+        // });
 
-<<<<<<< HEAD
-        //         return review;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
-    }
-}
-=======
-        await User.findByIdAndUpdate(
+        const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
-          { $addToSet: { savedReviews: review._id } },
+          { $addToSet: { 
+              savedReviews: {
+                ...args,
+                username: context.user.username
+              } 
+            } 
+          },
           { new: true }
         );
->>>>>>> c263a349dc0ca706356703443ff770544601f0e0
 
-        return review;
+        return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
