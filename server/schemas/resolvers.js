@@ -97,11 +97,7 @@ const resolvers = {
         //   username: context.user.username,
         // });
 
-<<<<<<< HEAD
-        await User.findByIdAndUpdate(
-=======
         const user = await User.findByIdAndUpdate(
->>>>>>> e127bb30b88e878657e155bf369de818d8146920
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
           { $addToSet: { 
