@@ -74,39 +74,53 @@ const resolvers = {
         },
 
         // add Review if user is logged in
-        addReview: async (parent, args) => {
-            // verify that User is logged in
-            if (context.user) {
-                const review = await Review.create({ ...args, username: context.user.username });
+        // addReview: async (parent, args) => {
+        //     // verify that User is logged in
+        //     if (context.user) {
+        //         const review = await Review.create({ ...args, username: context.user.username });
 
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    // prevent duplicate saves by using $addToSet instead of $push
-                    { $addToSet: { reviews: review._id }},
-                    { new: true }
-                  );
+        //         await User.findByIdAndUpdate(
+        //             { _id: context.user._id },
+        //             // prevent duplicate saves by using $addToSet instead of $push
+        //             { $addToSet: { reviews: review._id }},
+        //             { new: true }
+        //           );
           
+<<<<<<< HEAD
                 return review;
             }
             throw new AuthenticationError('You need to be logged in!');
 
         },
+=======
+        //         return review;
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
+>>>>>>> 1dcc5b2fc372dfb7d50f33fcc6426e10fbc2f6f6
 
-        // delete Review if user is logged in
-        deleteReview: async (parent, args, context) => {
-            if (context.user) {
-                const review = await Review.destroy({ ...args, username: context.user.username });
+        // // delete Review if user is logged in
+        // deleteReview: async (parent, args, context) => {
+        //     if (context.user) {
+        //         const review = await Review.destroy({ ...args, username: context.user.username });
 
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { reviews: review._id }},
-                    { new: true }
-                );
+        //         await User.findByIdAndUpdate(
+        //             { _id: context.user._id },
+        //             { $pull: { reviews: review._id }},
+        //             { new: true }
+        //         );
 
+<<<<<<< HEAD
                 return review;
             }
             throw new AuthenticationError('You need to be logged in!');
         }
+=======
+        //         return review;
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
+>>>>>>> 1dcc5b2fc372dfb7d50f33fcc6426e10fbc2f6f6
     }
 }
 
