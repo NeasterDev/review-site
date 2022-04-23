@@ -2,7 +2,7 @@ const { SchemaMetaFieldDef } = require('graphql');
 const { Schema, Types } = require('mongoose');
 
 const reviewSchema = new Schema({
-    review_text: {
+    reviewText: {
         type: String
     },
     rating: {
