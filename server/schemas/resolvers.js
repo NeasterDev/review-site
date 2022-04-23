@@ -92,19 +92,29 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const review = await Review.create({
-          ...args,
-          username: context.user.username,
-        });
+        // const review = await Review.create({
+        //   ...args,
+        //   username: context.user.username,
+        // });
 
+<<<<<<< HEAD
         await User.findByIdAndUpdate(
+=======
+        const user = await User.findByIdAndUpdate(
+>>>>>>> e127bb30b88e878657e155bf369de818d8146920
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
-          { $addToSet: { savedReviews: review._id } },
+          { $addToSet: { 
+              savedReviews: {
+                ...args,
+                username: context.user.username
+              } 
+            } 
+          },
           { new: true }
         );
 
-        return review;
+        return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
