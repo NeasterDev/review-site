@@ -7,7 +7,6 @@ const resolvers = {
     // perform GET request from GraphQL API
     Query: {
         me: async (parent, args, context) => {
-            //console.log(context);
             // permit only logged in users access to query
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
@@ -39,6 +38,7 @@ const resolvers = {
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
+
             return { token, user };
         },
 
@@ -65,31 +65,12 @@ const resolvers = {
 
         // update User (e.g. change username)
         updateUser: async (parent, args) => {
-            if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                  { _id: context.user._id},
-                  { $push: {username: context.user.username } },
-                  { new: true, runValidators: true }
-                );
-        
-                return updatedUser;
-              }
+
         },
 
         // remove User
         removeUser: async (parent, args) => {
-            if (context.user) {
-                const userRemove= await User.findOneAndUpdate(
-                  { _id: context.user._id },
-                  { $pull: { user:{username} }},
-                  { new: true, runValidators: true }
-                );
-        
-                return userRemove;
-              }
-        
-              throw new AuthenticationError('You need to be logged in!');
-            },
+
         },
 
         // add Review if user is logged in
@@ -108,6 +89,7 @@ const resolvers = {
                 return review;
             }
             throw new AuthenticationError('You need to be logged in!');
+
         },
 
         // delete Review if user is logged in
@@ -124,8 +106,8 @@ const resolvers = {
                 return review;
             }
             throw new AuthenticationError('You need to be logged in!');
-        },
+        }
     }
-
+}
 
 module.exports = resolvers;

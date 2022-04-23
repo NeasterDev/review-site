@@ -8,7 +8,6 @@ const typeDefs = gql`
         username: String
         email: String
         savedReviews: [Review]
-        
     }
 
     type Review {
