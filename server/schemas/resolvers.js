@@ -76,7 +76,7 @@ const resolvers = {
     // remove User
     removeUser: async (parent, args, context) => {
       if (context.user) {
-        const userRemove = await User.findOneAndUpdate(
+        const userRemove = await User.findOneAndRemove(
           { _id: context.user._id },
           { $pull: { user: { username } } },
           { new: true, runValidators: true }
