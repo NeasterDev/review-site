@@ -1,4 +1,5 @@
-const { Schema } = require('mongoose');
+const { SchemaMetaFieldDef } = require('graphql');
+const { Schema, Types } = require('mongoose');
 
 const reviewSchema = new Schema({
     review_text: {
@@ -13,6 +14,11 @@ const reviewSchema = new Schema({
     username: {
         type: String,
         required: true
+    },
+    reviewId: {
+        type: String,
+        required: true,
+        default: Types.ObjectId()
     }
 });
 
