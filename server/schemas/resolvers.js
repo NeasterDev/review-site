@@ -86,18 +86,10 @@ const resolvers = {
         //             { new: true }
         //           );
           
-<<<<<<< HEAD
-                return review;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-
-        },
-=======
         //         return review;
         //     }
         //     throw new AuthenticationError('You need to be logged in!');
         // },
->>>>>>> 1dcc5b2fc372dfb7d50f33fcc6426e10fbc2f6f6
 
         // // delete Review if user is logged in
         // deleteReview: async (parent, args, context) => {
@@ -110,17 +102,10 @@ const resolvers = {
         //             { new: true }
         //         );
 
-<<<<<<< HEAD
-                return review;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        }
-=======
         //         return review;
         //     }
         //     throw new AuthenticationError('You need to be logged in!');
         // },
->>>>>>> 1dcc5b2fc372dfb7d50f33fcc6426e10fbc2f6f6
     }
 }
 
