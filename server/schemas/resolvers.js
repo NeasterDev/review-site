@@ -61,7 +61,7 @@ const resolvers = {
     },
 
     // update User (e.g. change username)
-    updateUser: async (parent, args) => {
+    updateUser: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -74,7 +74,7 @@ const resolvers = {
     },
 
     // remove User
-    removeUser: async (parent, args) => {
+    removeUser: async (parent, args, context) => {
       if (context.user) {
         const userRemove = await User.findOneAndUpdate(
           { _id: context.user._id },
