@@ -20,14 +20,13 @@ const resolvers = {
     },
 
     users: async (parent, args) => {
-      const users = await User.find({}).select("-password -__v");
+      const users = await User.find({})
+      .select("-password -__v")
+      .populate("savedReviews");
+
       return users;
     },
 
-    reviews: async (parent, args) => {
-      const reviews = await Review.find({}).select("-password -__v");
-      return reviews;
-    },
   },
 
   // perform POST, PUT, DELETE request on GraphQL API
@@ -101,7 +100,7 @@ const resolvers = {
               } 
             } 
           },
-          { new: true }
+          //{ new: true }
         );
 
         return user;
