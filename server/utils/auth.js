@@ -10,7 +10,7 @@ module.exports = {
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
-      // console.log("header seen");
+      //console.log("header seen");
       token = token
         .split(' ')
         .pop()
@@ -20,14 +20,14 @@ module.exports = {
     if (!token) {
       return req;
     }
-    // console.log(token);
+   // console.log(token);
     try {
       const { data } = jwt.verify(token, secret);
       req.user = data;
     } catch(error) {
       // console.log(error);
     }
-    // console.log(req.user);
+    //console.log(req.user);
     return req;
   },
   signToken: function({ username, _id }) {

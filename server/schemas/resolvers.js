@@ -100,7 +100,7 @@ const resolvers = {
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
-          { $addToSet: { reviews: review._id } },
+          { $addToSet: { savedReviews: review._id } },
           { new: true }
         );
 
