@@ -73,19 +73,6 @@ const resolvers = {
       }
     },
 
-<<<<<<< HEAD
-        //         await User.findByIdAndUpdate(
-        //             { _id: context.user._id },
-        //             // prevent duplicate saves by using $addToSet instead of $push
-        //             { $addToSet: { reviews: review._id }},
-        //             { new: true }
-        //           );
-          
-        //         return review;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
-=======
     // remove User
     removeUser: async (parent, args) => {
       if (context.user) {
@@ -97,13 +84,12 @@ const resolvers = {
 
         return userRemove;
       }
->>>>>>> c263a349dc0ca706356703443ff770544601f0e0
 
       throw new AuthenticationError("You need to be logged in!");
     },
 
     //add Review if user is logged in
-    addReview: async (parent, args) => {
+    addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
         const review = await Review.create({
@@ -111,21 +97,12 @@ const resolvers = {
           username: context.user.username,
         });
 
-<<<<<<< HEAD
-        //         return review;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
-    }
-}
-=======
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
           { $addToSet: { reviews: review._id } },
           { new: true }
         );
->>>>>>> c263a349dc0ca706356703443ff770544601f0e0
 
         return review;
       }
