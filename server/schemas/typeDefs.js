@@ -8,12 +8,11 @@ const typeDefs = gql`
         username: String
         email: String
         savedReviews: [Review]
-        
     }
 
     type Review {
-        _id: ID,
-        review_text: String
+        reviewId: ID,
+        reviewText: String
         rating: Int
         username: String
     }
@@ -26,7 +25,6 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        reviews: [Review]
     }
 
     type Mutation {
@@ -34,7 +32,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         updateUser(username: String!, password: String!): Auth
         removeUser(_id: ID!): Auth
-        addReview(review_text: String!, rating: Int!): Review
+        addReview(reviewText: String!, rating: Int!): Review
         deleteReview(_id: ID!): Review
     }
 `;
