@@ -61,11 +61,12 @@ const resolvers = {
 
     // update User (e.g. change username)
     updateUser: async (parent, args, context) => {
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { username: context.user.username } },
-          { new: true, runValidators: true }
+          { $set: { username: args.username, email: args.email } },
+          { new: true }
         );
 
         return updatedUser;
@@ -85,11 +86,6 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        // const review = await Review.create({
-        //   ...args,
-        //   username: context.user.username,
-        // });
-
         const {rating, reviewText} = args;
 
         const user = await User.findOneAndUpdate(
@@ -104,7 +100,7 @@ const resolvers = {
               }
             }
           },
-          //{ new: true }
+          { new: true }
         );
 
         return user;
@@ -115,18 +111,13 @@ const resolvers = {
     // delete Review if user is logged in
     deleteReview: async (parent, args, context) => {
       if (context.user) {
-        // const review = await Review.destroy({
-        //   ...args,
-        //   username: context.user.username,
-        // });
-
-        await User.findByIdAndUpdate(
+        const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { reviews: review._id } },
+          { $pull: { savedReviews: args } },
           { new: true }
         );
 
-        return review;
+        return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },

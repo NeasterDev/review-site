@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavTabs from '../NavTabs/index';
+import Footer from '../Footer/index';
 import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
@@ -26,12 +27,11 @@ function ReviewContainer() {
 
   return (
     <div>
-      <header>
-        <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-      </header>
+      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
       <main>
         {renderPage()}
       </main>
+      <Footer></Footer>
     </div>
   );
 }
