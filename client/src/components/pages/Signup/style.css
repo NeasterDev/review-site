@@ -1,25 +1,25 @@
 /* iPhone SE */
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
 
 }
 
 /* iPhone 12 Pro */
-@media screen and (max-width: 390px) {
+@media screen and (min-width: 390px) {
 
 }
 
 /* Samsung Galaxy S20 Ultra */
-@media screen and (max-width: 412px) {
+@media screen and (min-width: 412px) {
 
 }
 
 /* Surface Duo */
-@media screen and (max-width: 540px) {
+@media screen and (min-width: 540px) {
 
 }
 
 /* iPad */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
 
 }
 
