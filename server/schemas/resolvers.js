@@ -115,18 +115,13 @@ const resolvers = {
     // delete Review if user is logged in
     deleteReview: async (parent, args, context) => {
       if (context.user) {
-        // const review = await Review.destroy({
-        //   ...args,
-        //   username: context.user.username,
-        // });
-
-        await User.findByIdAndUpdate(
+        const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { reviews: review._id } },
+          { $pull: { savedReviews: args } },
           { new: true }
         );
 
-        return review;
+        return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },

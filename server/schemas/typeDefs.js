@@ -33,7 +33,7 @@ const typeDefs = gql`
         updateUser(username: String!, password: String!): Auth
         removeUser(_id: ID!): Auth
         addReview(reviewText: String!, rating: Int!): User
-        deleteReview(_id: ID!): Review
+        deleteReview(_id: ID!): User
     }
 `;
 
