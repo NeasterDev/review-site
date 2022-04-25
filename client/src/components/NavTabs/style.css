@@ -1,12 +1,37 @@
+/* iPhone SE */
+@media screen and (max-width: 375px) {
+    .nav-list {
+        margin-left: 5px;
+    }
+}
+
+/* iPhone 12 Pro */
+@media screen and (max-width: 390px) {
+
+}
+
+/* Samsung Galaxy S20 Ultra */
+@media screen and (max-width: 412px) {
+
+}
+
+/* Surface Duo */
+@media screen and (max-width: 540px) {
+
+}
+
+/* iPad */
+@media screen and (max-width: 768px) {
+
+}
+
 .nav-list {
     list-style-type: none;
     display: flex;
-    border: 5px solid red; /* wireframe */
 }
 
 .nav-item a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     margin-left: 10px;
-    border: 2px solid orange; /* wireframe */
 }
