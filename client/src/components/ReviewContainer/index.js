@@ -27,9 +27,7 @@ function ReviewContainer() {
 
   return (
     <div>
-      <header>
-        <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-      </header>
+      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
       <main>
         {renderPage()}
       </main>
