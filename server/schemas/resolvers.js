@@ -21,8 +21,8 @@ const resolvers = {
 
     users: async (parent, args) => {
       const users = await User.find({})
-      .select("-password -__v")
-      .populate("savedReviews");
+        .select("-password -__v")
+        .populate("savedReviews");
 
       return users;
     },
@@ -90,15 +90,19 @@ const resolvers = {
         //   username: context.user.username,
         // });
 
-        const user = await User.findByIdAndUpdate(
+        const {rating, reviewText} = args;
+
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
-          { $push: { 
+          {
+            $push: {
               savedReviews: {
-                ...args,
+                reviewText: reviewText,
+                rating: rating,
                 username: context.user.username
-              } 
-            } 
+              }
+            }
           },
           //{ new: true }
         );

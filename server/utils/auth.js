@@ -25,7 +25,7 @@ module.exports = {
       const { data } = jwt.verify(token, secret);
       req.user = data;
     } catch(error) {
-      console.log(error);
+      // console.log(error);
     }
     //console.log(req.user);
     return req;

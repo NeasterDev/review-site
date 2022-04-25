@@ -11,8 +11,8 @@ const typeDefs = gql`
     }
 
     type Review {
-        reviewId: ID,
-        review_text: String
+        _id: ID,
+        reviewText: String
         rating: Int
         username: String
     }
@@ -33,7 +33,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         updateUser(username: String!, password: String!): Auth
         removeUser(_id: ID!): Auth
-        addReview(review_text: String!, rating: Int!): Review
+        addReview(reviewText: String!, rating: Int!): Review
         deleteReview(_id: ID!): Review
     }
 `;

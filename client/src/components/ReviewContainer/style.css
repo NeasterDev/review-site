@@ -1,0 +1,7 @@
+main {
+    border: 5px solid green; /* wireframe */
+}
+
+main h1 {
+    border: 5px solid blue; /* wireframe */
+}

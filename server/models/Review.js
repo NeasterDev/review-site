@@ -1,8 +1,7 @@
-const { SchemaMetaFieldDef } = require('graphql');
 const { Schema, Types } = require('mongoose');
 
 const reviewSchema = new Schema({
-    review_text: {
+    reviewText: {
         type: String
     },
     rating: {
@@ -14,13 +13,8 @@ const reviewSchema = new Schema({
     username: {
         type: String,
         required: true
-    },
-    reviewId: {
-        type: String,
-        required: true,
-        default: Types.ObjectId()
     }
 });
 
 
-module.export = reviewSchema;
+module.exports = reviewSchema;

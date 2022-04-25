@@ -15,7 +15,7 @@ db.once('open', async () => {
       const username = faker.internet.userName();
       const email = faker.internet.email(username);
       const password = faker.internet.password();
-      const review_text = "This is a great review";
+      const reviewText = "This is a great review";
       const stars = 5;
   
       userData.push({ username, email, password });
