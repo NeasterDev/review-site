@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 // component root
 import NavTabs from '../NavTabs/index';
 import Footer from '../Footer/index';
@@ -10,7 +8,7 @@ import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import Write from '../pages/Write/index';
 
-//style sheet
+// style sheet
 import './style.css';
 
 // packages
