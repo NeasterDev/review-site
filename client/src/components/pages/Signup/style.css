@@ -1,6 +1,8 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
-
+    .signup {
+        background-color: yellow; /* wireframe */
+    }  
 }
 
 /* iPhone 12 Pro */
@@ -23,6 +25,3 @@
 
 }
 
-.signup {
-    background-color: yellow; /* wireframe */
-}

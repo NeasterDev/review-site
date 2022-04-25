@@ -4,7 +4,9 @@
 
 /* iPhone SE */
 @media screen and (min-width: 375px) {
-
+  body {
+    border: 5px solid yellow; /* wireframe */
+  }  
 }
 
 /* iPhone 12 Pro */
@@ -25,10 +27,6 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 
-}
-
-body {
-  border: 5px solid yellow; /* wireframe */
 }
 
 

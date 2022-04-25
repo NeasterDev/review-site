@@ -1,6 +1,8 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
-
+    .homepage {
+        background-color: red; /* wireframe */
+    }    
 }
 
 /* iPhone 12 Pro */
@@ -23,6 +25,3 @@
 
 }
 
-.homepage {
-    background-color: red; /* wireframe */
-}

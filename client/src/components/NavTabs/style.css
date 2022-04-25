@@ -23,15 +23,5 @@
 
 }
 
-.nav-list {
-    list-style-type: none;
-    display: flex;
-}
-
-.nav-item a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    margin-left: 10px;
-}
 
 

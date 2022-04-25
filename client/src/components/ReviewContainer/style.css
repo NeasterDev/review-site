@@ -1,6 +1,12 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
-
+    main {
+        border: 5px solid green; /* wireframe */
+    }
+    
+    main h1 {
+        border: 5px solid blue; /* wireframe */
+    }    
 }
 
 /* iPhone 12 Pro */
@@ -21,12 +27,4 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 
-}
-
-main {
-    border: 5px solid green; /* wireframe */
-}
-
-main h1 {
-    border: 5px solid blue; /* wireframe */
 }

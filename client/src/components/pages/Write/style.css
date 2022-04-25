@@ -1,6 +1,8 @@
 /* iPhone SE */
-@media screen and (min-width: 375px) {
-
+@media screen and (min-width: 375px) { 
+    .write {
+        background-color: green; /* wireframe */
+    }
 }
 
 /* iPhone 12 Pro */
@@ -21,9 +23,5 @@
 /* iPad */
 @media screen and (min-width: 768px) {
 
-}
-
-.write {
-    background-color: green; /* wireframe */
 }
 
