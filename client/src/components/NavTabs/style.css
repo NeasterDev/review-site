@@ -1,0 +1,12 @@
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    border: 5px solid red; /* wireframe */
+}
+
+.nav-item a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-left: 10px;
+    border: 2px solid orange; /* wireframe */
+}
