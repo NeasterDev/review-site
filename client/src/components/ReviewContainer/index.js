@@ -14,12 +14,37 @@ import Write from '../pages/Write/index';
 import './style.css';
 
 // packages
-import { ApolloProvider } from '@apollo/client';
+import { 
+  ApolloProvider, 
+  createHttpLink, 
+  InMemoryCache, 
+  ApolloClient 
+} from '@apollo/client';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql'
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+})
 
 function ReviewContainer() {
   return (
-    <ApolloProvider>
+    <ApolloProvider client={client}>
       <Router>
         <div>
           <NavTabs></NavTabs>
@@ -28,6 +53,7 @@ function ReviewContainer() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/write" component={Write} />
+            <Route render={() => <h1>Wrong page!</h1>} />
           </main>
           <Footer></Footer>
         </div>
