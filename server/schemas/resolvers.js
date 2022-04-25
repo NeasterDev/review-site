@@ -104,7 +104,7 @@ const resolvers = {
               }
             }
           },
-          //{ new: true }
+          { new: true }
         );
 
         return user;
