@@ -1,4 +1,3 @@
-const { SchemaMetaFieldDef } = require('graphql');
 const { Schema, Types } = require('mongoose');
 
 const reviewSchema = new Schema({
@@ -14,13 +13,8 @@ const reviewSchema = new Schema({
     username: {
         type: String,
         required: true
-    },
-    reviewId: {
-        type: String,
-        required: true,
-        default: Types.ObjectId()
     }
 });
 
 
-module.export = reviewSchema;
+module.exports = reviewSchema;
