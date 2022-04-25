@@ -5,7 +5,7 @@ import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import Write from '../pages/Write/index';
-import './style.css';
+//import './style.css';
 
 function ReviewContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
