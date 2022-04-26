@@ -26,6 +26,7 @@ export default function Signup() {
               <input className="input" type="password" />
             </div>
           </div>
+          <button class="button is-success has-text-black">Login!</button>
     </div>
   );
 }
