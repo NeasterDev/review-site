@@ -26,9 +26,12 @@
     }
 }
 
-.signup {
-    width: 45%;
-    margin-left: 10px; /* Bulma disallows functionality of margin-left, changing ml in return will force @media screens to change */
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .signup {
+        width: 45%;
+        margin-left: 10px; /* Apaparently, Bulma disallowss 'margin-left' functionality*/
+    }
 }
 
 
