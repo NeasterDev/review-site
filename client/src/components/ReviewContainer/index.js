@@ -17,7 +17,6 @@ import './style.css';
 
 function ReviewContainer() {
   return (
-
       <Router>
         <div>
           <NavTabs></NavTabs>
@@ -26,12 +25,11 @@ function ReviewContainer() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/write" component={Write} />
-            <Route render={() => <h1>Wrong page!</h1>} />
+            {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
           </main>
           <Footer></Footer>
         </div>
       </Router>
-
   );
 }
 
