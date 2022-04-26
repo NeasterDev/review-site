@@ -1,3 +1,7 @@
+// react
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 // component root
 import NavTabs from '../NavTabs/index';
 import Footer from '../Footer/index';
@@ -13,12 +17,11 @@ import './style.css';
 
 // packages
 import { 
+  ApolloClient,
+  InMemoryCache, 
   ApolloProvider, 
   createHttpLink, 
-  InMemoryCache, 
-  ApolloClient 
 } from '@apollo/client';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
