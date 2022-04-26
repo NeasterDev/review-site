@@ -1,7 +1,11 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
-    nav a {
+    nav a  {
         color: rgb(0, 0, 0);
+    }
+
+    nav text {
+        margin-left: 10px;
     }
 }
 

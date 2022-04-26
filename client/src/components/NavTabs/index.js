@@ -15,7 +15,7 @@ function NavTabs() {
     <header className="has-background-success">
       <div>
         <Link to="/">
-          <h1 className="has-text-centered has-text-weight-bold is-size-3">Campsite</h1>
+          <h1 className="has-text-centered has-text-weight-bold is-size-3 has-text-black">Campsite</h1>
         </Link>
 
         <nav class="has-text-centered is-size-4">
@@ -30,7 +30,7 @@ function NavTabs() {
             ) : (
               <>
                 <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <Link to="/signup"><text>Signup</text></Link>
               </>
             )}
         </nav>

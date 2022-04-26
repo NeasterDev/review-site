@@ -15,8 +15,6 @@ import Write from '../pages/Write/index';
 // style sheet
 import './style.css';
 
-
-
 function ReviewContainer() {
   return (
 
