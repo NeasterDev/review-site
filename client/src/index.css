@@ -8,6 +8,7 @@
 @media screen and (min-width: 375px) {
   body {
     border: 5px solid yellow; /* wireframe */
+    background-color: rgb(245, 245, 220);
   }  
 }
 
@@ -30,6 +31,12 @@
 @media screen and (min-width: 768px) {
 
 }
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
+}
+
 
 
 

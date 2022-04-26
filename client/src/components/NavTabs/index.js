@@ -12,27 +12,27 @@ function NavTabs() {
   }
 
   return (
-    <header>
+    <header className="has-background-success">
       <div>
         <Link to="/">
-          <h1>Campsite</h1>
+          <h1 className="has-text-centered has-text-weight-bold is-size-3">Campsite</h1>
         </Link>
 
-        <nav>
-          {Auth.loggedIn() ? (
-            <>
-              <Link to="/profile">Profile</Link>
-              <Link to="/write">Write Review</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
+        <nav class="has-text-centered is-size-4">
+        {Auth.loggedIn() ? (
+              <>
+                <Link to="/profile">Profile</Link>
+                <Link to="/write">Write Review</Link>
+                <a href="/" onClick={logout}>
+                  Logout
+                </a>
+              </>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
+              </>
+            )}
         </nav>
       </div>
     </header>
