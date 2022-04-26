@@ -1,38 +1,39 @@
-import React, { useState } from 'react';
+// react
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// component root
 import NavTabs from '../NavTabs/index';
 import Footer from '../Footer/index';
+
+// pages
 import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import Write from '../pages/Write/index';
+
+// style sheet
 import './style.css';
 
+
+
 function ReviewContainer() {
-  const [currentPage, setCurrentPage] = useState('Home');
-
-  const renderPage = () => {
-    if (currentPage === 'Home') {
-      return <Home />;
-    }
-    if (currentPage === 'Login') {
-      return <Login />;
-    }
-    if (currentPage === 'Signup') {
-      return <Signup />;
-    }
-    return <Write />;
-  };
-
-  const handlePageChange = (page) => setCurrentPage(page);
-
   return (
-    <div>
-      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-      <main>
-        {renderPage()}
-      </main>
-      <Footer></Footer>
-    </div>
+
+      <Router>
+        <div>
+          <NavTabs></NavTabs>
+          <main>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/write" component={Write} />
+            <Route render={() => <h1>Wrong page!</h1>} />
+          </main>
+          <Footer></Footer>
+        </div>
+      </Router>
+
   );
 }
 

@@ -4,7 +4,7 @@ import './style.css';
 export default function Footer() {
   return (
     <footer>
-      <p>Placeholder</p>
+      <p className=' title'>Placeholder</p>
     </footer>
   );
 }

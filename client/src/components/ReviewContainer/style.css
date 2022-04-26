@@ -1,7 +1,35 @@
-main {
-    border: 5px solid green; /* wireframe */
+/* iPhone SE */
+@media screen and (min-width: 375px) {
+    main {
+        border: 5px solid green; /* wireframe */
+    }
+    
+    main h1 {
+        border: 5px solid blue; /* wireframe */
+    }    
 }
 
-main h1 {
-    border: 5px solid blue; /* wireframe */
+/* iPhone 12 Pro */
+@media screen and (min-width: 390px) {
+
+}
+
+/* Samsung Galaxy S20 Ultra */
+@media screen and (min-width: 412px) {
+
+}
+
+/* Surface Duo */
+@media screen and (min-width: 540px) {
+
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
 }
