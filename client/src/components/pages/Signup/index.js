@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+// import { addUser } from '../server/schemas/typeDefs.js';
 import './style.css';
 
 export default function Signup() {

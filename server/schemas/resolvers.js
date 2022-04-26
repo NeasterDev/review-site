@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Review } = require("../models");
 const { signToken } = require("../utils/auth");
 
 // create resolver function to each query/mutation that perform CRUD
