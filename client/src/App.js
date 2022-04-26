@@ -1,20 +1,32 @@
-import {
-  ApolloProvider,
+import React from 'react';
+import ReviewContainer from './components/ReviewContainer/index';
+// packages
+import { 
   ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from "@apollo/client";
-import React from "react";
-import ReviewContainer from "./components/ReviewContainer/index";
+  InMemoryCache, 
+  ApolloProvider, 
+  createHttpLink, 
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql'
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-});
+})
 
 function App() {
   return (

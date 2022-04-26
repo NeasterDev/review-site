@@ -1,46 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
-function NavTabs({ currentPage, handlePageChange }) {
+import Auth from '../../utils/auth';
+
+function NavTabs() {
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  }
+
   return (
-    <ul className="nav-list">
-      <li className="nav-item">
-        <a
-          href="#home"
-          onClick={() => handlePageChange('Home')}
-          className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
-        >
-          Home
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#login"
-          onClick={() => handlePageChange('Login')}
-          className={currentPage === 'Login' ? 'nav-link active' : 'nav-link'}
-        >
-          Login
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#signup"
-          onClick={() => handlePageChange('Signup')}
-          className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
-        >
-          Signup
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#write"
-          onClick={() => handlePageChange('Write')}
-          className={currentPage === 'Write' ? 'nav-link active' : 'nav-link'}
-        >
-          Write Review
-        </a>
-      </li>
-    </ul>
+    <header>
+      <div>
+        <Link to="/">
+          <h1>Campsite</h1>
+        </Link>
+
+        <nav>
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="/profile">Profile</Link>
+              <Link to="/write">Write Review</Link>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </>
+          )}
+        </nav>
+      </div>
+    </header>
   );
 }
 
