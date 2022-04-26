@@ -11,13 +11,9 @@ import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import Write from '../pages/Write/index';
-<<<<<<< HEAD
-//import './style.css';
-=======
 
 // style sheet
 import './style.css';
->>>>>>> 5d7e79514cd9318584930a7453b924612a9cc5c2
 
 
 
