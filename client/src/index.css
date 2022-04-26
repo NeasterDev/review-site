@@ -6,6 +6,7 @@
 @media screen and (min-width: 375px) {
   body {
     border: 5px solid yellow; /* wireframe */
+    background-color: rgb(245, 245, 220);
   }  
 }
 

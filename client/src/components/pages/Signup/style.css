@@ -1,28 +1,34 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
     .signup {
-        background-color: yellow; /* wireframe */
-    }  
-}
-
-/* iPhone 12 Pro */
-@media screen and (min-width: 390px) {
-
+        width: 87%;
+    }
 }
 
 /* Samsung Galaxy S20 Ultra */
 @media screen and (min-width: 412px) {
-
+    .signup {
+        width: 88%;
+    }
 }
 
 /* Surface Duo */
 @media screen and (min-width: 540px) {
-
+    .signup {
+        width: 91%;
+    }
 }
 
 /* iPad */
 @media screen and (min-width: 768px) {
+    .signup {
+        width: 94%;
+    }
+}
 
+.signup {
+    width: 45%;
+    margin-left: 10px; /* Bulma disallows functionality of margin-left, changing ml in return will force @media screens to change */
 }
 
 
