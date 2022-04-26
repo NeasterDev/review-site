@@ -12,13 +12,13 @@ function NavTabs() {
   }
 
   return (
-    <header>
+    <header className="has-background-success">
       <div>
         <Link to="/">
-          <h1>Campsite</h1>
+          <h1 className="has-text-centered has-text-weight-bold is-size-3">Campsite</h1>
         </Link>
 
-        <nav>
+        <nav class="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
                 <Link to="/profile">Profile</Link>
