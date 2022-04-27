@@ -27,6 +27,11 @@ const resolvers = {
       return users;
     },
 
+    reviews: async (parent, args) => {
+      const reviews = await Review.find({});
+      return reviews;
+    }
+
   },
 
   // perform POST, PUT, DELETE request on GraphQL API
