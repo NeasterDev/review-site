@@ -4,6 +4,13 @@
   margin: 0;
 }
 
+.rev-max-description {
+  max-width: 100ch;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* iPhone SE */
 @media screen and (min-width: 375px) {
   body {

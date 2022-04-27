@@ -1,29 +1,23 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) { 
+    .column {
+        border: 2px solid black;
+    }
 
-}
-
-/* iPhone 12 Pro */
-@media screen and (min-width: 390px) {
-
-}
-
-/* Samsung Galaxy S20 Ultra */
-@media screen and (min-width: 412px) {
-
-}
-
-/* Surface Duo */
-@media screen and (min-width: 540px) {
-
-}
-
-/* iPad */
-@media screen and (min-width: 768px) {
-
+    .profile h1 {
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(149, 69, 53);
+    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
+    .is-one-fifth-desktop {
+        margin-left: 530px;
+    }
 
+    .is-three-fifths-desktop {
+        margin-left: 260px;
+    }
 }
