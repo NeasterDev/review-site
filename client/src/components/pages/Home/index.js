@@ -21,12 +21,19 @@ export default function Home() {
   
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
+  const users = [{}];
 
-  const users = data.users.map(review => console.log(review))
+  data.users.map(review => users.push(review));
+  console.log("users");
   console.log(users);
   // <Review key={review.savedReviews._id} reviewText={review.savedReviews.reviewText} username={review.savedReviews.username} rating={review.savedReviews.rating}/>
   return (
     <div className="homepage">
+      {users.forEach(user => {
+        if(user.savedReviews.length) {
+          return <Review key={user.savedReviews._id} reviewText={user.savedReviews.reviewText} username={user.savedReviews.username} rating={user.savedReviews.rating}/>
+        }
+      })}
     </div>
   );
 }
