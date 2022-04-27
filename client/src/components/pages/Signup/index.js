@@ -43,13 +43,15 @@ export default function Signup() {
   return (
     <div>
       <h1 className="s">Signup</h1>
-      <form className="signup mt-4 ml-5" /*onSubmit={handleFormSubmit}*/>
+      <form className="signup mt-4 ml-5" onSubmit={handleFormSubmit}>
         <div className="field">
             <label className="label">Name</label>
             <div className="control">
               <input 
                 className="input" 
-                type="text" 
+                type="username"
+                name="username"
+                id="username" 
                 placeholder="e.g Alex Smith"
                 value={formState.username}
                 onChange={handleChange} />
@@ -61,7 +63,9 @@ export default function Signup() {
             <div className="control">
               <input 
                 className="input" 
-                type="email" 
+                type="email"
+                name="email"
+                id="email" 
                 placeholder="e.g. alexsmith@gmail.com"
                 value={formState.email}
                 onChange={handleChange} /> 
@@ -72,14 +76,16 @@ export default function Signup() {
             <label className="label">Password</label>
             <div className="control">
               <input 
-              className="input" 
-              type="password" 
-              placeholder="********"
-              value={formState.password}
-              onChange={handleChange} />
+                className="input" 
+                type="password" 
+                name="password"
+                id="password" 
+                placeholder="********"
+                value={formState.password}
+                onChange={handleChange} />
             </div>
           </div>
-          <button class="button is-success has-text-black">Signup!</button>
+          <button class="button is-success has-text-black" type="submit">Signup!</button>
       </form>
       {error && <div>Signup failed</div>}
     </div>

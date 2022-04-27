@@ -10,7 +10,7 @@ export default function Profile() {
             <text>[image goes here]</text>
           </div>
           <div className="column is-full is-three-fifths-desktop">
-            <h1>Bio</h1>
+            <h2>Bio</h2>
           </div>
         </div>
         <div className="column">
