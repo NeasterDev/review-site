@@ -1,5 +1,5 @@
 import React from 'react';
-//import './style.css'
+import './style.css'
 import {Review} from '../../Review';
 
 export default function Home() {
