@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './style.css';
 
 import Auth from '../../utils/auth';
@@ -21,7 +20,6 @@ function NavTabs() {
         <nav class="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
-                <a href="/profile">Profile</a>
                 <a href="/write"><text>Write Review</text></a>
                 <a href="/" onClick={logout}>
                   Logout
@@ -31,6 +29,7 @@ function NavTabs() {
               <>
                 <a href="/login">Login</a>
                 <a href="/signup"><text>Signup</text></a>
+                <a href="/profile">Profile</a>
               </>
             )}
         </nav>

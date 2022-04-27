@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import Write from '../../Write/index';
 
 export default function Profile() {
   return (
@@ -21,6 +22,7 @@ export default function Profile() {
             <h2>Edit</h2>
           </div>
         </div>
+        <Write></Write>
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Footer from '../Footer/index';
 import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
-import Write from '../pages/Write/index';
+import Write from '../Write/index';
 import Profile from '../pages/Profile';
 
 // style sheet

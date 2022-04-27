@@ -33,12 +33,23 @@ export const QUERY_USER= gql`
   }
 `;
 
-export const QUERY_REVIEW= gql`
+export const QUERY_REVIEW = gql`
   query review($Review: String) {
        _id
        reviewText
        rating
        username  
     } 
+  }
+`;
+
+export const QUERY_REVIEWS = gql`
+  query reviews($username: String) {
+    reviews(username: $username) {
+      _id
+      reviewText
+      rating
+      username
+    }
   }
 `;

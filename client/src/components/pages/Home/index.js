@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useQuery } from 'react';
 import './style.css'
 import {Review} from '../../Review';
+import {GET_REVIEWS} from '../../../utils/mutations';
+import { gql } from '@apollo/client';
 
 export default function Home() {
 
