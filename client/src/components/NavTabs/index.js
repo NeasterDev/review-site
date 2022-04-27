@@ -22,7 +22,7 @@ function NavTabs() {
         {Auth.loggedIn() ? (
               <>
                 <a href="/profile">Profile</a>
-                <a href="/write">Write Review</a>
+                <a href="/write"><text>Write Review</text></a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
