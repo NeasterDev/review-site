@@ -1,5 +1,12 @@
 /* iPhone SE */
 @media screen and (min-width: 375px) {
+    .s {
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(149, 69, 53);
+        margin-left: 23px;
+    }
+
     .signup {
         width: 87%;
     }

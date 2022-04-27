@@ -3,6 +3,12 @@
     .column {
         border: 2px solid black;
     }
+
+    .profile h1 {
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(149, 69, 53);
+    }
 }
 
 /* Desktop */
