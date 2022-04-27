@@ -14,23 +14,23 @@ function NavTabs() {
   return (
     <header className="has-background-success">
       <div>
-        <Link to="/">
+        <a href="/">
           <h1 className="has-text-centered has-text-weight-bold is-size-3 has-text-black">Campsite</h1>
-        </Link>
+        </a>
 
         <nav class="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
-                <Link to="/profile">Profile</Link>
-                <Link to="/write">Write Review</Link>
+                <a href="/profile">Profile</a>
+                <a href="/write">Write Review</a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
               </>
             ) : (
               <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup"><text>Signup</text></Link>
+                <a href="/login">Login</a>
+                <a href="/signup"><text>Signup</text></a>
               </>
             )}
         </nav>
