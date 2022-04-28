@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
@@ -6,7 +6,6 @@ import { QUERY_REVIEWS, QUERY_GET_ME } from '../../utils/query';
 
 // review form
 export default function Write() {
-  
   const [reviewText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -25,7 +24,7 @@ export default function Write() {
         });
       }
       catch (e) {
-        console.warn("First thought insertion by user!")
+        console.error(e);
       }
 
       // update review array's cache
@@ -37,14 +36,14 @@ export default function Write() {
     }
   });
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     if (event.target.value.length <= 1000) {
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       // add review to database
