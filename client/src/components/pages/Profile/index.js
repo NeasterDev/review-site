@@ -1,37 +1,46 @@
+// import React from 'react';
+// import './style.css';
+// import Write from '../../Write/index';
+// import { Redirect, useParams } from 'react-router-dom';
+// import { useQuery} from '@apollo/client';
+// import { QUERY_USER, QUERY_GET_ME } from '../../../utils/query';
+// import Auth from '../../../utils/auth';
+
+// const Profile = (props) => {
+//   const { username} = useParams();
+// console.log(username)
+
+//   const { loading, data } = useQuery(username ? QUERY_USER : QUERY_GET_ME, {
+//     variables: { username},
+//   });
+//   console.dir(data)
+
+//   // const user = data?.get_me || data?.user || {};
+
+//   if (Auth.loggedIn() && Auth.getProfile().data.username === username) {
+//     return <Redirect to="/profile" />;
+//   }
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+  
+//    if(true) {
+    
+//     return (
+//       <h4>
+//         You need to be logged in to see this. Use the navigation links above to
+//         sign up or log in!
+//       </h4>
+//     );
+//   }
 import React from 'react';
-import './style.css';
-import Write from '../../Write/index';
-import { Redirect, useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_GET_ME } from '../../../utils/query';
-import Auth from '../../../utils/auth';
+ import './style.css';
+ import Write from '../../Write/index';
 
-const Profile = (props) => {
-  const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_GET_ME, {
-    variables: { username: userParam },
-  });
-
-  const user = data?.get_me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
-
+export default function Profile() {
   return (
     <div className="profile">
         <h1>Profile</h1>
@@ -55,5 +64,3 @@ const Profile = (props) => {
       </div>
     );
 };
-
-export default Profile;
