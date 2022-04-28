@@ -40,12 +40,7 @@ const Login = (props) => {
   };
 
   return (
-<<<<<<< HEAD
-    
-    <main className="flex-row justify-center mb-4">
-=======
     <div className="flex-row justify-center mb-4 mt-8">
->>>>>>> ccc6eda40bd074bbfd60d5a7903f92f89fc1be59
       <div className="col-12 col-md-6">
         <div className="card">
           <h4 className="card-header">Login</h4>
