@@ -18,7 +18,7 @@ db.once('open', async () => {
       const email = faker.internet.email(username);
       const password = faker.internet.password();
       const reviewText = faker.random.words();
-      const rating = 5;
+      const rating = Math.floor(Math.random()*5);
       //const _id = faker.datatype.uuid();
   
       userData.push({ username, email, password, _id, savedReviews: {location, reviewText, rating, username, _id} });
