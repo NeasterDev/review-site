@@ -25,16 +25,7 @@
 //     return <div>Loading...</div>;
 //   }
 
-  
-//    if(true) {
-    
-//     return (
-//       <h4>
-//         You need to be logged in to see this. Use the navigation links above to
-//         sign up or log in!
-//       </h4>
-//     );
-//   }
+
 import React from 'react';
  import './style.css';
  import Write from '../../Write/index';
