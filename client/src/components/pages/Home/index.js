@@ -1,22 +1,10 @@
 import React from 'react';
 import './style.css'
 import {Review} from '../../Review';
-//import {GET_REVIEWS} from '../../../utils/mutations';
-import  {gql, useQuery}  from '@apollo/client';
+import { GET_REVIEWS } from '../../../utils/query';
+import  { useQuery }  from '@apollo/client';
 
 const Home = () => {
-
-  const GET_REVIEWS = gql`
-    query reviews {
-      users {
-        savedReviews {
-          reviewText
-          _id
-          username
-        }
-      }
-    }
-  `;
 
   const { loading, error, data } = useQuery(GET_REVIEWS);
   
@@ -24,8 +12,8 @@ const Home = () => {
   if (error) return `Error! ${error.message}`;
 
   // <Review key={review.savedReviews._id} reviewText={review.savedReviews.reviewText} username={review.savedReviews.username} rating={review.savedReviews.rating}/>
-  // console.log("DATA");
-  // console.log(data);
+  console.log("DATA");
+  console.log(data.users);
   // console.log(data.users[48].savedReviews[0]._id);
   return (
     <div className="homepage">
