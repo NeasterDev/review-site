@@ -2,14 +2,15 @@ import React from 'react';
 import './style.css';
 import Write from '../../Write/index';
 import { Redirect, useParams } from 'react-router-dom';
-import { Query, useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_GET_ME } from '../../../utils/query';
 import Auth from '../../../utils/auth';
 
 const Profile = (props) => {
   // const { username: userParam } = useParams();
+  // console.log(userParam);
 
-  // const { loading, data } = Query(userParam ? QUERY_USER : QUERY_GET_ME, {
+  // const { loading, error, data } = useQuery(userParam ? QUERY_USER : QUERY_GET_ME, {
   //   variables: { username: userParam },
   // });
 
