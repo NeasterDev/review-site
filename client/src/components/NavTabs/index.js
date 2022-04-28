@@ -1,39 +1,53 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 function NavTabs() {
-
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+  };
+
+  const handleBurgerClick = (e) => {
+    const burger = document.querySelector('.navbar-menu');
+    burger.classList.toggle('is-active');
   }
 
   return (
-    <header className="has-background-success">
-      <div>
-        <a href="/">
-          <h1 className="has-text-centered has-text-weight-bold is-size-3 has-text-black">Campsite</h1>
+    <nav className="navbar mb-2 has">
+      <div className="navbar-brand">
+        <a
+          role="button"
+          className="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          onClick={handleBurgerClick}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-
-        <nav className="has-text-centered is-size-4">
+        <h1 className="navbar-item">National Parks Review</h1>
+      </div>
+      <div className="navbar-menu">
+        <div className="navbar-start">
         {Auth.loggedIn() ? (
               <>
-                <a href="/profile">Profile</a>
-                <a href="/" onClick={logout}>
+                <a className="navbar-item" href="/profile">Profile</a>
+                <a className="navbar-item" href="/" onClick={logout}>
                   Logout
                 </a>
               </>
             ) : (
               <>
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
+                <a className="navbar-item" href="/login">Login</a>
+                <a className="navbar-item" href="/signup">Signup</a>
               </>
             )}
-        </nav>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
 

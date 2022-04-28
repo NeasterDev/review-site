@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css'
 import {Review} from '../../Review';
 import { GET_REVIEWS } from '../../../utils/query';
@@ -16,7 +16,11 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <AutoComplete suggestions={nationalParks}/>
+      <form >
+        <AutoComplete suggestions={nationalParks}/>
+        <button type='submit'>Search</button>
+      </form>
+
       {data.users.map(user => {
         if (user.savedReviews.length) {
           return user.savedReviews.map(review => {
