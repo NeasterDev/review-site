@@ -10,7 +10,6 @@ import Footer from '../Footer/index';
 import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
-import Write from '../Write/index';
 import Profile from '../pages/Profile';
 
 // style sheet
@@ -25,7 +24,6 @@ function ReviewContainer() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/write" component={Write} />
             <Route exact path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
           </main>

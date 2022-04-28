@@ -20,7 +20,6 @@ function NavTabs() {
         <nav class="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
-                <a href="/write"><text>Write Review</text></a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
