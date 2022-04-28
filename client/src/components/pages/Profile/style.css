@@ -1,0 +1,23 @@
+/* iPhone SE */
+@media screen and (min-width: 375px) { 
+    .column {
+        border: 2px solid black;
+    }
+
+    .profile h1 {
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(149, 69, 53);
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .is-one-fifth-desktop {
+        margin-left: 530px;
+    }
+
+    .is-three-fifths-desktop {
+        margin-left: 260px;
+    }
+}

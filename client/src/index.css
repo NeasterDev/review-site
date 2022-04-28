@@ -1,12 +1,21 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
+
 * {
   margin: 0;
+}
+
+.rev-max-description {
+  max-width: 100ch;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* iPhone SE */
 @media screen and (min-width: 375px) {
   body {
-    border: 5px solid yellow; /* wireframe */
     background-color: rgb(245, 245, 220);
+    min-height: 1000px;
   }  
 }
 
@@ -29,6 +38,12 @@
 @media screen and (min-width: 768px) {
 
 }
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
+}
+
 
 
 

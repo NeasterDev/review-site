@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './style.css';
 
 import Auth from '../../utils/auth';
@@ -14,23 +13,23 @@ function NavTabs() {
   return (
     <header className="has-background-success">
       <div>
-        <Link to="/">
-          <h1 className="has-text-centered has-text-weight-bold is-size-3">Campsite</h1>
-        </Link>
+        <a href="/">
+          <h1 className="has-text-centered has-text-weight-bold is-size-3 has-text-black">Campsite</h1>
+        </a>
 
         <nav class="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
-                <Link to="/profile">Profile</Link>
-                <Link to="/write">Write Review</Link>
+                <a href="/write"><text>Write Review</text></a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
               </>
             ) : (
               <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <a href="/login">Login</a>
+                <a href="/signup"><text>Signup</text></a>
+                <a href="/profile">Profile</a>
               </>
             )}
         </nav>
