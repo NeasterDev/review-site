@@ -86,7 +86,7 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const {rating, reviewText} = args;
+        const {rating, reviewText, location} = args;
 
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -96,7 +96,8 @@ const resolvers = {
               savedReviews: {
                 reviewText: reviewText,
                 rating: rating,
-                username: context.user.username
+                username: context.user.username,
+                location: location 
               }
             }
           },

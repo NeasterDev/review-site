@@ -17,10 +17,10 @@ function NavTabs() {
           <h1 className="has-text-centered has-text-weight-bold is-size-3 has-text-black">Campsite</h1>
         </a>
 
-        <nav class="has-text-centered is-size-4">
+        <nav className="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
-                <a href="/write"><text>Write Review</text></a>
+                <a href="/profile">Profile</a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
@@ -28,8 +28,7 @@ function NavTabs() {
             ) : (
               <>
                 <a href="/login">Login</a>
-                <a href="/signup"><text>Signup</text></a>
-                <a href="/profile">Profile</a>
+                <a href="/signup">Signup</a>
               </>
             )}
         </nav>

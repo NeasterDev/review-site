@@ -40,7 +40,7 @@ const Profile = (props) => {
         <h1>Profile</h1>
         <div className="column">
           <div className="column is-three-fifths is-one-fifth-desktop">
-            <text>[image goes here]</text>
+            <p>[image goes here]</p>
           </div>
           <div className="column is-full is-three-fifths-desktop">
             <h2>Bio</h2>

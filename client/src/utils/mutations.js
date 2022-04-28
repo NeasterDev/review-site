@@ -84,3 +84,6 @@ export const DELETE_REVIEW = gql`
     }
   }
 `;
+
+// export const GET_REVIEWS = gql`
+// `;
