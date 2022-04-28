@@ -53,3 +53,17 @@ export const QUERY_REVIEWS = gql`
     }
   }
 `;
+
+export const GET_REVIEWS = gql`
+  query reviews {
+    users {
+      username
+      savedReviews {
+        reviewText
+        _id
+        username
+        rating
+      }
+    }
+  }
+`;
