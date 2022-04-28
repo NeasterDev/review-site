@@ -16,12 +16,12 @@ export default function Write() {
       // wrap in try in case review doesn't exist yet
       try {
         //read current cache items
-        const { me } = cache.readQuery({ query: QUERY_GET_ME }); 
+        const { reviews } = cache.readQuery({ query: QUERY_REVIEWS }); 
 
         // prepend the newest review to the front of the array
         cache.writeQuery({
-          query: QUERY_GET_ME,
-          data: { me: { ...me, reviews: [...me.reviews, addReview] },}
+          query: QUERY_REVIEWS,
+          data: { reviews: [addReview, ...reviews] }
         });
       }
       catch (e) {
@@ -29,10 +29,10 @@ export default function Write() {
       }
 
       // update review array's cache
-      const { reviews } = cache.readQuery({ query: QUERY_REVIEWS });
+      const { me } = cache.readQuery({ query: QUERY_GET_ME });
       cache.writeQuery({
-        query: QUERY_REVIEWS,
-        data: { reviews: [addReview, ...reviews]}
+        query: QUERY_GET_ME,
+        data: { me: { ...me, reviews: [...me.reviews, addReview] } }
       });
     }
   });

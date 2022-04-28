@@ -88,7 +88,3 @@ export const DELETE_REVIEW = gql`
     }
   }
 `;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2e68caa40547dc39d083cf5a1f1afd90e049a5c0
