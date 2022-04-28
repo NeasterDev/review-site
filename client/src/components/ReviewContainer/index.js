@@ -7,7 +7,7 @@ import NavTabs from '../NavTabs/index';
 import Footer from '../Footer/index';
 
 // pages
-import Home from '../pages/Home/index';
+import Home from '../pages/Home';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import Write from '../Write/index';

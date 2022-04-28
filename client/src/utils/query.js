@@ -30,7 +30,7 @@ export const QUERY_USER= gql`
      }
          
     } 
-  }
+  
 `;
 
 export const QUERY_REVIEW = gql`
@@ -39,7 +39,7 @@ export const QUERY_REVIEW = gql`
        reviewText
        rating
        username  
-    } 
+    
   }
 `;
 
