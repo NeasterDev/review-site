@@ -55,25 +55,6 @@ export const REMOVE_USER = gql`
   }
 `;
 
-// export const ADD_REVIEW = gql`
-//   mutation addReview($email: String!, $password: String!) {
-//     addReview(username: $username, email: $email) {
-//       token
-//       user {
-//         _id
-//         username
-//         email
-//         savedReviews{
-//           _id
-//        reviewText
-//        rating
-//        username
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const ADD_REVIEW = gql`
   mutation addReview($reviewText: String!) {
     addReview(reviewText: $reviewText) {
@@ -105,5 +86,3 @@ export const DELETE_REVIEW = gql`
   }
 `;
 
-// export const GET_REVIEWS = gql`
-// `;
