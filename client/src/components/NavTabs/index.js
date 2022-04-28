@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./style.css";
 
 import Auth from "../../utils/auth";
@@ -15,8 +16,13 @@ function NavTabs() {
   }
 
   return (
-    <nav className="navbar mb-2 has">
+    <nav className="navbar is-fixed-top is-success">
       <div className="navbar-brand">
+      <a className="navbar-item">
+          <div className="is-flex ">
+            <h1 className="is-size-3 has-text-weight-bold">Nelp</h1>
+          </div>
+        </a>
         <a
           role="button"
           className="navbar-burger"
@@ -28,7 +34,7 @@ function NavTabs() {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <h1 className="navbar-item">National Parks Review</h1>
+        
       </div>
       <div className="navbar-menu">
         <div className="navbar-start">
