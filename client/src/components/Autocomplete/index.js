@@ -7,7 +7,7 @@ const AutoComplete = ({ suggestions }) => {
 
   return (
       <Hint options={suggestions}>
-        <input className="searchInput" value={text} onChange={(e) => setText(e.target.value)} />
+        <input className="input searchInput" placeholder="i.e. Yellowstone..." value={text} onChange={(e) => setText(e.target.value)} />
       </Hint>
   );
 };

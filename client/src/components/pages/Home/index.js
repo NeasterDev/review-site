@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './style.css'
+// componenets
 import {Review} from '../../Review';
+import { Hero } from '../../Hero';
+import AutoComplete from '../../Autocomplete';
+
 import { GET_REVIEWS } from '../../../utils/query';
 import  { useQuery }  from '@apollo/client';
-import AutoComplete from '../../Autocomplete';
+
 
 const Home = () => {
 
@@ -15,6 +19,7 @@ const Home = () => {
 
   return (
     <div className="homepage mt-8">
+      <Hero></Hero>
       {data.users.map(user => {
         if (user.savedReviews.length) {
           return user.savedReviews.map(review => {
