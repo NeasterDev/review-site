@@ -1,10 +1,15 @@
-import React, { useQuery } from 'react';
+import React from 'react';
 import './style.css'
 import {Review} from '../../Review';
+<<<<<<< HEAD
 // import {GET_REVIEWS} from '../../../utils/mutations';
 import { gql } from '@apollo/client';
+=======
+//import {GET_REVIEWS} from '../../../utils/mutations';
+import  {gql, useQuery}  from '@apollo/client';
+>>>>>>> 4e3a8b5158e5703ca1026260ca973e8b46d7f6b3
 
-export default function Home() {
+const Home = () => {
 
   const GET_REVIEWS = gql`
     query reviews {
@@ -47,3 +52,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
