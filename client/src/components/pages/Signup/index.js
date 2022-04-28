@@ -22,28 +22,28 @@ export default function Signup() {
       ...formState,
       [name]: value
     });
-
-    // submit form
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-
-      try {
-        const { data } = await addUser({
-          variables: { ...formState }
-        });
-
-        Auth.login(data.addUser.token);
-      }
-      catch (error) {
-        console.error(error);
-      }
-    }
   }
+
+      // submit form
+      const handleFormSubmit = async (event) => {
+        event.preventDefault();
+  
+        try {
+          const { data } = await addUser({
+            variables: { ...formState }
+          });
+  
+          Auth.login(data.addUser.token);
+        }
+        catch (error) {
+          console.error(error);
+        }
+      }
 
   return (
     <div>
       <h1 className="s">Signup</h1>
-      <form className="signup mt-4 ml-5" /*onSubmit={handleFormSubmit}*/>
+      <form className="signup mt-4 ml-5" onSubmit={handleFormSubmit}>
         <div className="field">
             <label className="label">Name</label>
             <div className="control">
