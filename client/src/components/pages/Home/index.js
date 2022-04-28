@@ -1,13 +1,8 @@
 import React from 'react';
 import './style.css'
 import {Review} from '../../Review';
-<<<<<<< HEAD
-// import {GET_REVIEWS} from '../../../utils/mutations';
-import { gql } from '@apollo/client';
-=======
 //import {GET_REVIEWS} from '../../../utils/mutations';
 import  {gql, useQuery}  from '@apollo/client';
->>>>>>> 4e3a8b5158e5703ca1026260ca973e8b46d7f6b3
 
 const Home = () => {
 

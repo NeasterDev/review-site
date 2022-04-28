@@ -106,9 +106,4 @@ export const DELETE_REVIEW = gql`
 `;
 
 // export const GET_REVIEWS = gql`
-<<<<<<< HEAD
-//   mutation
-=======
-
->>>>>>> 4e3a8b5158e5703ca1026260ca973e8b46d7f6b3
 // `;
