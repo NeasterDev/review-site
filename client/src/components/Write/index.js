@@ -59,6 +59,7 @@ export default function Write() {
       console.error(e);
     }
   };
+  console.log(reviewText);
   
   return (
     <div className="write">

@@ -20,6 +20,7 @@ function NavTabs() {
         <nav className="has-text-centered is-size-4">
         {Auth.loggedIn() ? (
               <>
+                <a href="/profile">Profile</a>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
@@ -28,7 +29,6 @@ function NavTabs() {
               <>
                 <a href="/login">Login</a>
                 <a href="/signup">Signup</a>
-                <a href="/profile">Profile</a>
               </>
             )}
         </nav>
