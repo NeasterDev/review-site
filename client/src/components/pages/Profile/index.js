@@ -25,14 +25,13 @@
 //     return <div>Loading...</div>;
 //   }
 
-
-import React from 'react';
-import './style.css';
-import Write from '../../Write/index';
-import { Redirect, useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_GET_ME } from '../../../utils/query';
-import Auth from '../../../utils/auth';
+import React from "react";
+import "./style.css";
+import Write from "../../Write/index";
+import { Redirect, useParams } from "react-router-dom";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_USER, QUERY_GET_ME } from "../../../utils/query";
+import Auth from "../../../utils/auth";
 
 const Profile = (props) => {
   // const { username: userParam } = useParams();
@@ -61,9 +60,9 @@ const Profile = (props) => {
   //   );
   // }
 
-export default function Profile() {
-  return (
-    <div className="profile">
+  export default function Profile() {
+    return (
+      <div className="profile">
         <h1>Profile</h1>
         <div className="column">
           <div className="column is-three-fifths is-one-fifth-desktop">
@@ -84,5 +83,5 @@ export default function Profile() {
         <Write></Write>
       </div>
     );
+  }
 };
-}
