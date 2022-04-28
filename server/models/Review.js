@@ -10,6 +10,10 @@ const reviewSchema = new Schema({
         min: 0,
         max: 5
     },
+    location: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true

@@ -63,6 +63,7 @@ export const GET_REVIEWS = gql`
         _id
         username
         rating
+        location
       }
     }
   }
