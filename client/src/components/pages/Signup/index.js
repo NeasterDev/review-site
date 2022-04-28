@@ -42,7 +42,7 @@ export default function Signup() {
 
   return (
     <div>
-      <h1 className="s">Signup</h1>
+      <h1 className="">Signup</h1>
       <form className="signup mt-4 ml-5" onSubmit={handleFormSubmit}>
         <div className="field">
             <label className="label">Name</label>
