@@ -11,8 +11,7 @@ export const QUERY_GET_ME= gql`
        reviewText
        rating
        username
-     }
-         
+     }   
     } 
   }
 `;
