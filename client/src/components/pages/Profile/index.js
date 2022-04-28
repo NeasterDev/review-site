@@ -1,26 +1,26 @@
-import React from "react";
-import "./style.css";
-import Write from "../../Write/index";
-import { Redirect, useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_GET_ME } from "../utils/queries";
-import Auth from "../utils/auth";
+import React from 'react';
+import './style.css';
+import Write from '../../Write/index';
+import { Redirect, useParams } from 'react-router-dom';
+import { Query, useMutation } from '@apollo/client';
+import { QUERY_USER, QUERY_GET_ME } from '../../../utils/query';
+import Auth from '../../../utils/auth';
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
-  
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_GET_ME, {
+
+  const { loading, data } = Query(userParam ? QUERY_USER : QUERY_GET_ME, {
     variables: { username: userParam },
   });
 
-  const user = data?.me || data?.user || {};
+  const user = data?.get_me || data?.user || {};
+
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/profile" />;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
-  }
-  // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
   }
 
   if (!user?.username) {
@@ -32,9 +32,8 @@ const Profile = (props) => {
     );
   }
 
-  
-    return (
-      <div className="profile">
+  return (
+    <div className="profile">
         <h1>Profile</h1>
         <div className="column">
           <div className="column is-three-fifths is-one-fifth-desktop">
