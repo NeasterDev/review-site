@@ -63,13 +63,12 @@ export default function Write() {
   return (
     <div className="write">
         <h1>Write</h1>
-        <p clasName={`${characterCount === 1000 ? 'text-error' : ''}`}>
+        <p className={`${characterCount === 1000 ? 'text-error' : ''}`}>
           Character Count: {characterCount}/1000
-          {error && <text>Something went wrong...</text>}
+          {error && <span>Something went wrong...</span>}
         </p>
         <form onSubmit={handleFormSubmit}>
           <textarea
-          placeholder="Here's a new review"
           value={reviewText}
           onChange={handleChange}
           ></textarea>
