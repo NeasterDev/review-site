@@ -21,7 +21,7 @@ const Home = () => {
         if (user.savedReviews.length) {
           return user.savedReviews.map(review => {
             return (
-              <Review key={review._id} reviewText={review.reviewText} username={review.username} rating={review.rating}/>
+              <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating}/>
             )
           });
         }
