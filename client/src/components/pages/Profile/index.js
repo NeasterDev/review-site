@@ -33,7 +33,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_GET_ME } from "../../../utils/query";
 import Auth from "../../../utils/auth";
 
-const Profile = (props) => {
+// const Profile = (props) => {
   // const { username: userParam } = useParams();
   // console.log(userParam);
 
@@ -84,4 +84,4 @@ const Profile = (props) => {
       </div>
     );
   }
-};
+// };
