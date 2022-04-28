@@ -1,28 +1,26 @@
 import React from "react";
 import "./style.css";
 import Write from "../../Write/index";
-import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_USER, QUERY_GET_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
   
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_GET_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Redirect to="/profile" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
   }
 
   if (!user?.username) {
@@ -34,7 +32,7 @@ const Profile = (props) => {
     );
   }
 
-  export default function Profile() {
+  
     return (
       <div className="profile">
         <h1>Profile</h1>
@@ -57,5 +55,6 @@ const Profile = (props) => {
         <Write></Write>
       </div>
     );
-  }
 };
+
+export default Profile;
