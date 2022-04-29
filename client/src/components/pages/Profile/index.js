@@ -5,9 +5,10 @@ import { QUERY_GET_ME} from "../../../utils/query";
 import { ADD_REVIEW} from '../../../utils/mutations';
 import Auth from "../../../utils/auth";
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
 
-export const QUERY_GET_ME = ({location, rating, reviewText}) => {
-    const [reviewText, setText] = useState('');
+export const Profile= ({location, rating, reviewText}) => {
+    const [textreview, setText] = useState('');
     
     const [addReview, { error }] = useMutation(QUERY_GET_ME, {
       update(cache, { data: { addReview} }) {
@@ -20,8 +21,8 @@ export const QUERY_GET_ME = ({location, rating, reviewText}) => {
         } catch (e) {
           console.error(e);
         }
-};
-    };
+      }
+    });
 
 
     return (
@@ -49,4 +50,3 @@ export const QUERY_GET_ME = ({location, rating, reviewText}) => {
   }
 
   
-  export default Profile;
