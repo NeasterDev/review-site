@@ -13,7 +13,7 @@ When the user clicks on the 'Profile' link, then the user is directed to his own
 ## Screenshot
 ![Alt text](./client/public/assets/images/screenshot.JPG?raw=true "Nelp")
 
-## Require Packages
+## Required Packages
     * Root
         * concurrently
 
