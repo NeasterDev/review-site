@@ -3,7 +3,7 @@ import "./style.css";
 
 export default function Footer() {
   return (
-    <footer class="footer">
+    <footer class="navbar is-success">
       <div class="content has-text-centered">
         <div className="is-flex is-justify-content-space-between">
           <div><strong>Nelp</strong> by{" "}</div>

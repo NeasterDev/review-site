@@ -8,21 +8,21 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 
 export default function Profile({location, rating, reviewText}) { 
-    const [textreview, setText] = useState('');
+    // const [textreview, setText] = useState('');
     
-    const [addReview, { error }] = useQuery(QUERY_GET_ME, {
-      update(cache, { data: { addReview} }) {
-        try {
-          const { review } = cache.readQuery({ query: QUERY_GET_ME});
-          cache.writeQuery({
-            query: QUERY_GET_ME,
-            data: { thoughts: [addReview, ...review] },
-          });
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    });
+    // const [addReview, { error }] = useQuery(QUERY_GET_ME, {
+    //   update(cache, { data: { addReview} }) {
+    //     try {
+    //       const { review } = cache.readQuery({ query: QUERY_GET_ME});
+    //       cache.writeQuery({
+    //         query: QUERY_GET_ME,
+    //         data: { thoughts: [addReview, ...review] },
+    //       });
+    //     } catch (e) {
+    //       console.error(e);
+    //     }
+    //   }
+    // });
 
     return (
       <div className="profile">
