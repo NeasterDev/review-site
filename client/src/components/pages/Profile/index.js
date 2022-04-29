@@ -5,25 +5,24 @@ import { QUERY_GET_ME} from "../../../utils/query";
 import { ADD_REVIEW} from '../../../utils/mutations';
 import Auth from "../../../utils/auth";
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
-export const Profile= ({location, rating, reviewText}) => {
-    // const [textreview, setText] = useState('');
+export default function Profile({location, rating, reviewText}) { 
+    const [textreview, setText] = useState('');
     
-    // const [addReview, { error }] = useMutation(QUERY_GET_ME, {
-    //   update(cache, { data: { addReview} }) {
-    //     try {
-    //       const { review } = cache.readQuery({ query: QUERY_GET_ME});
-    //       cache.writeQuery({
-    //         query: QUERY_GET_ME,
-    //         data: { thoughts: [addReview, ...review] },
-    //       });
-    //     } catch (e) {
-    //       console.error(e);
-    //     }
-    //   }
-    // });
-
+    const [addReview, { error }] = useQuery(QUERY_GET_ME, {
+      update(cache, { data: { addReview} }) {
+        try {
+          const { review } = cache.readQuery({ query: QUERY_GET_ME});
+          cache.writeQuery({
+            query: QUERY_GET_ME,
+            data: { thoughts: [addReview, ...review] },
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    });
 
     return (
       <div className="profile">
