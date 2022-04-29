@@ -41,7 +41,7 @@ When the user clicks on the 'Profile' link, then the user is directed to his own
         * react-dom
         * react-router-dom
         * react-scripts
-        *  web-vitals
+        * web-vitals
         * --legacy-peer-deps (if React client fails to render)
             * delete node_modules beforehand
         * npm audit fix --force (if --legacy-peer-deps fails to fix faulty rendering)
