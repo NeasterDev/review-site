@@ -4,7 +4,7 @@ import './style.css';
 export default function Footer() {
   return (
     <footer className="has-background-success">
-      <p className="title">Placeholder</p>
+      <p className="title"></p>
     </footer>
   );
 }
