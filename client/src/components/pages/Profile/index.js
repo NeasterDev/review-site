@@ -8,27 +8,6 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 export const Profile= ({location, rating, reviewText}) => {
-<<<<<<< HEAD
-    const [textreview, setText] = useState({
-      reviewText: '',
-      rating: '',
-      location: ''
-    });
-    
-    const [addReview, { error }] = useMutation(QUERY_GET_ME, {
-      update(cache, { data: { addReview } }) {
-        try {
-          const { review } = cache.readQuery({ query: QUERY_GET_ME});
-          cache.writeQuery({
-            query: QUERY_GET_ME,
-            data: { thoughts: [addReview, ...review] },
-          });
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    });
-=======
     // const [textreview, setText] = useState('');
     
     // const [addReview, { error }] = useMutation(QUERY_GET_ME, {
@@ -44,7 +23,6 @@ export const Profile= ({location, rating, reviewText}) => {
     //     }
     //   }
     // });
->>>>>>> 50d87384e4443f3329f58510e742afa7dfd1039f
 
     return (
       <div className="profile">
