@@ -15,7 +15,7 @@ export const Profile= ({location, rating, reviewText}) => {
     });
     
     const [addReview, { error }] = useMutation(QUERY_GET_ME, {
-      update(cache, { data: { addReview} }) {
+      update(cache, { data: { addReview } }) {
         try {
           const { review } = cache.readQuery({ query: QUERY_GET_ME});
           cache.writeQuery({
