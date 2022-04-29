@@ -24,7 +24,6 @@ export default function Profile({location, rating, reviewText}) {
       }
     });
 
-
     return (
       <div className="profile">
           <h1>Profile</h1>
