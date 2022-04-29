@@ -27,7 +27,7 @@ export default function Write() {
 
   const handleRatingChange = (e) => {
     console.log(e.target.value);
-    setRating(e.target.value);
+    setRating(parseInt(e.target.value));
   };
 
   return (
