@@ -24,8 +24,6 @@ export const QUERY_GET_ME = ({location, rating, reviewText}) => {
     };
 
 
-
-
     return (
       <div className="profile">
           <h1>Profile</h1>
@@ -49,5 +47,6 @@ export const QUERY_GET_ME = ({location, rating, reviewText}) => {
       </div>
     );
   }
+
   
   export default Profile;
