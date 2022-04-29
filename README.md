@@ -36,7 +36,7 @@ When the user clicks on the 'Profile' link, then the user is directed to his own
         * @testing-library/user-event
         * graphql
         * jwt-decode
-        * react": "^18.0.0",
+        * react
         * react-autocomplete-hint
         * react-dom
         * react-router-dom
