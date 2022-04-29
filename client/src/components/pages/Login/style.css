@@ -4,6 +4,52 @@
 }
 /* iPhone SE */
 @media screen and (min-width: 375px) {
+    .login {
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(149, 69, 53);
+        margin-left: 23px;
+    }
+
+    .login {
+        width: 87%;
+        
+    }
+}
+
+/* Samsung Galaxy S20 Ultra */
+@media screen and (min-width: 412px) {
+    .login {
+        width: 88%;
+    }
+}
+
+/* Surface Duo */
+@media screen and (min-width: 540px) {
+    .login{
+        width: 91%;
+    }
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+    .login {
+        width: 94%;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .login{
+        width: 45%;
+        margin-left: 10px; /* Apaparently, Bulma disallowss 'margin-left' functionality*/
+    }
+}
+
+
+
+/* iPhone SE */
+@media screen and (min-width: 375px) {
     .card-header {
         font-size: 25px;
         font-weight: 500;
