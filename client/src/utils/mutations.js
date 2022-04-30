@@ -75,12 +75,14 @@ export const REMOVE_USER = gql`
 // `;
 
 export const ADD_REVIEW = gql`
-  mutation addReview($reviewText: String!) {
-    addReview(reviewText: $reviewText) {
-      _id
-      reviewText
-      rating
-      username
+  mutation addReview($reviewText: String!, $rating: Int!) {
+    addReview(reviewText: $reviewText, rating: $rating) {
+      savedReviews {
+        _id
+        reviewText
+        rating
+        username
+      }
     }
   }
 `;
@@ -106,4 +108,5 @@ export const DELETE_REVIEW = gql`
 `;
 
 // export const GET_REVIEWS = gql`
+
 // `;
