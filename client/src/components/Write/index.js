@@ -12,7 +12,7 @@ export default function Write() {
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
 
-  if (loading) return "Submitting...";
+  if (loading) return "Review Submitted";
   if (error) return `Submission error! ${error.message}`;
 
   const handleLocationChange = (e) => {

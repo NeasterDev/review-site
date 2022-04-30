@@ -76,7 +76,6 @@ const AutoComplete = ({ change }) => {
           if (change) {
             change(e)}
           }
-
         } />
       </Hint>
   );
