@@ -4,12 +4,43 @@
   margin: 0;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+a {
+  color: inherit;
+}
+
 .rev-max-description {
   max-width: 100ch;
   overflow:hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.o-5 {
+  opacity: 70%;
+}
+
+.o-5:hover {
+  opacity: 100%;
+}
+
+.o-1 {
+  opacity: 10%;
+}
+
+.o-10 {
+  opacity: 100%;
+}
+
 
 /* iPhone SE */
 @media screen and (min-width: 375px) {
