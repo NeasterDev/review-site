@@ -83,7 +83,8 @@ function NavTabs() {
   };
 
   return (
-    <nav className="navbar is-fixed-top is-success mb-10">
+    <section className="section">
+    <nav className="navbar is-fixed-top is-success mb-10 o-5">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
           <div className="is-flex ">
@@ -137,6 +138,7 @@ function NavTabs() {
         </div>
       </div>
     </nav>
+    </section>
   );
 }
 

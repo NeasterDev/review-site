@@ -1,13 +1,14 @@
 
 
 /* iPhone SE */
-@media screen and (min-width: 375px) {
+
     footer {
         position: fixed;
         bottom: 0;
         width: 100%;
     }
-}
+    
+
 
 /* iPhone 12 Pro */
 @media screen and (min-width: 390px) {

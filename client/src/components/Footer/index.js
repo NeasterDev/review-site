@@ -3,7 +3,7 @@ import "./style.css";
 
 export default function Footer() {
   return (
-    <footer class="has-background-success o-5">
+    <footer class="footer has-background-success o-5">
       <div>
         
         <ul className="is-flex is-align-items-end ">
