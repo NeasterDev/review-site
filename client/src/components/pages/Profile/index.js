@@ -25,7 +25,7 @@ export default function Profile({location, rating, reviewText}) {
     // });
 
     return (
-      <div className="profile">
+      <div className="profile mt-4r">
           <h1>Profile</h1>
           <div className="column">
             <div className="column is-three-fifths is-one-fifth-desktop">

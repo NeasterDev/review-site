@@ -56,16 +56,6 @@ export const REMOVE_USER = gql`
 `;
 
 export const ADD_REVIEW = gql`
-<<<<<<< HEAD
-  mutation addReview($reviewText: String!, $rating: Int!) {
-    addReview(reviewText: $reviewText, rating: $rating) {
-      savedReviews {
-        _id
-        reviewText
-        rating
-        username
-      }
-=======
 mutation addReview($reviewText: String!, $rating: Int!, $location: String!) {
   addReview(reviewText: $reviewText, rating: $rating, location: $location) {
     username
@@ -73,7 +63,6 @@ mutation addReview($reviewText: String!, $rating: Int!, $location: String!) {
       reviewText
       location
       reviewText
->>>>>>> a20cce06695c96002100252af81ed87ca3249259
     }
   }
 }
@@ -97,10 +86,3 @@ export const DELETE_REVIEW = gql`
     }
   }
 `;
-<<<<<<< HEAD
-
-// export const GET_REVIEWS = gql`
-
-// `;
-=======
->>>>>>> a20cce06695c96002100252af81ed87ca3249259
