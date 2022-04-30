@@ -1,3 +1,11 @@
+.write-position {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
 /* iPhone SE */
 @media screen and (min-width: 375px) { 
 

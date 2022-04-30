@@ -26,23 +26,6 @@ export default function Profile({location, rating, reviewText}) {
 
     return (
       <div className="profile mt-4r">
-          <h1>Profile</h1>
-          <div className="column">
-            <div className="column is-three-fifths is-one-fifth-desktop">
-              <p>[image goes here]</p>
-            </div>
-            <div className="column is-full is-three-fifths-desktop">
-              <h2>Bio</h2>
-            </div>
-          </div>
-          <div className="column">
-            <div className="column is-two-fifths is-three-fifths-desktop">
-              <h2>Reviews</h2>
-            </div>
-            <div className="column is-two-fifths is-three-fifths-desktop">
-              <h2>Edit</h2>
-            </div>
-          </div>
           <Write></Write>
       </div>
     );

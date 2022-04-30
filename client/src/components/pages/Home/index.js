@@ -18,7 +18,7 @@ const Home = () => {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <div className="homepage">
+    <div className="homepage mb-8">
       <Hero></Hero>
       {data.users.map(user => {
         if (user.savedReviews.length) {

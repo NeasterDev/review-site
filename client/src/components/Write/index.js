@@ -31,7 +31,7 @@ export default function Write() {
   };
 
   return (
-    <div className="write">
+    <div className="container write-position is-hidden">
       <form
         onSubmit={(e) => {
           e.preventDefault();

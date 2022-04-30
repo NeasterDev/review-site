@@ -3,6 +3,7 @@ import React from "react";
 import "./style.css";
 
 import Auth from "../../utils/auth";
+import { AddReview } from "../AddReview";
 
 import AutoComplete from "../Autocomplete";
 const nationalParks = [
@@ -82,6 +83,11 @@ function NavTabs() {
     burger.classList.toggle("is-active");
   };
 
+  const handleAddReview = (e) => {
+    const addReviewEl = document.querySelector('.write-position');
+    addReviewEl.classList.toggle('is-hidden');
+  }
+
   return (
     <section className="section">
     <nav className="navbar is-fixed-top is-success mb-10 o-5">
@@ -118,6 +124,11 @@ function NavTabs() {
         <div className="navbar-start">
           {Auth.loggedIn() ? (
             <>
+            <a className="navbar-item" href="#add-review" onClick={
+handleAddReview
+            }>
+                Add Review
+              </a>
               <a className="navbar-item" href="/profile">
                 Profile
               </a>
