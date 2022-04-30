@@ -31,8 +31,9 @@ export default function Write() {
   };
 
   return (
-    <div className="container write-position is-hidden">
+    <div className="write-position is-hidden write-bg">
       <form
+      className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
           e.preventDefault();
           addReview({ variables: { reviewText, rating, location } });

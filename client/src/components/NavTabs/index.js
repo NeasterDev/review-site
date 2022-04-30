@@ -3,7 +3,6 @@ import React from "react";
 import "./style.css";
 
 import Auth from "../../utils/auth";
-import { AddReview } from "../AddReview";
 
 import AutoComplete from "../Autocomplete";
 const nationalParks = [
@@ -90,7 +89,7 @@ function NavTabs() {
 
   return (
     <section className="section">
-    <nav className="navbar is-fixed-top is-success mb-10 o-5">
+    <nav className="navbar main-bg-color is-fixed-top mb-10 o-5">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
           <div className="is-flex ">
