@@ -1,3 +1,17 @@
+.mt-8 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.opacity-5 {
+    opacity: 50%;
+}
+
+.opacity-10 {
+    opacity: 100%;
+}
+
+
 /* iPhone SE */
 @media screen and (min-width: 375px) {
     .homepage h1 {

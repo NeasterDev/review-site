@@ -32,11 +32,11 @@ export const UPDATE_USER = gql`
         _id
         username
         email
-        savedReviews{
+        savedReviews {
           _id
-       reviewText
-       rating
-       username
+          reviewText
+          rating
+          username
         }
       }
     }
@@ -55,26 +55,8 @@ export const REMOVE_USER = gql`
   }
 `;
 
-// export const ADD_REVIEW = gql`
-//   mutation addReview($email: String!, $password: String!) {
-//     addReview(username: $username, email: $email) {
-//       token
-//       user {
-//         _id
-//         username
-//         email
-//         savedReviews{
-//           _id
-//        reviewText
-//        rating
-//        username
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const ADD_REVIEW = gql`
+<<<<<<< HEAD
   mutation addReview($reviewText: String!, $rating: Int!) {
     addReview(reviewText: $reviewText, rating: $rating) {
       savedReviews {
@@ -83,10 +65,19 @@ export const ADD_REVIEW = gql`
         rating
         username
       }
+=======
+mutation addReview($reviewText: String!, $rating: Int!, $location: String!) {
+  addReview(reviewText: $reviewText, rating: $rating, location: $location) {
+    username
+    savedReviews {
+      reviewText
+      location
+      reviewText
+>>>>>>> a20cce06695c96002100252af81ed87ca3249259
     }
   }
+}
 `;
-
 
 export const DELETE_REVIEW = gql`
   mutation deleteReview($email: String!, $password: String!) {
@@ -96,17 +87,20 @@ export const DELETE_REVIEW = gql`
         _id
         username
         email
-        savedReviews{
+        savedReviews {
           _id
-       reviewText
-       rating
-       username
+          reviewText
+          rating
+          username
         }
       }
     }
   }
 `;
+<<<<<<< HEAD
 
 // export const GET_REVIEWS = gql`
 
 // `;
+=======
+>>>>>>> a20cce06695c96002100252af81ed87ca3249259

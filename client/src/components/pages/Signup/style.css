@@ -5,6 +5,7 @@
         font-weight: 500;
         color: rgb(149, 69, 53);
         margin-left: 23px;
+        margin-top: 4rem;
     }
 
     .signup {
@@ -37,7 +38,6 @@
 @media screen and (min-width: 1024px) {
     .signup {
         width: 45%;
-        margin-left: 10px; /* Apaparently, Bulma disallowss 'margin-left' functionality*/
     }
 }
 
