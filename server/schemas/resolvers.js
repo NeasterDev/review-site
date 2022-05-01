@@ -27,23 +27,38 @@ const resolvers = {
       return users;
     },
 
-    getReviews: async (parent, {location}) => {
+    getReviews: (parent, { location }) => {
+      var frev = [];
       User.find({}, (err, users) => {
         let reviews = [];
-        users.forEach(user => {
+        let filteredReviews = [];
+        console.log(users);
+        users.forEach((user) => {
           reviews.push(user.savedReviews);
         });
         //console.log(reviews);
-        let filteredReviews = [];
-        reviews.forEach(review => {
-          filteredReviews.push(review);
+        reviews.forEach((reviewArray) => {
+          reviewArray.forEach((review) => {
+            if (review.location.toLowerCase() === location.toLowerCase()) {
+              filteredReviews.push(review);
+            }
+          });
+        });
+        // reviews.map(reviewArray => {
+        //  return reviewArray.map(review => {
+        //     //console.log(location.toLowerCase());
+
+        //   })
+        // })
+        filteredReviews.forEach(review => {
+          frev.push(review);
         })
-        console.log(filteredReviews);
-        return filteredReviews;
+        //console.log(filteredReviews);
+        //return filteredReviews;
       });
-
-    }
-
+      console.log(frev);
+      return frev;
+    },
   },
 
   // perform POST, PUT, DELETE request on GraphQL API
@@ -78,7 +93,6 @@ const resolvers = {
 
     // update User (e.g. change username)
     updateUser: async (parent, args, context) => {
-
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -103,7 +117,7 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const {rating, reviewText, location} = args;
+        const { rating, reviewText, location } = args;
 
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -114,9 +128,9 @@ const resolvers = {
                 reviewText: reviewText,
                 rating: rating,
                 username: context.user.username,
-                location: location 
-              }
-            }
+                location: location,
+              },
+            },
           },
           { new: true }
         );
