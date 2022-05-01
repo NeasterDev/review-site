@@ -27,37 +27,27 @@ const resolvers = {
       return users;
     },
 
-    getReviews: (parent, { location }) => {
-      var frev = [];
-      User.find({}, (err, users) => {
-        let reviews = [];
-        let filteredReviews = [];
-        console.log(users);
-        users.forEach((user) => {
-          reviews.push(user.savedReviews);
-        });
-        //console.log(reviews);
-        reviews.forEach((reviewArray) => {
-          reviewArray.forEach((review) => {
-            if (review.location.toLowerCase() === location.toLowerCase()) {
-              filteredReviews.push(review);
-            }
-          });
-        });
-        // reviews.map(reviewArray => {
-        //  return reviewArray.map(review => {
-        //     //console.log(location.toLowerCase());
-
-        //   })
-        // })
-        filteredReviews.forEach(review => {
-          frev.push(review);
+    getReviews: async (parent, { location }) => {
+      const users = await User.find({});
+      const savedReviews = users.map(user => user.savedReviews);
+      const checkedReviews = savedReviews.map(reviewArray => {
+        const locationCheckedReviews = reviewArray.map(review => {
+          //console.log(review);
+          if (review && review.location.toLowerCase() === location.toLowerCase()) {
+            return review;
+          }
         })
-        //console.log(filteredReviews);
-        //return filteredReviews;
-      });
-      console.log(frev);
-      return frev;
+        //console.log(locationCheckedReviews);
+        return locationCheckedReviews;
+      })
+      
+      const verifiedReviews = checkedReviews.map(review => {
+        if (review !== undefined) {
+          return review;
+        }
+      })
+      console.log(verifiedReviews);
+      return verifiedReviews;
     },
   },
 
