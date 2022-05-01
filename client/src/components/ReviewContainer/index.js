@@ -14,6 +14,7 @@ import Profile from '../pages/Profile';
 
 // style sheet
 import './style.css';
+import Write from '../Write';
 
 function ReviewContainer() {
   return (
@@ -21,9 +22,10 @@ function ReviewContainer() {
         <div>
           <NavTabs></NavTabs>
           <main>
+            <Write></Write>
             <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
+            <Login></Login>
+            <Signup></Signup>
             <Route exact path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
           </main>

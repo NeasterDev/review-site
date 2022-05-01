@@ -31,22 +31,27 @@ export default function Write() {
   };
 
   return (
-    <div className="write">
+    <div className="write-position is-hidden write-bg write-container mobile-p">
+      <h1 className="title mobile-title">Add Review</h1>
       <form
+      className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
           e.preventDefault();
           addReview({ variables: { reviewText, rating, location } });
         }}
       >
-        <AutoComplete change={handleLocationChange} />
+        <div className='mb-1'>
+        <AutoComplete  change={handleLocationChange} />
+        </div>
+
         <textarea
-          className=" textarea"
+          className=" textarea mb-1"
           onChange={handleReviewChange}
           placeholder="Add review text here..."
         ></textarea>
         <input
           onChange={handleRatingChange}
-          className="input"
+          className="input mb-1"
           list="stars"
           name="stars"
           placeholder="How many stars?"
