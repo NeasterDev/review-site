@@ -24,6 +24,26 @@ a {
   color: inherit;
 }
 
+.write-position {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.write-bg {
+  background-color: var(--main-color-5);
+  padding: 1%;
+  border-radius: 6%;
+}
+
+.signup-bg {
+  background-color: var(--main-color);
+  padding: 1%;
+  border-radius: 6%;
+}
+
 .rev-max-description {
   max-width: 100ch;
   overflow:hidden;

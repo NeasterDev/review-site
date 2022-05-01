@@ -41,9 +41,9 @@ export default function Signup() {
       }
 
   return (
-    <div>
-      <h1 className="">Signup</h1>
-      <form className="signup mt-6 ml-5" onSubmit={handleFormSubmit}>
+    <div className='write-position is-hidden mobile-p sign-up-container signup-bg'>
+      <h1 className="title">Signup</h1>
+      <form className="signup" onSubmit={handleFormSubmit}>
         <div className="field">
             <label className="label">Name</label>
             <div className="control">

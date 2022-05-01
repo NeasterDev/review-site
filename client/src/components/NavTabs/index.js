@@ -83,71 +83,86 @@ function NavTabs() {
   };
 
   const handleAddReview = (e) => {
-    const addReviewEl = document.querySelector('.write-position');
+    const addReviewEl = document.querySelector('.write-container');
     addReviewEl.classList.toggle('is-hidden');
   }
 
+  const handleSignUp = (e) => {
+    const signUpEl = document.querySelector('.sign-up-container');
+    signUpEl.classList.toggle('is-hidden');
+  }
+
+  const handleLogin = (e) => {
+    const signUpEl = document.querySelector('.sign-up-container');
+    signUpEl.classList.toggle('is-hidden');
+  }
+  
+
   return (
     <section className="section">
-    <nav className="navbar main-bg-color is-fixed-top mb-10 o-5">
-      <div className="navbar-brand">
-        <a href="/" className="navbar-item">
-          <div className="is-flex ">
-            <h1 className="is-size-3 has-text-weight-bold">Nelp</h1>
-          </div>
-        </a>
-
-        <a
-          role="button"
-          className="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          onClick={handleBurgerClick}
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-        <div className="navbar-item">
-          <form>
-            <div className=" is-flex-desktop is-flex-tablet">
-              <AutoComplete suggestions={nationalParks} />
-              <button className="button is-hidden-mobile" type="submit">
-                Search
-              </button>
+      <nav className="navbar main-bg-color is-fixed-top mb-10 o-5">
+        <div className="navbar-brand">
+          <a href="/" className="navbar-item">
+            <div className="is-flex ">
+              <h1 className="is-size-3 has-text-weight-bold">Nelp</h1>
             </div>
-          </form>
+          </a>
+
+          <a
+            role="button"
+            className="navbar-burger my-auto"
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={handleBurgerClick}
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+          <div className="navbar-item">
+            <form>
+              <div className=" is-flex-desktop is-flex-tablet">
+                <AutoComplete suggestions={nationalParks} />
+                <button className="button is-hidden-mobile" type="submit">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          {Auth.loggedIn() ? (
-            <>
-            <a className="navbar-item" href="#add-review" onClick={
-handleAddReview
-            }>
-                Add Review
-              </a>
-              <a className="navbar-item" href="/profile">
-                Profile
-              </a>
-              <a className="navbar-item" href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <a className="navbar-item" href="/login">
-                Login
-              </a>
-              <a className="navbar-item" href="/signup">
-                Signup
-              </a>
-            </>
-          )}
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            {Auth.loggedIn() ? (
+              <>
+                <a className="navbar-item" href="#add-review" onClick={
+                  handleAddReview
+                }>
+                  Add Review
+                </a>
+                <a className="navbar-item" href="/profile">
+                  Profile
+                </a>
+                <a className="navbar-item" href="/" onClick={logout}>
+                  Logout
+                </a>
+              </>
+            ) : (
+              <>
+                <a className="navbar-item" href="#login" onClick={
+                  handleLogin
+                }>
+                  Login
+                </a>
+                <a className="navbar-item" href="#signup" onClick={
+                  handleSignUp
+                }>
+                  Signup
+                </a>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     </section>
   );
 }

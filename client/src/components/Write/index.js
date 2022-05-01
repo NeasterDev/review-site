@@ -31,7 +31,7 @@ export default function Write() {
   };
 
   return (
-    <div className="write-position is-hidden write-bg">
+    <div className="write-position is-hidden write-bg write-container">
       <form
       className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
