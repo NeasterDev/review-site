@@ -83,7 +83,7 @@ function NavTabs() {
   };
 
   return (
-    <section className="section">
+    <section className="section p-0">
     <nav className="navbar is-fixed-top is-success mb-10 o-5">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">

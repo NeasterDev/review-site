@@ -42,6 +42,11 @@ a {
   opacity: 100%;
 }
 
+.navbar-burger {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 
 /* iPhone SE */
 @media screen and (min-width: 375px) {
