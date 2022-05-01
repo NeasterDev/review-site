@@ -1,34 +1,27 @@
-import React from "react";
-import "./style.css";
-import Write from "../../Write/index";
-import { QUERY_GET_ME} from "../../../utils/query";
-import { ADD_REVIEW} from '../../../utils/mutations';
-import Auth from "../../../utils/auth";
-import { useState } from "react";
-import { useQuery } from "@apollo/client";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import {QUERY_GET_ME} from '../../../utils/query';
+import { Review } from '../../Review';
 
-export default function Profile({location, rating, reviewText}) { 
-    // const [textreview, setText] = useState('');
-    
-    // const [addReview, { error }] = useQuery(QUERY_GET_ME, {
-    //   update(cache, { data: { addReview} }) {
-    //     try {
-    //       const { review } = cache.readQuery({ query: QUERY_GET_ME});
-    //       cache.writeQuery({
-    //         query: QUERY_GET_ME,
-    //         data: { thoughts: [addReview, ...review] },
-    //       });
-    //     } catch (e) {
-    //       console.error(e);
-    //     }
-    //   }
-    // });
+export const Profile = () => {
 
-    return (
-      <div className="profile mt-4r">
-          <Write></Write>
-      </div>
-    );
-  }
+  const { loading, error, data} = useQuery(QUERY_GET_ME)
 
+  if (loading) return 'Loading...'
+  if (error) return `Error... ${error}`;
+
+  console.log(data);
+
+  return (
+    <div>
+      {data.me.savedReviews.map(review => {
+        if (review) {
+          return (
+            <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating}/>
+          )
+        }
+      })}
+    </div>
+  )
+}
   
