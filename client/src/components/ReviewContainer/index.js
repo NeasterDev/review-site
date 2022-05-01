@@ -21,7 +21,7 @@ function ReviewContainer() {
       <Router>
         <div>
           <NavTabs></NavTabs>
-          <main>
+          <main className=' min-height-100'>
             <Write></Write>
             <Route exact path="/" component={Home} />
             <Login></Login>
