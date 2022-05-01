@@ -89,12 +89,20 @@ function NavTabs() {
 
   const handleSignUp = (e) => {
     const signUpEl = document.querySelector('.sign-up-container');
+    const loginEl = document.querySelector('.login-container');
+    if (!loginEl.classList.contains('is-hidden')) {
+      loginEl.classList.toggle('is-hidden');
+    }
     signUpEl.classList.toggle('is-hidden');
   }
 
   const handleLogin = (e) => {
+    const loginEl = document.querySelector('.login-container');
     const signUpEl = document.querySelector('.sign-up-container');
-    signUpEl.classList.toggle('is-hidden');
+    if (!signUpEl.classList.contains('is-hidden')) {
+      signUpEl.classList.toggle('is-hidden');
+    }
+    loginEl.classList.toggle('is-hidden');
   }
   
 

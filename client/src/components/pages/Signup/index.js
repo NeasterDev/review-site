@@ -44,37 +44,37 @@ export default function Signup() {
     <div className='write-position is-hidden mobile-p sign-up-container signup-bg'>
       <h1 className="title">Signup</h1>
       <form className="signup" onSubmit={handleFormSubmit}>
-        <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
+        <div className="">
+            <label className="label"></label>
+            <div className="mb-1">
               <input 
                 className="input" 
                 type="username"
                 name="username"
                 id="username" 
-                placeholder="e.g Alex Smith"
+                placeholder="Username"
                 value={formState.username}
                 onChange={handleChange} />
             </div>
           </div>
           
           <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
+            <label className="label"></label>
+            <div className="mb-1">
               <input 
                 className="input" 
                 type="email"
                 name="email"
                 id="email" 
-                placeholder="e.g. alexsmith@gmail.com"
+                placeholder="Email"
                 value={formState.email}
                 onChange={handleChange} /> 
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
+            <label className="label"></label>
+            <div className="mb-1">
               <input 
                 className="input" 
                 type="password" 

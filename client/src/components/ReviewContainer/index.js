@@ -24,7 +24,7 @@ function ReviewContainer() {
           <main>
             <Write></Write>
             <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
+            <Login></Login>
             <Signup></Signup>
             <Route exact path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
