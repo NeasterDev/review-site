@@ -33,7 +33,7 @@ a {
 }
 
 .write-bg {
-  background-color: var(--main-color-5);
+  background-color: var(--main-color);
   padding: 1%;
   border-radius: 6%;
 }
@@ -102,11 +102,15 @@ a {
 
 }
 
-/* iPad */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+  .mobile-p {
+      padding: 4%;
+  }
 
+  .mobile-title {
+    font-size: 1.5rem;
+  }
 }
-
 /* Desktop */
 @media screen and (min-width: 1024px) {
 
