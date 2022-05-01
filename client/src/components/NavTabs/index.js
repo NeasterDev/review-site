@@ -89,7 +89,7 @@ function NavTabs() {
 
   const handleSignUp = (e) => {
     const signUpEl = document.querySelector('.sign-up-container');
-    const loginEl = document.querySelector('.sign-up-container');
+    const loginEl = document.querySelector('.login-container');
     if (!loginEl.classList.contains('is-hidden')) {
       loginEl.classList.toggle('is-hidden');
     }

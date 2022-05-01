@@ -13,7 +13,8 @@ export const Profile = () => {
   console.log(data);
 
   return (
-    <div>
+    <div className='container mt-5r'>
+      <div className='title'>Your Reviews</div>
       {data.me.savedReviews.map(review => {
         if (review) {
           return (

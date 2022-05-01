@@ -40,9 +40,21 @@ export default function Signup() {
         }
       }
 
+      const handleSignUp = (e) => {
+        const signUpEl = document.querySelector('.sign-up-container');
+        const loginEl = document.querySelector('.login-container');
+        if (!loginEl.classList.contains('is-hidden')) {
+          loginEl.classList.toggle('is-hidden');
+        }
+        signUpEl.classList.toggle('is-hidden');
+      }
+
   return (
     <div className='write-position is-hidden mobile-p sign-up-container signup-bg'>
-      <h1 className="title">Signup</h1>
+      <div className='is-flex is-justify-content-space-between'>
+          <h1 className="title">Signup</h1>
+          <button className='delete' onClick={handleSignUp}></button>
+        </div>
       <form className="signup" onSubmit={handleFormSubmit}>
         <div className="">
             <label className="label"></label>

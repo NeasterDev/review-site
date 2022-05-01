@@ -39,10 +39,24 @@ const Login = (props) => {
     });
   };
 
+
+
+  const handleLogin = (e) => {
+    const loginEl = document.querySelector('.login-container');
+    const signUpEl = document.querySelector('.sign-up-container');
+    if (!signUpEl.classList.contains('is-hidden')) {
+      signUpEl.classList.toggle('is-hidden');
+    }
+    loginEl.classList.toggle('is-hidden');
+  }
+
   return (
     <div className="write-position is-hidden mobile-p login-container signup-bg">
       <div className="field">
-        <h1 className="title">Login</h1>
+        <div className='is-flex is-justify-content-space-between'>
+          <h1 className="title">Login</h1>
+          <button className='delete' onClick={handleLogin}></button>
+        </div>
         <form onSubmit={handleFormSubmit}>
           <div className='mb-1'>
             <input
