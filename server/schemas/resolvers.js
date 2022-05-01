@@ -27,6 +27,23 @@ const resolvers = {
       return users;
     },
 
+    getReviews: async (parent, {location}) => {
+      User.find({}, (err, users) => {
+        let reviews = [];
+        users.forEach(user => {
+          reviews.push(user.savedReviews);
+        });
+        //console.log(reviews);
+        let filteredReviews = [];
+        reviews.forEach(review => {
+          filteredReviews.push(review);
+        })
+        console.log(filteredReviews);
+        return filteredReviews;
+      });
+
+    }
+
   },
 
   // perform POST, PUT, DELETE request on GraphQL API

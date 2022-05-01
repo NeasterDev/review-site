@@ -89,7 +89,7 @@ function NavTabs() {
 
   const handleSignUp = (e) => {
     const signUpEl = document.querySelector('.sign-up-container');
-    const loginEl = document.querySelector('.login-container');
+    const loginEl = document.querySelector('.sign-up-container');
     if (!loginEl.classList.contains('is-hidden')) {
       loginEl.classList.toggle('is-hidden');
     }
@@ -104,7 +104,7 @@ function NavTabs() {
     }
     loginEl.classList.toggle('is-hidden');
   }
-  
+
 
   return (
     <section className="section">
@@ -128,9 +128,9 @@ function NavTabs() {
             <span aria-hidden="true"></span>
           </a>
           <div className="navbar-item">
-            <form>
+            <form onSubmit={console.log('submit clicked')}>
               <div className=" is-flex-desktop is-flex-tablet">
-                <AutoComplete suggestions={nationalParks} />
+                <AutoComplete  />
                 <button className="button is-hidden-mobile" type="submit">
                   Search
                 </button>

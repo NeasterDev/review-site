@@ -17,6 +17,8 @@ const Home = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+
+  console.log(userData);
   return (
     <div className="homepage mb-8">
       <Hero></Hero>
