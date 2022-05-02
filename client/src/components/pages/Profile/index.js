@@ -13,7 +13,7 @@ export const Profile = () => {
   console.log(data);
 
   return (
-    <div className='container mt-5r'>
+    <div className='container mt-5r mb-4'>
       <div className='title has-text-centered-mobile'>Your Reviews</div>
       {data.me.savedReviews.map(review => {
         if (review) {
