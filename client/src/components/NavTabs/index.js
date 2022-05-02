@@ -108,7 +108,7 @@ function NavTabs() {
 
   return (
     <section className="section">
-      <nav className="navbar main-bg-color is-fixed-top mb-10 o-70">
+      <nav className="navbar main-bg-color is-fixed-top mb-10 opacity-70">
         <div className="navbar-brand">
           <a href="/" className="navbar-item">
             <div className="is-flex ">
