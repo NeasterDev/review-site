@@ -11,7 +11,7 @@ export const Review = ({location, rating, reviewText, username}) => {
   }
 
   return (
-    <div className="box">
+    <div className="box" data-location={location}>
       <div className=" is-size-6 is-italic has-text-weight-medium">
         {location}
       </div>

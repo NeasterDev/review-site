@@ -26,6 +26,7 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
+        getReviews(location: String!): [Review]
     }
 
     type Mutation {
@@ -35,6 +36,7 @@ const typeDefs = gql`
         removeUser(_id: ID!): Auth
         addReview(reviewText: String!, rating: Int!, location: String!): User
         deleteReview(_id: ID!): User
+
     }
 `;
 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../../utils/mutations';
@@ -39,41 +39,56 @@ const Login = (props) => {
     });
   };
 
-  return (
-    <div className="flex-row justify-center mb-4 mt-8">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
 
-            {error && <div>Login failed</div>}
-          </div>
+
+  const handleLogin = (e) => {
+    const loginEl = document.querySelector('.login-container');
+    const signUpEl = document.querySelector('.sign-up-container');
+    if (!signUpEl.classList.contains('is-hidden')) {
+      signUpEl.classList.toggle('is-hidden');
+    }
+    loginEl.classList.toggle('is-hidden');
+  }
+
+  return (
+    <div className="write-position is-hidden mobile-p login-container signup-bg">
+      <div className="field">
+        <div className='is-flex is-justify-content-space-between'>
+          <h1 className="title">Login</h1>
+          <button className='delete' onClick={handleLogin}></button>
         </div>
+        <form onSubmit={handleFormSubmit}>
+          <div className='mb-1'>
+            <input
+              className="input"
+              placeholder="Your email"
+              name="email"
+              type="email"
+              id="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='mb-1'>
+            <input
+              className="input"
+              placeholder="******"
+              name="password"
+              type="password"
+              id="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+          </div>
+          <button className="button is-success has-text-black" type="submit">
+            Submit
+          </button>
+        </form>
+
+        {error && <div>Login failed</div>}
       </div>
     </div>
+
   );
 };
 

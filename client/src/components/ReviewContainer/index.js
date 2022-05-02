@@ -10,20 +10,22 @@ import Footer from '../Footer/index';
 import Home from '../pages/Home';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
-import Profile from '../pages/Profile';
+import {Profile} from '../pages/Profile';
 
 // style sheet
 import './style.css';
+import Write from '../Write';
 
 function ReviewContainer() {
   return (
       <Router>
         <div>
           <NavTabs></NavTabs>
-          <main>
+          <main className=' min-height-100'>
+            <Write></Write>
             <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
+            <Login></Login>
+            <Signup></Signup>
             <Route exact path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
           </main>

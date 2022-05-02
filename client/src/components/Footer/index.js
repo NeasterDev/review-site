@@ -3,14 +3,15 @@ import "./style.css";
 
 export default function Footer() {
   return (
-    <footer class="navbar is-success">
-      <div class="content has-text-centered">
-        <div className="is-flex is-justify-content-space-between">
-          <div><strong>Nelp</strong> by{" "}</div>
-          <div><a className="title" href="?">Nicholas Easter </a></div>
-          <div><a className="title" href="?">Joshua Jones </a></div>
-          <div><a className="title" href="?">Elisa Vidal</a></div>
-        </div>
+    <footer class="footer main-bg-color o-5 is-flex is-justify-content-center">
+
+      <div className="ml-2 has-text-weight-bold is-flex-desktop">
+        <div className=" is-italic has-text-centered has-text-weight-light">Created by,&nbsp;&nbsp;</div>
+        <p>
+          <a target="_blank" rel="noreferrer" href="https://github.com/crazypants300">Nicholas Easter,&nbsp;</a>
+          <a target="_blank" rel="noreferrer" href="https://github.com/CoderJ01">Joshua Jones,&nbsp;</a>and&nbsp;
+          <a target="_blank" rel="noreferrer" href="https://github.com/Evidal19">Elisa Vidal</a>
+        </p>
       </div>
     </footer>
   );

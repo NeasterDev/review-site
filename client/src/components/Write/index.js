@@ -30,23 +30,37 @@ export default function Write() {
     setRating(parseInt(e.target.value));
   };
 
+  const handleAddReview = (e) => {
+    const addReviewEl = document.querySelector('.write-container');
+    addReviewEl.classList.toggle('is-hidden');
+  }
+
   return (
-    <div className="write">
+    <div className="write-position is-hidden write-bg write-container mobile-p">
+      <div className='is-flex is-justify-content-space-between'>
+        <h1 className="title mobile-title">Add Review</h1>
+        <button className='delete' onClick={handleAddReview}></button>
+      </div>
+
       <form
+        className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
           e.preventDefault();
           addReview({ variables: { reviewText, rating, location } });
         }}
       >
-        <AutoComplete change={handleLocationChange} />
+        <div className='mb-1'>
+          <AutoComplete change={handleLocationChange} />
+        </div>
+
         <textarea
-          className=" textarea"
+          className=" textarea mb-1"
           onChange={handleReviewChange}
           placeholder="Add review text here..."
         ></textarea>
         <input
           onChange={handleRatingChange}
-          className="input"
+          className="input mb-1"
           list="stars"
           name="stars"
           placeholder="How many stars?"

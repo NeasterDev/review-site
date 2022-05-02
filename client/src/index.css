@@ -1,7 +1,47 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
 
 * {
+  --main-color: rgb(47,198,47);
+  --main-color-5: rgba(47,198,47,.5);
   margin: 0;
+}
+
+.main-bg-color {
+  background-color: var(--main-color);
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.write-position {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.write-bg {
+  background-color: var(--main-color);
+  padding: 1%;
+  border-radius: 6%;
+}
+
+.signup-bg {
+  background-color: var(--main-color);
+  padding: 1%;
+  border-radius: 6%;
 }
 
 .rev-max-description {
@@ -9,6 +49,40 @@
   overflow:hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.o-5 {
+  opacity: 70%;
+}
+
+.o-5:hover {
+  opacity: 100%;
+}
+
+.o-1 {
+  opacity: 10%;
+}
+
+.o-10 {
+  opacity: 100%;
+}
+
+.section {
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.min-height-100 {
+  min-height: 100vh;
+}
+
+.mt-5r {
+  margin-top: 5.5rem;
 }
 
 /* iPhone SE */
@@ -34,11 +108,15 @@
 
 }
 
-/* iPad */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+  .mobile-p {
+      padding: 4%;
+  }
 
+  .mobile-title {
+    font-size: 1.5rem;
+  }
 }
-
 /* Desktop */
 @media screen and (min-width: 1024px) {
 

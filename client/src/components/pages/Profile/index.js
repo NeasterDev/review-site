@@ -1,51 +1,28 @@
-import React from "react";
-import "./style.css";
-import Write from "../../Write/index";
-import { QUERY_GET_ME} from "../../../utils/query";
-import { ADD_REVIEW} from '../../../utils/mutations';
-import Auth from "../../../utils/auth";
-import { useState } from "react";
-import { useQuery } from "@apollo/client";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import {QUERY_GET_ME} from '../../../utils/query';
+import { Review } from '../../Review';
 
-export default function Profile({location, rating, reviewText}) { 
-    // const [textreview, setText] = useState('');
-    
-    // const [addReview, { error }] = useQuery(QUERY_GET_ME, {
-    //   update(cache, { data: { addReview} }) {
-    //     try {
-    //       const { review } = cache.readQuery({ query: QUERY_GET_ME});
-    //       cache.writeQuery({
-    //         query: QUERY_GET_ME,
-    //         data: { thoughts: [addReview, ...review] },
-    //       });
-    //     } catch (e) {
-    //       console.error(e);
-    //     }
-    //   }
-    // });
+export const Profile = () => {
 
-    return (
-      <div className="profile">
-          <h1>Profile</h1>
-          <div className="column">
-            <div className="column is-three-fifths is-one-fifth-desktop">
-              <p>[image goes here]</p>
-            </div>
-            <div className="column is-full is-three-fifths-desktop">
-              <h2>Bio</h2>
-            </div>
-          </div>
-          <div className="column">
-            <div className="column is-two-fifths is-three-fifths-desktop">
-              <h2>Reviews</h2>
-            </div>
-            <div className="column is-two-fifths is-three-fifths-desktop">
-              <h2>Edit</h2>
-            </div>
-          </div>
-          <Write></Write>
-      </div>
-    );
-  }
+  const { loading, error, data} = useQuery(QUERY_GET_ME)
 
+  if (loading) return 'Loading...'
+  if (error) return `Error... ${error}`;
+
+  console.log(data);
+
+  return (
+    <div className='container mt-5r mb-4'>
+      <div className='title has-text-centered-mobile'>Your Reviews</div>
+      {data.me.savedReviews.map(review => {
+        if (review) {
+          return (
+            <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating}/>
+          )
+        }
+      })}
+    </div>
+  )
+}
   
