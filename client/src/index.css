@@ -51,11 +51,11 @@ a {
   white-space: nowrap;
 }
 
-.o-5 {
+.opacity-70 {
   opacity: 70%;
 }
 
-.o-5:hover {
+.opacity-70:hover {
   opacity: 100%;
 }
 
