@@ -14,7 +14,7 @@ export const Profile = () => {
 
   return (
     <div className='container mt-5r'>
-      <div className='title'>Your Reviews</div>
+      <div className='title has-text-centered-mobile'>Your Reviews</div>
       {data.me.savedReviews.map(review => {
         if (review) {
           return (
