@@ -52,11 +52,11 @@ a {
 }
 
 .opacity-70 {
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .opacity-70:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .o-1 {
