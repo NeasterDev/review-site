@@ -30,7 +30,7 @@ function ReviewContainer() {
           <NavTabs location={searchLocation} handleLocation={handleLocation}></NavTabs>
           <main className=' min-height-100'>
             <Write></Write>
-            <Route path="/" render={() => <Home location={searchLocation}/>} />
+            <Route exact path="/" render={() => <Home location={searchLocation}/>} />
             <Login></Login>
             <Signup></Signup>
             <Route exact path="/profile" component={Profile} />
