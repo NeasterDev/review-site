@@ -35,13 +35,16 @@ const resolvers = {
       userData.forEach(user => {
         user.savedReviews.map(review => {
           //console.log(review);
-          reviews.push(review);
           if (location) {
             if (review.location.toLowerCase() === location.toLowerCase()) {
+              reviews.push(review);
               return review;
             }
+          } else {
+            reviews.push(review);
+            return review;
           }
-          return review;
+
         })
       })
       //console.log(reviews);

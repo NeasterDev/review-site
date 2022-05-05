@@ -27,7 +27,7 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        reviews: [Review]
+        reviews(location: String): [Review]
     }
 
     type Mutation {
