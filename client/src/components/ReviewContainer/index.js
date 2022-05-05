@@ -1,5 +1,5 @@
 // react
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // component root
@@ -17,13 +17,19 @@ import './style.css';
 import Write from '../Write';
 
 function ReviewContainer() {
+  const [searchLocation, setSearchLocation] = useState('');
+
+  const handleLocation = () => {
+    const searchFormEl = document.querySelector('.searchInput');
+    setSearchLocation(searchFormEl.value);
+  }
   return (
       <Router>
         <div>
-          <NavTabs></NavTabs>
+          <NavTabs location={searchLocation} handleLocation={handleLocation}></NavTabs>
           <main className=' min-height-100'>
             <Write></Write>
-            <Route exact path="/" component={Home} />
+            <Route path="/" render={() => <Home location={searchLocation}/>} />
             <Login></Login>
             <Signup></Signup>
             <Route exact path="/profile" component={Profile} />

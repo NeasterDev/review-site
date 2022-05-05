@@ -1,37 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import './style.css'
+import React, { useEffect, useState } from "react";
+import "./style.css";
 // componenets
-import { Review } from '../../Review';
-import { Hero } from '../../Hero';
-import AutoComplete from '../../Autocomplete';
+import { Review } from "../../Review";
+import { Hero } from "../../Hero";
+import AutoComplete from "../../Autocomplete";
 
-import { GET_REVIEWS } from '../../../utils/query';
-import { useQuery } from '@apollo/client';
+import { GET_REVIEWS } from "../../../utils/query";
+import { useQuery } from "@apollo/client";
 
-
-const Home = () => {
-
+const Home = (props) => {
   const [userData, setUserData] = useState([]);
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
-  if (loading) return 'Loading...';
+  if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
   console.log(data);
+  console.log({props});
+
+  const render = (data, location = "") => {
+    if (!location) {
+      return (
+        <>
+          {data.reviews.map((review) => {
+            console.log(review);
+            return (
+              <Review
+                key={review._id}
+                location={review.location}
+                reviewText={review.reviewText}
+                username={review.username}
+                rating={review.rating}
+              />
+            );
+          })}
+        </>
+      )    
+    } else {
+      return (
+        <>
+          {data.reviews.map((review) => {
+            console.log(review);
+            if (review.location.toLowerCase() === location.toLocaleLowerCase()) {
+              return (
+                <Review
+                  key={review._id}
+                  location={review.location}
+                  reviewText={review.reviewText}
+                  username={review.username}
+                  rating={review.rating}
+                />
+              );
+            }
+          })}
+        </>
+      )  
+    }
+  };
 
   return (
     <div className="homepage mb-8">
       <Hero></Hero>
-      <div className='container mt-2'>
-        {data.reviews.map(review => {
-          console.log(review);
-          return (
-            <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating} />
-          )
-        })}
+      <div className="container mt-2">
+        {render(data, props.location)}
       </div>
     </div>
   );
-}
+};
 
 export default Home;

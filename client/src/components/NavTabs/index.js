@@ -71,7 +71,7 @@ const nationalParks = [
   "Zion National Park",
 ];
 
-function NavTabs() {
+function NavTabs({location, handleLocation}) {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -128,7 +128,7 @@ function NavTabs() {
             <span aria-hidden="true"></span>
           </a>
           <div className="navbar-item">
-            <form onSubmit={console.log('submit clicked')}>
+            <form onSubmit={handleLocation} id="search-form">
               <div className=" is-flex-desktop is-flex-tablet">
                 <AutoComplete  />
                 <button className="button is-hidden-mobile" type="submit">
