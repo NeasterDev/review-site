@@ -27,7 +27,7 @@ const resolvers = {
       return users;
     },
 
-    reviews: async (parent, args) => {
+    reviews: async (parent, {location}) => {
       const users = await User.find({}).select('savedReviews');
       const userData = users.map(savedReviews => savedReviews);
       //console.log(userData);
@@ -35,36 +35,18 @@ const resolvers = {
       userData.forEach(user => {
         reviews = user.savedReviews.map(review => {
           console.log(review);
+          if (location) {
+            if (review.location.toLowerCase() === location.toLowerCase()) {
+              return review;
+            }
+          }
           return review;
         })
       })
-
 
       return reviews;
     },
 
-    getReviews: async (parent, { location }) => {
-      const users = await User.find({});
-      const savedReviews = users.map(user => user.savedReviews);
-      const checkedReviews = savedReviews.map(reviewArray => {
-        const locationCheckedReviews = reviewArray.map(review => {
-          //console.log(review);
-          if (review && review.location.toLowerCase() === location.toLowerCase()) {
-            return review;
-          }
-        })
-        //console.log(locationCheckedReviews);
-        return locationCheckedReviews;
-      })
-      
-      const verifiedReviews = checkedReviews.map(review => {
-        if (review !== undefined) {
-          return review;
-        }
-      })
-      console.log(verifiedReviews);
-      return verifiedReviews;
-    },
   },
 
   // perform POST, PUT, DELETE request on GraphQL API
