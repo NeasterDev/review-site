@@ -44,7 +44,7 @@ const resolvers = {
           return review;
         })
       })
-      console.log(reviews);
+      //console.log(reviews);
       return reviews;
     },
 
