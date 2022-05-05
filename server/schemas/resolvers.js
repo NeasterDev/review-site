@@ -31,10 +31,11 @@ const resolvers = {
       const users = await User.find({}).select('savedReviews');
       const userData = users.map(savedReviews => savedReviews);
       //console.log(userData);
-      let reviews;
+      let reviews = [];
       userData.forEach(user => {
-        reviews = user.savedReviews.map(review => {
-          console.log(review);
+        user.savedReviews.map(review => {
+          //console.log(review);
+          reviews.push(review);
           if (location) {
             if (review.location.toLowerCase() === location.toLowerCase()) {
               return review;
@@ -43,7 +44,7 @@ const resolvers = {
           return review;
         })
       })
-
+      console.log(reviews);
       return reviews;
     },
 

@@ -23,9 +23,9 @@ db.once('open', async () => {
       const reviewText = faker.random.words();
       const rating = Math.floor(Math.random()*5);
       //const _id = faker.datatype.uuid();
-      const date = initDate.toLocaleString('en-US', options);
+      const createdAt = initDate.toLocaleString('en-US', options);
   
-      userData.push({ username, email, password, _id, savedReviews: {location, reviewText, rating, username, _id,date} });
+      userData.push({ username, email, password, _id, savedReviews: {location, reviewText, rating, username, _id,createdAt} });
 
     }
   
