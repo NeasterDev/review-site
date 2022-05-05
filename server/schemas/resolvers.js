@@ -48,6 +48,8 @@ const resolvers = {
         })
       })
       //console.log(reviews);
+      reviews.sort((a, b) => b.createdAt - a.createdAt);
+      console.log(reviews);
       return reviews;
     },
 

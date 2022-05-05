@@ -10,8 +10,8 @@ db.once('open', async () => {
     // create user data
     const userData = [];
     let _idNum = '626a013f56608fa165'
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-    const initDate = new Date();
+    // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    // const initDate = new Date();
 
     for (let i = 0; i < 50; i += 1) {
 
@@ -23,7 +23,7 @@ db.once('open', async () => {
       const reviewText = faker.random.words();
       const rating = Math.floor(Math.random()*5);
       //const _id = faker.datatype.uuid();
-      const createdAt = initDate.toLocaleString('en-US', options);
+      const createdAt = new Date();
   
       userData.push({ username, email, password, _id, savedReviews: {location, reviewText, rating, username, _id,createdAt} });
 

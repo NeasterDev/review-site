@@ -17,18 +17,17 @@ const Home = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+  console.log(data);
+
   return (
     <div className="homepage mb-8">
       <Hero></Hero>
       <div className='container mt-2'>
-        {data.users.map(user => {
-          if (user.savedReviews.length) {
-            return user.savedReviews.map(review => {
-              return (
-                <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating} />
-              )
-            });
-          }
+        {data.reviews.map(review => {
+          console.log(review);
+          return (
+            <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating} />
+          )
         })}
       </div>
     </div>
