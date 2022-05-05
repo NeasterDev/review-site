@@ -19,7 +19,8 @@ import Write from '../Write';
 function ReviewContainer() {
   const [searchLocation, setSearchLocation] = useState('');
 
-  const handleLocation = () => {
+  const handleLocation = (e) => {
+    e.preventDefault();
     const searchFormEl = document.querySelector('.searchInput');
     setSearchLocation(searchFormEl.value);
   }
