@@ -33,7 +33,7 @@ function ReviewContainer() {
             <Route exact path="/" render={() => <Home location={searchLocation}/>} />
             <Login></Login>
             <Signup></Signup>
-            <Route exact path="/profile" component={Profile} />
+            <Route path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
           </main>
           <Footer></Footer>
