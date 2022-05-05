@@ -11,14 +11,12 @@ import { useQuery } from '@apollo/client';
 
 const Home = () => {
 
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-
-  console.log(userData);
   return (
     <div className="homepage mb-8">
       <Hero></Hero>

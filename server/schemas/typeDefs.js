@@ -16,6 +16,7 @@ const typeDefs = gql`
         rating: Int
         location: String
         username: String
+        createdAt: String
     }
 
     type Auth {
@@ -27,6 +28,7 @@ const typeDefs = gql`
         me: User
         users: [User]
         getReviews(location: String!): [Review]
+        reviews: [Review]
     }
 
     type Mutation {

@@ -27,6 +27,22 @@ const resolvers = {
       return users;
     },
 
+    reviews: async (parent, args) => {
+      const users = await User.find({}).select('savedReviews');
+      const userData = users.map(savedReviews => savedReviews);
+      //console.log(userData);
+      let reviews;
+      userData.forEach(user => {
+        reviews = user.savedReviews.map(review => {
+          console.log(review);
+          return review;
+        })
+      })
+
+
+      return reviews;
+    },
+
     getReviews: async (parent, { location }) => {
       const users = await User.find({});
       const savedReviews = users.map(user => user.savedReviews);
