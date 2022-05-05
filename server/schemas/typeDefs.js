@@ -16,6 +16,7 @@ const typeDefs = gql`
         rating: Int
         location: String
         username: String
+        createdAt: String
     }
 
     type Auth {

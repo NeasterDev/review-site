@@ -1,4 +1,6 @@
 const { Schema, Types } = require('mongoose');
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+const date = new Date();
 
 const reviewSchema = new Schema({
     reviewText: {
@@ -17,6 +19,10 @@ const reviewSchema = new Schema({
     username: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: String,
+        default: date.toLocaleString('en-US', options)
     }
 });
 
