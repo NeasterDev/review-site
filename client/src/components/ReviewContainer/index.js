@@ -13,7 +13,6 @@ import Signup from '../pages/Signup/index';
 import {Profile} from '../pages/Profile';
 
 // style sheet
-import './style.css';
 import Write from '../Write';
 
 function ReviewContainer() {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./style.css";
 import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
 import { ADD_REVIEW } from "../../utils/mutations";

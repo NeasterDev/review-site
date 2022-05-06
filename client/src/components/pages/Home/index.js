@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
 // componenets
 import { Review } from "../../Review";
 import { Hero } from "../../Hero";
@@ -59,7 +58,7 @@ const Home = (props) => {
   };
 
   return (
-    <div className="homepage mb-8">
+    <div className="mb-8">
       <Hero></Hero>
       <div className="container mt-2">
         {render(data, props.location)}
