@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // componenets
 import { Review } from "../../Review";
 import { Hero } from "../../Hero";
-import AutoComplete from "../../Autocomplete";
 
 import { GET_REVIEWS } from "../../../utils/query";
 import { useQuery } from "@apollo/client";
 
 const Home = (props) => {
-  const [userData, setUserData] = useState([]);
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
   if (loading) return "Loading...";
@@ -51,6 +49,7 @@ const Home = (props) => {
                 />
               );
             }
+            return null;
           })}
         </>
       )  

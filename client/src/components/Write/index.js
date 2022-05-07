@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
 import { ADD_REVIEW } from "../../utils/mutations";
-import { QUERY_REVIEWS, QUERY_GET_ME } from "../../utils/query";
 
 // review form
 export default function Write() {
-  const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW);
+  const [addReview, { loading, error }] = useMutation(ADD_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");

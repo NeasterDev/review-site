@@ -19,6 +19,7 @@ export const Hero = () => {
           className=""
           src={image}
           srcSet={`${w_200} 200w, ${w_471} 471w, ${w_663} 663w, ${w_835} 835w, ${w_953} 935w,, ${w_1055} 1055w, ${w_1169} 1169w, ${w_1279} 1279w,  ${w_1368} 1368w, ${w_1400} 1400w`}
+          alt="Nature"
         />
       </div>
     </section>

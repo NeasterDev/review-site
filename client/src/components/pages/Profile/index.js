@@ -21,6 +21,7 @@ export const Profile = () => {
             <Review key={review._id} location={review.location} reviewText={review.reviewText} username={review.username} rating={review.rating}/>
           )
         }
+        return null;
       })}
     </div>
   )
