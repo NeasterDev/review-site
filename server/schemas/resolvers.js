@@ -171,7 +171,7 @@ const resolvers = {
         } else {
           set = { $set: { "savedReviews.$.location": args.location }} 
         }
-      }
+      } 
 
       if (context.user) {
         const user = await User.findOneAndUpdate(

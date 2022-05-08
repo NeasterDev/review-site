@@ -68,6 +68,18 @@ mutation addReview($reviewText: String!, $rating: Int!, $location: String!) {
 }
 `;
 
+export const EDIT_REVIEW = gql`
+  mutation editReview($id: ID!, $rating: Int, $location: String) {
+    editReview(_id: $id,  rating: $rating, location: $location) {
+      _id
+      reviewText
+      rating
+      location
+      username
+    }
+  }
+`;
+
 export const DELETE_REVIEW = gql`
   mutation deleteReview($email: String!, $password: String!) {
     deleteReview(username: $username, email: $email) {
