@@ -134,19 +134,55 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    editReviewText: async (parent, {_id, reviewText}, context) => {
+    // edit reviews
+    editReview: async (parent, args, context) => {
+      let set;
+      if (args.reviewText) { 
+        if (args.rating) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.reviewText": args.reviewText }} 
+        }
+      }
+
+      if (args.rating) { 
+        if (args.reviewText) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.rating": args.rating }} 
+        }
+      }
+
+      if (args.location) { 
+        if (args.reviewText) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.location": args.location }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.location": args.location }} 
+        }
+      }
+
       if (context.user) {
         const user = await User.findOneAndUpdate(
-          {"_id": context.user._id, "savedReviews._id": _id},
+          {"_id": context.user._id, "savedReviews._id": args._id},
           // use $ positional operator to reference queried index
-          { $set: { 
-            "savedReviews.$.reviewText": reviewText
-          }},
+          set,
           {  new: true, runValidators: true, omitUndefined: true},
         ).select('savedReviews')
 
         console.log(user);
-        return user.savedReviews.id(_id);
+        return user.savedReviews.id(args._id);
       }
     },
 

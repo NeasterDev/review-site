@@ -37,7 +37,7 @@ const typeDefs = gql`
         removeUser(_id: ID!): Auth
         addReview(reviewText: String!, rating: Int!, location: String!): User
         deleteReview(_id: ID!): User
-        editReviewText(_id: ID!, reviewText: String!): Review
+        editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
 
     }
 `;
