@@ -134,6 +134,22 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    editReviewText: async (parent, {_id, reviewText}, context) => {
+      if (context.user) {
+        const user = await User.findOneAndUpdate(
+          {"_id": context.user._id, "savedReviews._id": _id},
+          // use $ positional operator to reference queried index
+          { $set: { 
+            "savedReviews.$.reviewText": reviewText
+          }},
+          {  new: true, runValidators: true, omitUndefined: true},
+        ).select('savedReviews')
+
+        console.log(user);
+        return user.savedReviews.id(_id);
+      }
+    },
+
     // delete Review if user is logged in
     deleteReview: async (parent, args, context) => {
       if (context.user) {

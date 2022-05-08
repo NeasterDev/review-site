@@ -8,17 +8,17 @@ const reviewSchema = new Schema({
     },
     rating: {
         type: Number,
-        required: true,
+
         min: 0,
         max: 5
     },
     location: {
         type: String,
-        required: true
+
     },
     username: {
         type: String,
-        required: true
+
     },
     createdAt: {
         type: Date,

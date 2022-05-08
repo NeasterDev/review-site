@@ -79,7 +79,7 @@ const Login = (props) => {
               onChange={handleChange}
             />
           </div>
-          <button className="button is-success has-text-black" type="submit">
+          <button className="button b-hov has-text-black" type="submit">
             Submit
           </button>
         </form>
