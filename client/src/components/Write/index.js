@@ -56,20 +56,13 @@ export default function Write() {
           onChange={handleReviewChange}
           placeholder="Add review text here..."
         ></textarea>
-        <input
-          onChange={handleRatingChange}
-          className="input mb-1"
-          list="stars"
-          name="stars"
-          placeholder="How many stars?"
-        />
-        <datalist id="stars">
-          <option value="1" />
-          <option value="2" />
-          <option value="3" />
-          <option value="4" />
-          <option value="5" />
-        </datalist>
+        <select id="stars" onChange={handleRatingChange}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
         <button type="submit" className="button">
           Submit
         </button>

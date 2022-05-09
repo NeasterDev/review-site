@@ -88,8 +88,42 @@ a {
   margin-top: 5rem;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .b-hov:hover {
   background-color: lightgray;
+}
+
+/*dropdown menu*/
+.d {
+  display: inline-block;
+  position: relative;
+}
+
+.d-items {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  background-color: var(--main-color-5);
+}
+
+.d-items a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.d-items a:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+}
+
+.d:hover .d-items {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
