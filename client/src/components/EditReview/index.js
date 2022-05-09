@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { EDIT_REVIEW } from "../../utils/mutations";
 
 // review form
-export const EditReview = ({reviewId}) =>  {
+export const EditReview = ({ reviewId }) => {
   const [editReview, { loading, error }] = useMutation(EDIT_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
@@ -29,50 +29,45 @@ export const EditReview = ({reviewId}) =>  {
   };
 
   const handleEditReviewClose = (e) => {
-    const editReviewEL = document.querySelector('.edit-container');
-    editReviewEL.classList.toggle('is-hidden');
-  }
+    const editReviewEL = document.querySelector(".edit-container");
+    editReviewEL.classList.toggle("is-hidden");
+  };
 
   const handleEditReviewSubmit = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     console.log(reviewId);
     console.log(reviewText);
     console.log(rating);
     console.log(location);
     editReview({ variables: { id: reviewId, reviewText, rating, location } });
-  }
+    //handleEditReviewClose();
+  };
 
   return (
     <div className="write-position is-hidden write-bg edit-container mobile-p">
-      <div className='is-flex is-justify-content-space-between'>
+      <div className="is-flex is-justify-content-space-between">
         <h1 className="title mobile-title">Edit Review</h1>
-        <button className='delete' onClick={handleEditReviewClose}></button>
+        <button className="delete" onClick={handleEditReviewClose}></button>
       </div>
 
-      <form
-        className="is-flex is-flex-direction-column"
-        onSubmit={handleEditReviewSubmit}
-      >
-        <div className='mb-1'>
-          <AutoComplete change={handleLocationChange} />
-        </div>
+      <div className="mb-1">
+        <AutoComplete change={handleLocationChange} />
+      </div>
 
-        <textarea
-          className=" textarea mb-1"
-          onChange={handleReviewChange}
-          placeholder="Add review text here..."
-        ></textarea>
-        <select onChange={handleRatingChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <button type="submit" className="button">
-          Submit
-        </button>
-      </form>
+      <textarea
+        className=" textarea mb-1"
+        onChange={handleReviewChange}
+        placeholder="Add review text here..."
+      ></textarea>
+      <select onChange={handleRatingChange}>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="button" onClick={handleEditReviewSubmit} value="Submit" />
+
     </div>
   );
-}
+};

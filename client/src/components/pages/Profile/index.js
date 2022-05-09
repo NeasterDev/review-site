@@ -16,10 +16,11 @@ export const Profile = () => {
 
   const handleEditReview = (e) => {
     const editReviewEl = document.querySelector('.edit-container');
+    // get the relative review id
     const editId = e.target.parentElement.parentElement.getAttribute('edit-id');
     console.log(editId);
     editReviewEl.classList.toggle('is-hidden');
-
+    
     return setReviewId(editId);
   }
 
