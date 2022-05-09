@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
-import { ADD_REVIEW } from "../../utils/mutations";
+import { EDIT_REVIEW } from "../../utils/mutations";
 
 // review form
-export const EditReview = () =>  {
-  const [addReview, { loading, error }] = useMutation(ADD_REVIEW);
+export const EditReview = ({reviewId}) =>  {
+  const [editReview, { loading, error }] = useMutation(EDIT_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
@@ -28,24 +28,30 @@ export const EditReview = () =>  {
     setRating(parseInt(e.target.value));
   };
 
-  const handleEditReview = (e) => {
+  const handleEditReviewClose = (e) => {
     const editReviewEL = document.querySelector('.edit-container');
     editReviewEL.classList.toggle('is-hidden');
+  }
+
+  const handleEditReviewSubmit = (e) => {
+    e.preventDefault();
+    console.log(reviewId);
+    console.log(reviewText);
+    console.log(rating);
+    console.log(location);
+    editReview({ variables: { id: reviewId, reviewText, rating, location } });
   }
 
   return (
     <div className="write-position is-hidden write-bg edit-container mobile-p">
       <div className='is-flex is-justify-content-space-between'>
         <h1 className="title mobile-title">Edit Review</h1>
-        <button className='delete' onClick={handleEditReview}></button>
+        <button className='delete' onClick={handleEditReviewClose}></button>
       </div>
 
       <form
         className="is-flex is-flex-direction-column"
-        onSubmit={(e) => {
-          e.preventDefault();
-          addReview({ variables: { reviewText, rating, location } });
-        }}
+        onSubmit={handleEditReviewSubmit}
       >
         <div className='mb-1'>
           <AutoComplete change={handleLocationChange} />

@@ -69,8 +69,8 @@ mutation addReview($reviewText: String!, $rating: Int!, $location: String!) {
 `;
 
 export const EDIT_REVIEW = gql`
-  mutation editReview($id: ID!, $rating: Int, $location: String) {
-    editReview(_id: $id,  rating: $rating, location: $location) {
+  mutation editReview($id: ID!, $rating: Int, $reviewText: String, $location: String) {
+    editReview(_id: $id,  rating: $rating, reviewText: $reviewText, location: $location) {
       _id
       reviewText
       rating
