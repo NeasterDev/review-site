@@ -12,6 +12,7 @@ function NavTabs({location, handleLocation}) {
   };
 
   const handleBurgerClick = (e) => {
+    e.preventDefault();
     const burger = document.querySelector(".navbar-menu");
     burger.classList.toggle("is-active");
   };
