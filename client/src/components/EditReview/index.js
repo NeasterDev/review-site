@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
-import { ADD_REVIEW } from "../../utils/mutations";
+import { ADD_REVIEW, EDIT_REVIEW } from "../../utils/mutations";
 
 // review form
 export const EditReview = () =>  {
-  const [addReview, { loading, error }] = useMutation(ADD_REVIEW);
+  const [addReview, { loading, error }] = useMutation(EDIT_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
