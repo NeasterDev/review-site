@@ -55,12 +55,12 @@ export const EditReview = ({ reviewId, ratingVal, locationVal, reviewTextVal }) 
       <div className="mb-1">
         <AutoComplete change={handleLocationChange} val={locationVal}/>
       </div>
-
+      
       <textarea
         className=" textarea mb-1"
         onChange={handleReviewChange}
         placeholder="Add review text here..."
-        value={reviewTextVal}
+        defaultValue={reviewTextVal}
       ></textarea>
       <select className="select mb-1" onChange={handleRatingChange}>
         <option value={ratingVal}>{ratingVal}</option>
