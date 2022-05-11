@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { EDIT_REVIEW } from "../../utils/mutations";
 
 // review form
-export const EditReview = ({ reviewId }) => {
+export const EditReview = ({ reviewId, ratingVal, locationVal, reviewTextVal }) => {
   const [editReview, { loading, error, reset }] = useMutation(EDIT_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
@@ -35,14 +35,10 @@ export const EditReview = ({ reviewId }) => {
 
   const handleEditReviewSubmit = (e) => {
     e.preventDefault();
-    console.log(reviewId);
-    console.log(reviewText);
-    console.log(rating);
-    console.log(location);
     editReview({ variables: { id: reviewId, reviewText, rating, location } });
     // used so that the editreview element is not removed after submission
     reset();
-    //handleEditReviewClose();
+    handleEditReviewClose();
   };
 
   return (
@@ -57,15 +53,17 @@ export const EditReview = ({ reviewId }) => {
         onSubmit={handleEditReviewSubmit} 
       >
       <div className="mb-1">
-        <AutoComplete change={handleLocationChange} />
+        <AutoComplete change={handleLocationChange} val={locationVal}/>
       </div>
 
       <textarea
         className=" textarea mb-1"
         onChange={handleReviewChange}
         placeholder="Add review text here..."
+        value={reviewTextVal}
       ></textarea>
-      <select onChange={handleRatingChange}>
+      <select className="select mb-1" onChange={handleRatingChange}>
+        <option value={ratingVal}>{ratingVal}</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

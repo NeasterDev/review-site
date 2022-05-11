@@ -2,8 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { Hint } from "react-autocomplete-hint";
 
-const AutoComplete = ({ change }) => {
+const AutoComplete = ({ change, val }) => {
+
   const [text, setText] = useState("");
+  const handleValue = () => {
+    if (val) {
+      return val;
+    } else {
+      return text;
+    }
+  }
   const nationalParks = [
     "Acadia National Park",
     "Arches National Park",
@@ -71,7 +79,7 @@ const AutoComplete = ({ change }) => {
   ];
   return (
       <Hint options={nationalParks}>
-        <input className="input searchInput" placeholder="i.e. Yellowstone..." value={text} 
+        <input className="input searchInput" placeholder="i.e. Yellowstone..." value={handleValue()} 
         onChange={(e) => {setText(e.target.value); 
           if (change) {
             change(e)}

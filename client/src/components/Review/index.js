@@ -12,7 +12,7 @@ export const Review = ({editId, location, rating, reviewText, username, handleEd
   }
 
   return (
-    <div className="box" id="edit-tag" data-location={location} edit-id={editId}>
+    <div className="box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}>
       <div className=" is-size-6 is-italic has-text-weight-medium">
         {location}
       </div>

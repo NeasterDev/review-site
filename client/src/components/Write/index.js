@@ -58,7 +58,7 @@ export default function Write() {
           onChange={handleReviewChange}
           placeholder="Add review text here..."
         ></textarea>
-        <select id="stars" onChange={handleRatingChange}>
+        <select className="select" id="stars" onChange={handleRatingChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
