@@ -5,7 +5,7 @@ import { EDIT_REVIEW } from "../../utils/mutations";
 
 // review form
 export const EditReview = ({ reviewId }) => {
-  const [editReview, { loading, error }] = useMutation(EDIT_REVIEW);
+  const [editReview, { loading, error, reset }] = useMutation(EDIT_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
@@ -34,12 +34,13 @@ export const EditReview = ({ reviewId }) => {
   };
 
   const handleEditReviewSubmit = (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     console.log(reviewId);
     console.log(reviewText);
     console.log(rating);
     console.log(location);
     editReview({ variables: { id: reviewId, reviewText, rating, location } });
+    reset();
     //handleEditReviewClose();
   };
 
@@ -66,7 +67,7 @@ export const EditReview = ({ reviewId }) => {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <input type="button" onClick={handleEditReviewSubmit} value="Submit" />
+      <input className="button" type="button" onClick={handleEditReviewSubmit} value="Submit" />
 
     </div>
   );

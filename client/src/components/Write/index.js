@@ -5,7 +5,7 @@ import { ADD_REVIEW } from "../../utils/mutations";
 
 // review form
 export default function Write() {
-  const [addReview, { loading, error }] = useMutation(ADD_REVIEW);
+  const [addReview, { loading, error, reset }] = useMutation(ADD_REVIEW);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
@@ -43,8 +43,10 @@ export default function Write() {
       <form
         className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
-          e.preventDefault();
+          //e.preventDefault();
           addReview({ variables: { reviewText, rating, location } });
+          // use reset so it doesnt remove the whole addreview element
+          reset();
         }}
       >
         <div className='mb-1'>
