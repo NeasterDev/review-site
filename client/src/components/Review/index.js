@@ -9,14 +9,16 @@ export const Review = ({ editId, location, rating, reviewText, username, handleE
     stars += "★";
   }
 
-  const handleReviewClick = () => {
-    const reviewDescriptionEl = document.querySelector('.descr');
-    reviewDescriptionEl.classList.toggle('rev-max-description');
+  const handleReviewClick = (e) => {
+    const reviewBox = e.target.closest('.review-box');
+    console.log(reviewBox.children);
+    const descr = reviewBox.querySelector('.descr');
+    descr.classList.toggle('rev-max-description');
   }
 
   return (
     <div className="box review-box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}
-         onClick={handleReviewClick}
+      onClick={handleReviewClick}
     >
       <div className=" is-size-6 is-italic has-text-weight-medium">
         {location}
