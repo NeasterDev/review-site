@@ -40,6 +40,7 @@ export const EditReview = ({ reviewId }) => {
     console.log(rating);
     console.log(location);
     editReview({ variables: { id: reviewId, reviewText, rating, location } });
+    // used so that the editreview element is not removed after submission
     reset();
     //handleEditReviewClose();
   };
@@ -51,6 +52,10 @@ export const EditReview = ({ reviewId }) => {
         <button className="delete" onClick={handleEditReviewClose}></button>
       </div>
 
+      <form
+        className="is-flex is-flex-direction-column"
+        onSubmit={handleEditReviewSubmit} 
+      >
       <div className="mb-1">
         <AutoComplete change={handleLocationChange} />
       </div>
@@ -67,7 +72,10 @@ export const EditReview = ({ reviewId }) => {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <input className="button" type="button" onClick={handleEditReviewSubmit} value="Submit" />
+      <button type="submit" className="button">
+          Submit
+      </button>
+    </form>
 
     </div>
   );
