@@ -79,8 +79,9 @@ const AutoComplete = ({ change, val }) => {
   ];
   return (
       <Hint options={nationalParks}>
-        <input className="input searchInput" placeholder="i.e. Yellowstone..." value={handleValue()} 
-        onChange={(e) => {setText(e.target.value); 
+        <input className="input searchInput" placeholder="i.e. Yellowstone..." defaultValue={handleValue()} 
+        onChange={(e) => {
+          setText(e.target.value); 
           if (change) {
             change(e)}
           }
