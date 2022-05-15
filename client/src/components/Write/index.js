@@ -10,6 +10,8 @@ export default function Write() {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
+  
+
 
   if (loading) return "Review Submitted";
   if (error) return `Submission error! ${error.message}`;
@@ -40,13 +42,15 @@ export default function Write() {
     const imageInput = document.querySelector('#image-input');
 
     const files = imageInput.files;
-    console.log(files);
+    //console.log(files);
 
     const uploadUrlArray = await fetch(`/s3URL/${files.length}`).then(res => res.json());
-    console.log(uploadUrlArray.url);
+    //console.log(uploadUrlArray.url);
+
+    let imageUrls = [];
 
     for (let i = 0; i < uploadUrlArray.url.length; i++) {
-        console.log(url);
+        //console.log(url);
         const url = uploadUrlArray.url[i];
 
         await fetch(url, {
@@ -58,8 +62,12 @@ export default function Write() {
         });
 
         const imageUrl = url.split('?')[0];
-        console.log(imageUrl);
+        imageUrls.push(imageUrl);
+        //console.log(imageUrls);
+        // console.log('=================');
+        // console.log(imageUrl);
     }
+    return imageUrls;
 }
 
 
@@ -72,10 +80,11 @@ export default function Write() {
 
       <form
         className="is-flex is-flex-direction-column"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           //e.preventDefault();
-          handleImageUpload(e);
-          addReview({ variables: { reviewText, rating, location } });
+          const imageUrls = await handleImageUpload(e);
+          console.log(imageUrls);
+          addReview({ variables: { reviewText, rating, location, imageUrls } });
           // use reset so it doesnt remove the whole addreview element
           reset();
         }}
