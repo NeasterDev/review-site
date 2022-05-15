@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
 import { ADD_REVIEW } from "../../utils/mutations";
+import { ImageUpload } from '../ImageUpload';
 
 // review form
 export default function Write() {
@@ -31,7 +32,36 @@ export default function Write() {
   const handleAddReview = (e) => {
     const addReviewEl = document.querySelector('.write-container');
     addReviewEl.classList.toggle('is-hidden');
-  }
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    const imageInput = document.querySelector('#image-input');
+
+    const files = imageInput.files;
+    console.log(files);
+
+    const uploadUrlArray = await fetch(`/s3URL/${files.length}`).then(res => res.json());
+    console.log(uploadUrlArray.url);
+
+    for (let i = 0; i < uploadUrlArray.url.length; i++) {
+        console.log(url);
+        const url = uploadUrlArray.url[i];
+
+        await fetch(url, {
+            method: "PUT",
+            header: {
+                "Content-Type": "multipart-form-data"
+            },
+            body: files[i]
+        });
+
+        const imageUrl = url.split('?')[0];
+        console.log(imageUrl);
+    }
+}
+
 
   return (
     <div className="write-position is-hidden write-bg write-container mobile-p">
@@ -44,6 +74,7 @@ export default function Write() {
         className="is-flex is-flex-direction-column"
         onSubmit={(e) => {
           //e.preventDefault();
+          handleImageUpload(e);
           addReview({ variables: { reviewText, rating, location } });
           // use reset so it doesnt remove the whole addreview element
           reset();
@@ -65,10 +96,12 @@ export default function Write() {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        <ImageUpload></ImageUpload>
         <button type="submit" className="button">
           Submit
         </button>
       </form>
+      
     </div>
   );
 }

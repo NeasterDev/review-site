@@ -2,9 +2,6 @@ import React from 'react';
 
 export const ImageUpload = () => {
 
-    //const imageForm = document.querySelector('.image-form');
-    
-
     const handleImageUpload = async (e) => {
         e.preventDefault();
 
@@ -27,18 +24,13 @@ export const ImageUpload = () => {
                 },
                 body: files[i]
             });
-    
+
             const imageUrl = url.split('?')[0];
             console.log(imageUrl);
         }
-
-
     }
 
     return (
-        <form className='image-form' onSubmit={handleImageUpload}>
-            <input id="image-input" type="file" accepts="image/*" multiple></input>
-            <button type='submit'>Upload</button>
-        </form>
+        <input id="image-input" type="file" accepts="image/*" multiple></input>
     )
 }

@@ -11,7 +11,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login/index';
 import Signup from '../pages/Signup/index';
 import {Profile} from '../pages/Profile';
-import { ImageUpload } from '../ImageUpload';
+
 
 // style sheet
 import Write from '../Write';
@@ -35,7 +35,6 @@ function ReviewContainer() {
             <Signup></Signup>
             <Route path="/profile" component={Profile} />
             {/* <Route render={() => <h1>Wrong page!</h1>} /> */}
-            <ImageUpload></ImageUpload>
           </main>
           <Footer></Footer>
         </div>
