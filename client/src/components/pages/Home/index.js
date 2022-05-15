@@ -6,6 +6,7 @@ import { Hero } from "../../Hero";
 import { GET_REVIEWS } from "../../../utils/query";
 import { useQuery } from "@apollo/client";
 
+
 const Home = (props) => {
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
