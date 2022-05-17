@@ -58,6 +58,7 @@ export const GET_REVIEWS = gql`
       reviewText
       rating
       username
+      imageUrls
     }
   }
 `;

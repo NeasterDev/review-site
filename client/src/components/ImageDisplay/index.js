@@ -41,10 +41,17 @@ export const ImageDisplay = ({imageLinks}) => {
         setActiveSlideNumber(activeSlideNumber + 1)   
     }
 
+    const minusSlides = () => {
+        setActiveSlideNumber(activeSlideNumber - 1)   
+    }
+
     return (
         <div className='image-position'>
             <div className='title'>Images</div>
             <div className='is-flex'>
+            <div onClick={minusSlides}>
+                    <a>Previous Image</a>
+                </div>
                 {imageLinks.map(imageLink => {
                     key++;
                     return (
