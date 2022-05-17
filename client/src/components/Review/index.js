@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 
+
 export const Review = ({ editId, location, rating, reviewText, username, handleEditReview }) => {
   // const lorem =
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
@@ -15,6 +16,8 @@ export const Review = ({ editId, location, rating, reviewText, username, handleE
     const descr = reviewBox.querySelector('.descr');
     descr.classList.toggle('rev-max-description');
   }
+
+
 
   return (
     <div className="box review-box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}

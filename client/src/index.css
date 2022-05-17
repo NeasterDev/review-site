@@ -39,6 +39,10 @@ a {
   z-index: 100;
 }
 
+.image-position {
+ width: 300px;
+}
+
 .write-bg {
   background-color: var(--main-color);
   padding: 1%;
@@ -129,6 +133,10 @@ a {
 
 .d:hover .d-items {
   display: block;
+}
+
+.images {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
