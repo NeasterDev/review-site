@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from 'react-router-dom';
 
 
-export const Review = ({ editId, location, rating, reviewText, username, handleEditReview }) => {
+export const Review = ({ editId, location, rating, reviewText, username, imageUrls, handleEditReview }) => {
   // const lorem =
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
   let stars = "";
@@ -36,6 +36,9 @@ export const Review = ({ editId, location, rating, reviewText, username, handleE
           <button className="button" onClick={handleEditReview}>Edit</button>
         </div>
       </Route>
+      <div>
+        { imageUrls ? <button>Images</button> : null }
+      </div>
 
     </div>
   );

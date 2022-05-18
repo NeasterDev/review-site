@@ -14,6 +14,7 @@ const Home = (props) => {
     "https://nelp-images-bucket.s3.us-west-1.amazonaws.com/93138cc711b0481e26a8b3434bc1e6ec",
     "https://nelp-images-bucket.s3.us-west-1.amazonaws.com/635539f8d3d4a9a663d70e4a44d6d43b"
   ]);
+
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
   if (loading) return "Loading...";
@@ -80,3 +81,9 @@ const Home = (props) => {
 };
 
 export default Home;
+
+
+// Steps to complete image container
+// Add button to display images
+// When the button is clicked it gets the links for the images 
+// render the imagedisplay with the images from the links
