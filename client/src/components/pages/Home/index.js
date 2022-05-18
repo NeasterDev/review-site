@@ -39,7 +39,7 @@ const Home = (props) => {
                 reviewText={review.reviewText}
                 username={review.username}
                 rating={review.rating}
-
+                imageUrls={review.imageUrls}
               />
             );
           })}
@@ -58,6 +58,7 @@ const Home = (props) => {
                   reviewText={review.reviewText}
                   username={review.username}
                   rating={review.rating}
+                  imageUrls={review.imageUrls}
                 />
               );
             }

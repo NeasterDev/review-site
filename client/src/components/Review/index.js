@@ -37,7 +37,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         </div>
       </Route>
       <div>
-        { imageUrls ? <button>Images</button> : null }
+        { imageUrls.length ? <button>Images</button> : null }
       </div>
 
     </div>
