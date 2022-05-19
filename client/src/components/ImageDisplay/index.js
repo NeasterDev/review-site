@@ -47,19 +47,20 @@ export const ImageDisplay = ({imageLinks, setImageLinks}) => {
 
     return (
         <div className='image-position'>
-            <div className='title'>Images</div>
             <div className='is-flex'>
             <div onClick={minusSlides}>
-                    <a>Previous Image</a>
+                    <a className='is-size-1'>{'<'}</a>
                 </div>
-                {imageLinks.map(imageLink => {
-                    key++;
-                    return (
-                        <img className='images' key={key} src={imageLink} />
-                    )
-                })}
+                <div className='margin-half-rem'>
+                    {imageLinks.map(imageLink => {
+                        key++;
+                        return (
+                            <img className='images' key={key} src={imageLink} />
+                        )
+                    })}
+                </div>
                 <div onClick={plusSlides}>
-                    <a>Next Image</a>
+                <a className='is-size-1'>{'>'}</a>
                 </div>
             </div>
         </div>
