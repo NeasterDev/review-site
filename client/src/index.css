@@ -123,6 +123,10 @@ a {
   background-color: lightgray;
 }
 
+.cursor {
+  cursor: default;
+}
+
 /*dropdown menu*/
 .d {
   display: inline-block;
