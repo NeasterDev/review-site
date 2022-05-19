@@ -19,6 +19,8 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
 
 
   const renderImages = () => {
+    const imageContainer = document.querySelector('.image-position');
+    imageContainer.classList.toggle('is-hidden');
     setImageLinks(imageUrls);
   }
 

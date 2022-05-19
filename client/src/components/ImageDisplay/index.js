@@ -45,8 +45,14 @@ export const ImageDisplay = ({imageLinks, setImageLinks}) => {
         setActiveSlideNumber(activeSlideNumber - 1)   
     }
 
+    const handleExitButtonClick = () => {
+        const imageContainer = document.querySelector('.image-position');
+        imageContainer.classList.toggle('is-hidden');
+    }
+
     return (
-        <div className='image-position'>
+        <div className='image-position is-hidden'>
+            <button className='delete' onClick={handleExitButtonClick}></button>
             <div className='is-flex'>
             <div onClick={minusSlides}>
                     <a className='is-size-1'>{'<'}</a>
