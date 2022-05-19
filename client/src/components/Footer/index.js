@@ -12,6 +12,7 @@ export default function Footer() {
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/Evidal19">Elisa Vidal</a>
         </p>
       </div>
+      
     </footer>
   );
 }

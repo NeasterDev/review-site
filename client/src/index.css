@@ -127,6 +127,10 @@ a {
   cursor: default;
 }
 
+.icon-link {
+  bottom: 25px;
+}
+
 /*dropdown menu*/
 .d {
   display: inline-block;

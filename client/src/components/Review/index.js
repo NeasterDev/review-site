@@ -24,6 +24,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     setImageLinks(imageUrls);
   }
 
+  const imgSrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABvElEQVRoge2Zv0oDMRjAf5UK4igqiLg7uQg+gC6KgoOjo3OfwMVH6Bu4+QKCm5PWRR3EwVWsm1snK8o5XIOxlzRf7o+X2vzgg3KXS75fv0vI3UEkEpk4OkASSFz7Jt/Qfie+F1dMw93kh2bRDiog1x86VXYWdRFFCrALvAJdYEfQXi0AV9IB1AUuloF74BaYk3au0dXGehHkkRiOjUTSeBV41treALPSAQb4ikhzEzfeAN7IrvkXwLR0ENLbqUsqsS3MozSRLaBHVkLFGeXNt8pEDoEP7BIq2t4py/OwzRvjAmDqoAV84ZZQcVzEYEQeXguAfqIBnHgI6NH6AxHbsV8nmsBpTokE+AQORiQ6T3pL3AGLVYqcF5BQ8Q5sWiQetHaPBpnSRMqKHrCu9b8wJKHiCVgKWaRPuh2BbCWGQ69MUCJ9YH/Qr60StsoEI9IH9gZ9uiphqkwwIkc5JYbDS6SKbfwMsAJcAmsV9G9kXJ7ZE9ex+IQYGlEkNKJIaPxLkU5tWWTxfok9LtSyRakFl4h1hxkaps8KJoKXcVUkpEknfok9bkzmZDcR5AIgnewmgpLJU5G4AEQikfr4BvQ2m7ExS3fcAAAAAElFTkSuQmCC";
   return (
     <div className="box review-box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}
       onClick={handleReviewClick}
@@ -42,7 +43,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       </Route>
       <div className="is-flex is-justify-content-space-between">
         {username}
-        { imageUrls.length ? <img onClick={renderImages} src="https://img.icons8.com/color/48/000000/image.png"/> : null }
+        { imageUrls.length ? <img onClick={renderImages} src={imgSrc}/> : null }
       </div>
 
     </div>

@@ -79,6 +79,9 @@ const Home = (props) => {
       <div className="container mt-2">
         {render(data, props.location)}
       </div>
+      <div className="is-flex is-justify-content-center icon-link">
+        <a className="is-size-7" href="https://icons8.com/icon/97659/image-gallery">Image Gallery icon by Icons8</a>
+      </div>
     </div>
   );
 };
