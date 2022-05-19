@@ -4,6 +4,7 @@ const path = require('path');
 const {ApolloServer} = require('apollo-server-express');
 const {typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
+const generateUploadURL = require('./s3');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -29,6 +30,11 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 };
+
+app.get('/s3URL/:fileLength', async (req, res) => {
+    const url = await generateUploadURL(req.params.fileLength);
+    res.send({url});
+})
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));

@@ -111,8 +111,8 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const { rating, reviewText, location } = args;
-
+        const { rating, reviewText, location, imageUrls } = args;
+        console.log(args);
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
@@ -123,6 +123,7 @@ const resolvers = {
                 rating: rating,
                 username: context.user.username,
                 location: location,
+                imageUrls: imageUrls
               },
             },
           },
