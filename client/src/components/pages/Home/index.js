@@ -40,6 +40,7 @@ const Home = (props) => {
                 username={review.username}
                 rating={review.rating}
                 imageUrls={review.imageUrls}
+                setImageLinks={setImageLinks}
               />
             );
           })}
@@ -59,6 +60,7 @@ const Home = (props) => {
                   username={review.username}
                   rating={review.rating}
                   imageUrls={review.imageUrls}
+                  setImageLinks={setImageLinks}
                 />
               );
             }
@@ -73,7 +75,7 @@ const Home = (props) => {
   return (
     <div className="mb-8">
       <Hero></Hero>
-      <ImageDisplay imageLinks={imageLinks} ></ImageDisplay>
+      <ImageDisplay imageLinks={imageLinks} setImageLinks={setImageLinks}></ImageDisplay>
       <div className="container mt-2">
         {render(data, props.location)}
       </div>

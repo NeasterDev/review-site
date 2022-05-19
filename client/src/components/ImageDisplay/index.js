@@ -1,7 +1,7 @@
 import { use } from 'express/lib/application';
 import React, { useEffect, useState } from 'react';
 
-export const ImageDisplay = ({imageLinks}) => {
+export const ImageDisplay = ({imageLinks, setImageLinks}) => {
 
     const [activeSlideNumber, setActiveSlideNumber] = useState(0);
     let key = 1;
