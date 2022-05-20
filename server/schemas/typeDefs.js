@@ -17,6 +17,7 @@ const typeDefs = gql`
         location: String
         username: String
         createdAt: String
+        imageUrls: [String]
     }
 
     type Auth {
@@ -35,8 +36,9 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         updateUser(username: String, email: String): User
         removeUser(_id: ID!): Auth
-        addReview(reviewText: String!, rating: Int!, location: String!): User
+        addReview(reviewText: String!, rating: Int!, location: String!, imageUrls: [String]): User
         deleteReview(_id: ID!): User
+        editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
 
     }
 `;

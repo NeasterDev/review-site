@@ -6,10 +6,13 @@ export const QUERY_GET_ME = gql`
       username
       _id
       savedReviews {
-        reviewText
-        location
-        rating
         _id
+        location
+        createdAt
+        reviewText
+        rating
+        username
+        imageUrls
       }
     }
   }
@@ -58,6 +61,7 @@ export const GET_REVIEWS = gql`
       reviewText
       rating
       username
+      imageUrls
     }
   }
 `;

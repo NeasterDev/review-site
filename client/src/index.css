@@ -39,6 +39,29 @@ a {
   z-index: 100;
 }
 
+.image-position {
+  max-width: 30rem;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  border: solid 3px black;
+  background-color: var(--main-color);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.images {
+  display: none;
+  box-shadow: 1px 1px 2px 4px;
+}
+
+.margin-half-rem {
+  margin: 0.5rem;
+}
+
 .write-bg {
   background-color: var(--main-color);
   padding: 1%;
@@ -56,6 +79,11 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.review-box:hover {
+  background-color: var(--main-color-5);
+  cursor: pointer;
 }
 
 .opacity-70 {
@@ -86,6 +114,56 @@ a {
 
 .mt-5r {
   margin-top: 5rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.b-hov:hover {
+  background-color: lightgray;
+}
+
+.cursor {
+  cursor: default;
+}
+
+.icon-link {
+  bottom: 25px;
+}
+
+/*dropdown menu*/
+.d {
+  display: inline-block;
+  position: relative;
+}
+
+.d-items {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  background-color: var(--main-color-5);
+}
+
+.d-items a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.d-items a:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+}
+
+.d:hover .d-items {
+  display: block;
+}
+
+.images {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

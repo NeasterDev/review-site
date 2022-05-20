@@ -96,7 +96,7 @@ export default function Signup() {
                 onChange={handleChange} />
             </div>
           </div>
-          <button class="button is-success has-text-black" type="submit">Signup!</button>
+          <button class="button b-hov has-text-black" type="submit">Signup!</button>
       </form>
       {error && <div>Signup failed</div>}
     </div>

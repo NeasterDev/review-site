@@ -111,8 +111,8 @@ const resolvers = {
     addReview: async (parent, args, context) => {
       // verify that User is logged in
       if (context.user) {
-        const { rating, reviewText, location } = args;
-
+        const { rating, reviewText, location, imageUrls } = args;
+        console.log(args);
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
           // prevent duplicate saves by using $addToSet instead of $push
@@ -123,6 +123,7 @@ const resolvers = {
                 rating: rating,
                 username: context.user.username,
                 location: location,
+                imageUrls: imageUrls
               },
             },
           },
@@ -132,6 +133,58 @@ const resolvers = {
         return user;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+
+    // edit reviews
+    editReview: async (parent, args, context) => {
+      let set;
+      if (args.reviewText) { 
+        if (args.rating) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.reviewText": args.reviewText }} 
+        }
+      }
+
+      if (args.rating) { 
+        if (args.reviewText) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.rating": args.rating }} 
+        }
+      }
+
+      if (args.location) { 
+        if (args.reviewText) {
+          if (args.location) {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.rating": args.rating, "savedReviews.$.location": args.location }}
+          } else {
+            set = { $set: { "savedReviews.$.reviewText": args.reviewText, "savedReviews.$.location": args.location }}
+          }
+        } else {
+          set = { $set: { "savedReviews.$.location": args.location }} 
+        }
+      } 
+
+      if (context.user) {
+        const user = await User.findOneAndUpdate(
+          {"_id": context.user._id, "savedReviews._id": args._id},
+          // use $ positional operator to reference queried index
+          set,
+          {  new: true, runValidators: true, omitUndefined: true},
+        ).select('savedReviews')
+
+        console.log(user);
+        return user.savedReviews.id(args._id);
+      }
     },
 
     // delete Review if user is logged in
