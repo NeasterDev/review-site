@@ -9,11 +9,7 @@ import { useQuery } from "@apollo/client";
 
 
 const Home = (props) => {
-  const [imageLinks, setImageLinks] = useState([
-    "https://nelp-images-bucket.s3.us-west-1.amazonaws.com/ef0192a8447c9ad7bcf99eee92e70bdd",
-    "https://nelp-images-bucket.s3.us-west-1.amazonaws.com/93138cc711b0481e26a8b3434bc1e6ec",
-    "https://nelp-images-bucket.s3.us-west-1.amazonaws.com/635539f8d3d4a9a663d70e4a44d6d43b"
-  ]);
+  const [imageLinks, setImageLinks] = useState([""]);
 
   const { loading, error, data } = useQuery(GET_REVIEWS);
 
