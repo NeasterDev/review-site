@@ -3,10 +3,16 @@ import AutoComplete from "../Autocomplete";
 import { useMutation } from "@apollo/client";
 import { ADD_REVIEW } from "../../utils/mutations";
 import { ImageUpload } from '../ImageUpload';
+import { GET_REVIEWS } from "../../utils/query";
 
 // review form
 export default function Write() {
-  const [addReview, { loading, error, reset }] = useMutation(ADD_REVIEW);
+  const [addReview, { loading, error, reset }] = useMutation(ADD_REVIEW, {
+    refetchQueries: [
+      GET_REVIEWS, // DocumentNode object parsed with gql
+      'GetReviews' // Query name
+    ]
+  } );
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
