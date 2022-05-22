@@ -12,14 +12,18 @@ export default function Write() {
       GET_REVIEWS, // DocumentNode object parsed with gql
       'GetReviews' // Query name
     ]
-  } );
+  });
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(1);
   const [location, setLocation] = useState("");
-  
 
+  const [searchInputVal, setSearchInputVal ] = useState("");
 
-  if (loading) return "Review Submitted";
+  const [submitButtonValue, setSubmitButtonValue] = useState("Submit");
+  if (loading) {
+    console.log('loading...');
+    setSubmitButtonValue('Submitting...')
+  };
   if (error) return `Submission error! ${error.message}`;
 
   const handleLocationChange = (e) => {
@@ -37,9 +41,21 @@ export default function Write() {
     setRating(parseInt(e.target.value));
   };
 
-  const handleAddReview = (e) => {
+  const handleAddReview = () => {
+    // reset input values
+    const searchInputEl = document.querySelector('.searchInput');
+    const addReviewTextEl = document.querySelector('.addReviewText');
+    const ratingEl = document.querySelector('.reviewRating');
+
+    searchInputEl.value = '';
+    addReviewTextEl.value = '';
+    ratingEl.value = 1;
+    setSubmitButtonValue('Submit');
+
     const addReviewEl = document.querySelector('.write-container');
     addReviewEl.classList.toggle('is-hidden');
+
+
   };
 
   const handleImageUpload = async (e) => {
@@ -50,31 +66,32 @@ export default function Write() {
     const files = imageInput.files;
     //console.log(files);
 
+    setSubmitButtonValue('Submitting...')
     const uploadUrlArray = await fetch(`/s3URL/${files.length}`).then(res => res.json());
     //console.log(uploadUrlArray.url);
 
     let imageUrls = [];
 
     for (let i = 0; i < uploadUrlArray.url.length; i++) {
-        //console.log(url);
-        const url = uploadUrlArray.url[i];
+      //console.log(url);
+      const url = uploadUrlArray.url[i];
 
-        await fetch(url, {
-            method: "PUT",
-            header: {
-                "Content-Type": "multipart-form-data"
-            },
-            body: files[i]
-        });
+      await fetch(url, {
+        method: "PUT",
+        header: {
+          "Content-Type": "multipart-form-data"
+        },
+        body: files[i]
+      });
 
-        const imageUrl = url.split('?')[0];
-        imageUrls.push(imageUrl);
-        //console.log(imageUrls);
-        // console.log('=================');
-        // console.log(imageUrl);
+      const imageUrl = url.split('?')[0];
+      imageUrls.push(imageUrl);
+      //console.log(imageUrls);
+      // console.log('=================');
+      // console.log(imageUrl);
     }
     return imageUrls;
-}
+  }
 
 
   return (
@@ -88,11 +105,14 @@ export default function Write() {
         className="is-flex is-flex-direction-column"
         onSubmit={async (e) => {
           //e.preventDefault();
+          console.log(loading);
           const imageUrls = await handleImageUpload(e);
           console.log(imageUrls);
           addReview({ variables: { reviewText, rating, location, imageUrls } });
+          console.log(loading);
           // use reset so it doesnt remove the whole addreview element
           reset();
+          handleAddReview();
         }}
       >
         <div className='mb-1'>
@@ -100,11 +120,11 @@ export default function Write() {
         </div>
 
         <textarea
-          className=" textarea mb-1"
+          className="addReviewText textarea mb-1"
           onChange={handleReviewChange}
           placeholder="Add review text here..."
         ></textarea>
-        <select className="select" id="stars" onChange={handleRatingChange}>
+        <select className="select reviewRating" id="stars" onChange={handleRatingChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -113,10 +133,10 @@ export default function Write() {
         </select>
         <ImageUpload></ImageUpload>
         <button type="submit" className="button">
-          Submit
+          {submitButtonValue}
         </button>
       </form>
-      
+
     </div>
   );
 }
