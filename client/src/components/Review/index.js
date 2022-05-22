@@ -36,16 +36,16 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         <div className="descr rev-max-description">{reviewText}</div>
       </div>
       <div>Rating {stars}</div>
+      
+      <div className="is-flex is-justify-content-space-between">
+        - {username}
+        { imageUrls.length ? <img onClick={renderImages} src={imgSrc}/> : null }
+      </div>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
           <button className="button" onClick={handleEditReview}>Edit</button>
         </div>
       </Route>
-      <div className="is-flex is-justify-content-space-between">
-        {username}
-        { imageUrls.length ? <img onClick={renderImages} src={imgSrc}/> : null }
-      </div>
-
     </div>
   );
 };
