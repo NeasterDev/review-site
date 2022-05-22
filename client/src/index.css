@@ -3,6 +3,7 @@
 * {
   --main-color: rgb(47, 198, 47);
   --main-color-5: rgba(47, 198, 47, 0.5);
+  --main-color-7: rgba(47, 198, 47, 0.7);
   margin: 0;
 }
 
@@ -164,6 +165,23 @@ a {
 
 .images {
   display: none;
+}
+
+.hero-title {
+  position: absolute;
+  z-index: 29;
+  top: 40%;
+  transform: translate(0, -50%);
+  margin-left: 5%;
+  color: var(--main-color-7);
+}
+
+.font-size-8rem {
+  font-size: 8rem;
+}
+
+.font-size-4rem {
+  font-size: 4rem;
 }
 
 @media screen and (max-width: 768px) {
