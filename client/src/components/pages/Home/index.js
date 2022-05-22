@@ -47,7 +47,7 @@ const Home = (props) => {
         <>
           {data.reviews.map((review) => {
           //  console.log(review);
-            if (review.location.toLowerCase() === location.toLocaleLowerCase()) {
+            if (review.location.toLowerCase().includes(location.toLocaleLowerCase())) {
               return (
                 <Review
                   key={review._id}

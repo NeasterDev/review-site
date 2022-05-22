@@ -52,7 +52,8 @@ export const ImageDisplay = ({imageLinks, setImageLinks}) => {
 
     return (
         <div className='image-position is-hidden'>
-            <div className='is-flex is-justify-content-end'><button className='delete' onClick={handleExitButtonClick}></button></div>
+            <button className='delete' onClick={handleExitButtonClick}></button>
+           
             
             <div className='is-flex'>
             <div onClick={minusSlides}>
