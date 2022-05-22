@@ -18,8 +18,16 @@ function NavTabs({location, handleLocation}) {
   };
 
   const handleAddReview = (e) => {
+    const searchInputEl = document.querySelector('.searchInput');
+    const addReviewTextEl = document.querySelector('.addReviewText');
+    const ratingEl = document.querySelector('.reviewRating');
+
+    searchInputEl.value = '';
+    addReviewTextEl.value = '';
+    ratingEl.value = 1;
     const addReviewEl = document.querySelector('.write-container');
     addReviewEl.classList.toggle('is-hidden');
+    
   }
 
   const handleSignUp = (e) => {

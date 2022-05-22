@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Hint } from "react-autocomplete-hint";
 
-const AutoComplete = ({ change, val }) => {
+const AutoComplete = ({ change, val, resetText }) => {
 
   const [text, setText] = useState("");
   const handleValue = () => {
@@ -79,11 +79,12 @@ const AutoComplete = ({ change, val }) => {
   ];
   return (
       <Hint options={nationalParks}>
-        <input className="input searchInput" placeholder="i.e. Yellowstone..." defaultValue={handleValue()} 
+        <input className="input searchInput" placeholder="i.e. Yellowstone..." defaultValue={handleValue()}
         onChange={(e) => {
           setText(e.target.value); 
           if (change) {
-            change(e)}
+            change(e)
+            }
           }
         } />
       </Hint>
