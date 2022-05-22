@@ -14,7 +14,12 @@ import w_1400 from "../../img/w_1400.jpg";
 export const Hero = () => {
   return (
     <section className="hero">
-      <div className="">
+      <div className="is-relative">
+        <div className="hero-title">
+          <div className="font-size-8rem">Nelp</div>
+          <div className="font-size-4rem">National Park Reviews</div>
+        </div>
+
         <img
           className=""
           src={image}
