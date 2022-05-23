@@ -52,14 +52,14 @@ export const ImageDisplay = ({imageLinks, setImageLinks}) => {
 
     return (
         <div className='image-position is-hidden'>
-            <button className='delete' onClick={handleExitButtonClick}></button>
-           
-            
+            <div className='is-flex is-justify-content-end'>
+                <button className='delete' onClick={handleExitButtonClick}></button>
+            </div>
             <div className='is-flex'>
-            <div onClick={minusSlides}>
+            <div className='is-flex is-flex-direction-column is-justify-content-center' onClick={minusSlides}>
                     <a className='is-size-1'>{'<'}</a>
                 </div>
-                <div className='margin-half-rem'>
+                <div className='margin-half-rem mb-15'>
                     {imageLinks.map(imageLink => {
                         key++;
                         return (
@@ -67,8 +67,8 @@ export const ImageDisplay = ({imageLinks, setImageLinks}) => {
                         )
                     })}
                 </div>
-                <div onClick={plusSlides}>
-                <a className='is-size-1'>{'>'}</a>
+                <div className='is-flex is-flex-direction-column is-justify-content-center' onClick={plusSlides}>
+                    <a className='is-size-1'>{'>'}</a>
                 </div>
             </div>
         </div>
