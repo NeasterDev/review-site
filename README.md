@@ -22,7 +22,7 @@ From the root directory use `npm i` and it will install all the necessary depend
 
 ## Usage 
 
-Also from the root directory, use '`npm run develop` and the development environment will start. (You will also need the necessary environment variables)
+Also from the root directory, use `npm run develop` and the development environment will start. (You will also need the necessary environment variables)
 
 
 ## License
