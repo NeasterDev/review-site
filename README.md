@@ -1,53 +1,44 @@
-# Nelp
 
-## Purpose
-This website, called Nelp, is designed to function like Yelp, the popular site that allows users to post their reviews about businesses. On the homepage of the site, there is a header, a scenic nature image, and multiple reviews posted by users of the site. On the header, there is a search bar, along with a Login and Signup links. When the user clicks on the search bar, an auto completed suggestion appears in the background of the search bar. 
+# Nelp: National Park Reviews
 
-When the user clicks on the sign up button, then said user is directed on the sign up page. On the sign up page, the user is propmpted the create a username and password, and enter a valid email address. Once the sign in is successful, then the user will be redirected back to the homepage. When the user is logged in to Nelp, the 'Profile' and 'Logout' links will replace the two aforementioned links. 
+![badge](https://img.shields.io/apm/l/vim-mode)
 
-When the user clicks on the 'Profile' link, then the user is directed to his own profile. Located on top of the profile is the user's profile image. Under the image is a short bio of the user. All of the user's own reviews can be seen by the user, with an option to edit the reviews.
+## Description 
 
-## Built With
-    * React
+Nelp is a website where users can search and view for reviews focused on national parks. Users can sign up/login and then post reviews of their own. The reviews can include the park name, the review text that the user adds, the rating that the user gives to the park, and any images that the user uploads. Any posts that the user makes is then added to their profile page where the user can edit them. 
 
-## Screenshot
-![Alt text](./client/public/assets/images/screenshot.JPG?raw=true "Nelp")
+## Table of Contents
 
-## Required Packages
-    * Root
-        * concurrently
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
 
-    * Server
-        * apollo-server-core
-        * apollo-server-express
-        * bcrypt
-        * dotenv
-        * express
-        * faker
-        * graphql
-        * jsonwebtoken
-        * mongodb
-        * mongoose
 
-    * Client
-        * @apollo/client
-        * @testing-library/jest-dom
-        * @testing-library/react
-        * @testing-library/user-event
-        * graphql
-        * jwt-decode
-        * react
-        * react-autocomplete-hint
-        * react-dom
-        * react-router-dom
-        * react-scripts
-        * web-vitals
-        * --legacy-peer-deps (if React client fails to render)
-            * delete node_modules beforehand
-        * npm audit fix --force (if --legacy-peer-deps fails to fix faulty rendering)
+## Installation
 
-## Website Link
-<!-- insert -->
+From the root directory use `npm i` and it will install all the necessary dependencies.
 
-## Contribution
-crazypants300, CoderJ01, Evidal19
+
+## Usage 
+
+Also from the root directory, use '`npm run develop` and the development environment will start. (You will also need the necessary environment variables)
+
+
+## License
+
+MIT
+https://opensource.org/licenses/MIT
+
+## Contributing
+
+Nicholas Easter, Joshua Jones, Elisa Vidal
+
+## Tests
+
+none
+
+## Questions
+
+For questions contact me at: nicholas.easter17@gmail.com
+GitHub Profile: https://github.com/crazypants300/
