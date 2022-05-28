@@ -24,7 +24,15 @@ const reviewSchema = new Schema({
         type: Date,
         default: new Date()
     },
-    imageUrls: [String]
+    imageUrls: [String],
+    upvotes: {
+        type: Number,
+        default: 0
+    },
+    downvotes: {
+        type: Number,
+        default: 0
+    }
 });
 
 
