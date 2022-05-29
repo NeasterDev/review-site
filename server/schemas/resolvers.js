@@ -207,6 +207,7 @@ const resolvers = {
         console.log(args);
         const user = await User.findOneAndUpdate(
           { _id: args.user_id, "savedReviews._id": args.review_id },
+          // increment the value by 1
           { $inc: { "savedReviews.$.upvotes": 1 }},
           { new: true }
         );
