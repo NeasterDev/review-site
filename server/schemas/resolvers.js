@@ -22,7 +22,7 @@ const resolvers = {
     users: async (parent, args) => {
       const users = await User.find({})
         .select("-password -__v")
-        .populate("savedReviews");
+        
 
       return users;
     },
@@ -200,6 +200,23 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    // mutations for voting 
+    upvote: async (parent, args, context) => {
+      if (context.user) {
+        console.log(args);
+        const upvote = await User.findOneAndUpdate(
+          { _id: args.user_id, "savedReviews._id": args.review_id },
+          { $inc: { "savedReviews.$.upvotes": 1 }}
+
+          
+        );
+
+        console.log(upvote);
+
+        return upvote;
+      }
+    }
   },
 };
 

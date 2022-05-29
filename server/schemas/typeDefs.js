@@ -18,8 +18,8 @@ const typeDefs = gql`
         username: String
         createdAt: String
         imageUrls: [String]
-        upvotes: Number
-        downvotes: Number
+        upvotes: Int
+        downvotes: Int
     }
 
     type Auth {
@@ -41,7 +41,7 @@ const typeDefs = gql`
         addReview(reviewText: String!, rating: Int!, location: String!, imageUrls: [String]): User
         deleteReview(_id: ID!): User
         editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
-        upvote(_id: ID!): Review
+        upvote(user_id: ID!, review_id: ID!): Review
         downvote(_id: ID!): Review
     }
 `;
