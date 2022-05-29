@@ -205,16 +205,14 @@ const resolvers = {
     upvote: async (parent, args, context) => {
       if (context.user) {
         console.log(args);
-        const upvote = await User.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
           { _id: args.user_id, "savedReviews._id": args.review_id },
           { $inc: { "savedReviews.$.upvotes": 1 }}
-
-          
         );
 
-        console.log(upvote);
+        console.log(user);
 
-        return upvote;
+        return user.savedReviews.id(args.review_id);
       }
     }
   },
