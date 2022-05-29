@@ -42,7 +42,7 @@ const typeDefs = gql`
         deleteReview(_id: ID!): User
         editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
         upvote(user_id: ID!, review_id: ID!): Review
-        downvote(_id: ID!): Review
+        downvote(user_id: ID!, review_id: ID!): Review
     }
 `;
 

@@ -207,14 +207,26 @@ const resolvers = {
         console.log(args);
         const user = await User.findOneAndUpdate(
           { _id: args.user_id, "savedReviews._id": args.review_id },
-          { $inc: { "savedReviews.$.upvotes": 1 }}
+          { $inc: { "savedReviews.$.upvotes": 1 }},
+          { new: true }
         );
-
-        console.log(user);
 
         return user.savedReviews.id(args.review_id);
       }
-    }
+    },
+    downvote: async (parent, args, context) => {
+      if (context.user) {
+        console.log(args);
+        const user = await User.findOneAndUpdate(
+          { _id: args.user_id, "savedReviews._id": args.review_id },
+          { $inc: { "savedReviews.$.downvotes": 1 }},
+          { new: true }
+        );
+
+        return user.savedReviews.id(args.review_id);
+      }
+    },
+
   },
 };
 
