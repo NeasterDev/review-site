@@ -188,6 +188,16 @@ a {
   margin-bottom: 1.5rem;
 }
 
+.vote {
+  padding: .5rem;
+  width: 3rem;
+}
+
+.vote:hover {
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .mobile-p {
     padding: 4%;

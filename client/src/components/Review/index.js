@@ -1,6 +1,8 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 import { ImageDisplay } from "../ImageDisplay";
+import upArrow from "../../img/up-arrow.png";
+import downArrow from "../../img/down-arrow.png";
 
 export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview }) => {
   // const lorem =
@@ -29,6 +31,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     <div className="box review-box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}
       onClick={handleReviewClick}
     >
+
       <div className=" is-size-6 is-italic has-text-weight-medium">
         {location}
       </div>
@@ -36,16 +39,23 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         <div className="descr rev-max-description">{reviewText}</div>
       </div>
       <div>Rating {stars}</div>
-      
+
       <div className="is-flex is-justify-content-space-between">
-        - {username}
-        { imageUrls.length ? <img onClick={renderImages} src={imgSrc}/> : null }
+        <div>
+          - {username}
+        </div>
+        {imageUrls.length ? <img onClick={renderImages} src={imgSrc} /> : null}
+      </div>
+      <div className="is-flex is-justify-content-end">
+        <img className="vote" src={upArrow} />
+        <img className="vote" src={downArrow} />
       </div>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
           <button className="button" onClick={handleEditReview}>Edit</button>
         </div>
       </Route>
+
     </div>
   );
 };
