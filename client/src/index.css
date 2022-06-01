@@ -199,12 +199,12 @@ a {
 }
 
 .upvote:hover {
-  background-color: var(--main-color);
+  background-color: #0dc900;
   border-radius: 10px;
 }
 
 .downvote:hover {
-  background-color: red;
+  background-color: #f74d4d;
   border-radius: 10px;
 }
 

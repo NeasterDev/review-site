@@ -123,13 +123,14 @@ const resolvers = {
                 rating: rating,
                 username: context.user.username,
                 location: location,
-                imageUrls: imageUrls
+                imageUrls: imageUrls,
+                userId: context.user._id
               },
             },
           },
           { new: true }
         );
-
+        console.log(user);
         return user;
       }
       throw new AuthenticationError("You need to be logged in!");

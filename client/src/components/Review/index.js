@@ -3,14 +3,30 @@ import { Route } from 'react-router-dom';
 import { ImageDisplay } from "../ImageDisplay";
 import upArrow from "../../img/like1.png";
 import downArrow from "../../img/negative-vote.png";
+import { useMutation } from "@apollo/client";
+import { UPVOTE, DOWNVOTE } from '../../utils/mutations';
 
-export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview }) => {
+
+export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId }) => {
   // const lorem =
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
   let stars = "";
   for (let i = 0; i < rating; i++) {
     stars += "★";
   }
+
+  if (userId) {
+    console.log(userId);
+    console.log(reviewId);
+  }
+
+  const [upvote, {loading, data}] = useMutation(UPVOTE, 
+    {
+      variables: {
+        userId,
+        reviewId
+      }
+    });
 
   const handleReviewClick = (e) => {
     const reviewBox = e.target.closest('.review-box');
@@ -47,7 +63,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         {imageUrls.length ? <img onClick={renderImages} src={imgSrc} /> : null}
       </div>
       <div className="is-flex is-justify-content-end">
-        <img className="upvote" src={upArrow} />
+        <img onClick={() => upvote()} className="upvote" src={upArrow} />
         <img className="downvote" src={downArrow} />
       </div>
       <Route exact path='/profile'>

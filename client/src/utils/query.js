@@ -62,6 +62,7 @@ export const GET_REVIEWS = gql`
       rating
       username
       imageUrls
+      userId
     }
   }
 `;

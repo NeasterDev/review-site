@@ -27,16 +27,18 @@ const Home = (props) => {
       return (
         <>
           {data.reviews.map((review) => {
-          //  console.log(review);
+            
             return (
               <Review
                 key={review._id}
+                reviewId={review._id}
                 location={review.location}
                 reviewText={review.reviewText}
                 username={review.username}
                 rating={review.rating}
                 imageUrls={review.imageUrls}
                 setImageLinks={setImageLinks}
+                userId={review.userId}
               />
             );
           })}
@@ -57,6 +59,7 @@ const Home = (props) => {
                   rating={review.rating}
                   imageUrls={review.imageUrls}
                   setImageLinks={setImageLinks}
+                  userId={review.userId}
                 />
               );
             }
