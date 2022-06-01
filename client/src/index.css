@@ -188,13 +188,23 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.vote {
+.upvote {
   padding: .5rem;
   width: 3rem;
 }
 
-.vote:hover {
+.downvote {
+  padding: .5rem;
+  width: 3rem;
+}
+
+.upvote:hover {
   background-color: var(--main-color);
+  border-radius: 10px;
+}
+
+.downvote:hover {
+  background-color: red;
   border-radius: 10px;
 }
 

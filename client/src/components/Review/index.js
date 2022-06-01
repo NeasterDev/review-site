@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 import { ImageDisplay } from "../ImageDisplay";
-import upArrow from "../../img/up-arrow.png";
-import downArrow from "../../img/down-arrow.png";
+import upArrow from "../../img/like1.png";
+import downArrow from "../../img/negative-vote.png";
 
 export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview }) => {
   // const lorem =
@@ -47,8 +47,8 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         {imageUrls.length ? <img onClick={renderImages} src={imgSrc} /> : null}
       </div>
       <div className="is-flex is-justify-content-end">
-        <img className="vote" src={upArrow} />
-        <img className="vote" src={downArrow} />
+        <img className="upvote" src={upArrow} />
+        <img className="downvote" src={downArrow} />
       </div>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
