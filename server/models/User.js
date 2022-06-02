@@ -19,7 +19,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    savedReviews: [reviewSchema]
+    savedReviews: [reviewSchema],
+    likedReviews: [String],
+    dislikedReviews: [String]
   }
 );
 

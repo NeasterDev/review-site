@@ -228,7 +228,80 @@ const resolvers = {
         return user.savedReviews.id(args.review_id);
       }
     },
+    likeReview: async (parent, args, context) => {
+      if (context.user) {
+        let isLiked = false;
+        const user = await User.findOne({_id: context.user._id});
+        //console.log(user);
+        // checking if the user has liked the review already
+        user.likedReviews.forEach(likedReview => {
+          if (likedReview === args.review_id) {
+            // the review has been liked already
+            isLiked = true;
+            return;
+          }
+          return;
+        })
+        // if the review is not liked
+        // add the review to the liked reviews
+        if (!isLiked) {
+          const userUpdate = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $push: { likedReviews: args.review_id}},
+            { new: true }
+          )
 
+          return userUpdate;
+          // if the review has already been liked and they click it again
+          // then remove the like
+        } else {
+          const userUpdate = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { likedReviews: args.review_id}},
+            { new: true }
+          )
+
+          return userUpdate;
+        }
+      }
+    },
+    dislikeReview: async (parent, args, context) => {
+      if (context.user) {
+        let isDisliked = false;
+        const user = await User.findOne({_id: context.user._id});
+        //console.log(user);
+        // checking if the user has liked the review already
+        user.dislikedReviews.forEach(dislikedReview => {
+          if (dislikedReview === args.review_id) {
+            // the review has been liked already
+            isDisliked = true;
+            return;
+          }
+          return;
+        })
+        // if the review is not liked
+        // add the review to the liked reviews
+        if (!isDisliked) {
+          const userUpdate = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $push: { dislikedReviews: args.review_id}},
+            { new: true }
+          )
+
+          return userUpdate;
+          // if the review has already been liked and they click it again
+          // then remove the like
+        } else {
+          const userUpdate = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { dislikedReviews: args.review_id}},
+            { new: true }
+          )
+
+          return userUpdate;
+        }
+      }
+    },
   },
 };
 
