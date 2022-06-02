@@ -113,8 +113,8 @@ export const UPVOTE = gql`
 `;
 
 export const DOWNVOTE = gql`
-  mutation downvote($downvoteUserId2: ID!, $downvoteReviewId2: ID!) {
-    downvote(user_id: $downvoteUserId2, review_id: $downvoteReviewId2) {
+  mutation downvote($userId: ID!, $reviewId: ID!) {
+    downvote(user_id: $userId, review_id: $reviewId) {
       upvotes
       downvotes
       _id

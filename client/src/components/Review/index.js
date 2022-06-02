@@ -28,6 +28,14 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       }
     });
 
+    const [downvote, {loading: loadingDownvote, data: downvoteData}] = useMutation(DOWNVOTE, 
+      {
+        variables: {
+          userId,
+          reviewId
+        }
+      });
+
   const handleReviewClick = (e) => {
     const reviewBox = e.target.closest('.review-box');
     console.log(reviewBox.children);
@@ -64,14 +72,13 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       </div>
       <div className="is-flex is-justify-content-end">
         <img onClick={() => upvote()} className="upvote" src={upArrow} />
-        <img className="downvote" src={downArrow} />
+        <img onClick={() => downvote()} className="downvote" src={downArrow} />
       </div>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
           <button className="button" onClick={handleEditReview}>Edit</button>
         </div>
       </Route>
-
     </div>
   );
 };
