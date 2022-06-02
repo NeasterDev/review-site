@@ -202,32 +202,32 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    // mutations for voting 
-    upvote: async (parent, args, context) => {
-      if (context.user) {
-        console.log(args);
-        const user = await User.findOneAndUpdate(
-          { _id: args.user_id, "savedReviews._id": args.review_id },
-          // increment the value by 1
-          { $inc: { "savedReviews.$.upvotes": 1 }},
-          { new: true }
-        );
+    // // mutations for voting 
+    // upvote: async (parent, args, context) => {
+    //   if (context.user) {
+    //     console.log(args);
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: args.user_id, "savedReviews._id": args.review_id },
+    //       // increment the value by 1
+    //       { $inc: { "savedReviews.$.upvotes": 1 }},
+    //       { new: true }
+    //     );
 
-        return user.savedReviews.id(args.review_id);
-      }
-    },
-    downvote: async (parent, args, context) => {
-      if (context.user) {
-        console.log(args);
-        const user = await User.findOneAndUpdate(
-          { _id: args.user_id, "savedReviews._id": args.review_id },
-          { $inc: { "savedReviews.$.downvotes": 1 }},
-          { new: true }
-        );
+    //     return user.savedReviews.id(args.review_id);
+    //   }
+    // },
+    // downvote: async (parent, args, context) => {
+    //   if (context.user) {
+    //     console.log(args);
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: args.user_id, "savedReviews._id": args.review_id },
+    //       { $inc: { "savedReviews.$.downvotes": 1 }},
+    //       { new: true }
+    //     );
 
-        return user.savedReviews.id(args.review_id);
-      }
-    },
+    //     return user.savedReviews.id(args.review_id);
+    //   }
+    // },
     likeReview: async (parent, args, context) => {
       if (context.user) {
         let isLiked = false;

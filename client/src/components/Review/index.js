@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from 'react-router-dom';
 import { ImageDisplay } from "../ImageDisplay";
 import upArrow from "../../img/like1.png";
@@ -20,7 +20,9 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     console.log(reviewId);
   }
 
-  const [upvote, { loading, data }] = useMutation(UPVOTE,
+  const [votes, setVotes] = useState(upvotes - downvotes);
+
+  const [likeReview, { loading, data }] = useMutation(UPVOTE,
     {
       variables: {
         userId,
@@ -28,7 +30,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       }
     });
 
-  const [downvote, { loading: loadingDownvote, data: downvoteData }] = useMutation(DOWNVOTE,
+  const [dislikeReview, { loading: loadingDownvote, data: downvoteData }] = useMutation(DOWNVOTE,
     {
       variables: {
         userId,
@@ -48,6 +50,18 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     const imageContainer = document.querySelector('.image-position');
     imageContainer.classList.toggle('is-hidden');
     setImageLinks(imageUrls);
+  }
+
+  const upvote = async () => {
+    await likeReview();
+    console.log(upvotes);
+    setVotes(upvotes - downvotes);
+    console.log(upvotes);
+  }
+
+  const downvote = () => {
+    dislikeReview();
+    setVotes(upvotes - downvotes);
   }
 
   const imgSrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABvElEQVRoge2Zv0oDMRjAf5UK4igqiLg7uQg+gC6KgoOjo3OfwMVH6Bu4+QKCm5PWRR3EwVWsm1snK8o5XIOxlzRf7o+X2vzgg3KXS75fv0vI3UEkEpk4OkASSFz7Jt/Qfie+F1dMw93kh2bRDiog1x86VXYWdRFFCrALvAJdYEfQXi0AV9IB1AUuloF74BaYk3au0dXGehHkkRiOjUTSeBV41treALPSAQb4ikhzEzfeAN7IrvkXwLR0ENLbqUsqsS3MozSRLaBHVkLFGeXNt8pEDoEP7BIq2t4py/OwzRvjAmDqoAV84ZZQcVzEYEQeXguAfqIBnHgI6NH6AxHbsV8nmsBpTokE+AQORiQ6T3pL3AGLVYqcF5BQ8Q5sWiQetHaPBpnSRMqKHrCu9b8wJKHiCVgKWaRPuh2BbCWGQ69MUCJ9YH/Qr60StsoEI9IH9gZ9uiphqkwwIkc5JYbDS6SKbfwMsAJcAmsV9G9kXJ7ZE9ex+IQYGlEkNKJIaPxLkU5tWWTxfok9LtSyRakFl4h1hxkaps8KJoKXcVUkpEknfok9bkzmZDcR5AIgnewmgpLJU5G4AEQikfr4BvQ2m7ExS3fcAAAAAElFTkSuQmCC";
@@ -71,10 +85,10 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       </div>
       <div className="is-flex is-justify-content-end	">
         <div className="is-flex is-flex-direction-column is-justify-content-center m-votes">
-          <span>{(upvotes - downvotes > 0) ? `+ ${upvotes - downvotes}` : upvotes - downvotes} votes</span>
+          <span>{(votes > 0) ? `+ ${votes}` : votes} votes</span>
         </div>
-        <img onClick={() => upvote()} className="upvote" src={upArrow} />
-        <img onClick={() => downvote()} className="downvote" src={downArrow} />
+        <img onClick={upvote} className="upvote" src={upArrow} />
+        <img onClick={downvote} className="downvote" src={downArrow} />
       </div>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
