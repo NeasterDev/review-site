@@ -245,16 +245,33 @@ const resolvers = {
         // if the review is not liked
         // add the review to the liked reviews
         if (!isLiked) {
+          // if they like the review, +1 upvote
+          await User.findOneAndUpdate(
+            { _id: args.user_id, "savedReviews._id": args.review_id },
+            // increment the value by 1
+            { $inc: { "savedReviews.$.upvotes": 1 }},
+            { new: true }
+          );
+
           const userUpdate = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $push: { likedReviews: args.review_id}},
             { new: true }
           )
+          
 
           return userUpdate;
           // if the review has already been liked and they click it again
           // then remove the like
         } else {
+          // if they unlike the review, -1 upvotes
+          await User.findOneAndUpdate(
+            { _id: args.user_id, "savedReviews._id": args.review_id },
+            // increment the value by 1
+            { $inc: { "savedReviews.$.upvotes": -1 }},
+            { new: true }
+          );
+
           const userUpdate = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $pull: { likedReviews: args.review_id}},
@@ -282,6 +299,13 @@ const resolvers = {
         // if the review is not liked
         // add the review to the liked reviews
         if (!isDisliked) {
+          // if they disliked the review, downvotes +1
+          await User.findOneAndUpdate(
+            { _id: args.user_id, "savedReviews._id": args.review_id },
+            { $inc: { "savedReviews.$.downvotes": 1 }},
+            { new: true }
+          );
+
           const userUpdate = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $push: { dislikedReviews: args.review_id}},
@@ -292,6 +316,13 @@ const resolvers = {
           // if the review has already been liked and they click it again
           // then remove the like
         } else {
+          // if they already disliked the review, downvotes -1
+          await User.findOneAndUpdate(
+            { _id: args.user_id, "savedReviews._id": args.review_id },
+            { $inc: { "savedReviews.$.downvotes": -1 }},
+            { new: true }
+          );
+
           const userUpdate = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $pull: { dislikedReviews: args.review_id}},

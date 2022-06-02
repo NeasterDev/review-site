@@ -46,8 +46,8 @@ const typeDefs = gql`
         editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
         upvote(user_id: ID!, review_id: ID!): Review
         downvote(user_id: ID!, review_id: ID!): Review
-        likeReview(review_id: ID!): User
-        dislikeReview(review_id: ID!): User
+        likeReview(user_id: ID!, review_id: ID!): User
+        dislikeReview(user_id: ID!, review_id: ID!): User
     }
 `;
 
