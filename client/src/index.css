@@ -109,6 +109,11 @@ a {
   min-height: 100vh;
 }
 
+.m-votes {
+  margin-right: 1rem;
+  margin-top: 0.8rem;
+}
+
 .mb-8 {
   margin-bottom: 4rem;
 }

@@ -39,6 +39,8 @@ const Home = (props) => {
                 imageUrls={review.imageUrls}
                 setImageLinks={setImageLinks}
                 userId={review.userId}
+                upvotes={review.upvotes}
+                downvotes={review.downvotes}
               />
             );
           })}
@@ -60,6 +62,8 @@ const Home = (props) => {
                   imageUrls={review.imageUrls}
                   setImageLinks={setImageLinks}
                   userId={review.userId}
+                  upvotes={review.upvotes}
+                  downvotes={review.downvotes}
                 />
               );
             }

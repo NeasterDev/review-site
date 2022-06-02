@@ -7,7 +7,7 @@ import { useMutation } from "@apollo/client";
 import { UPVOTE, DOWNVOTE } from '../../utils/mutations';
 
 
-export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId }) => {
+export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId, upvotes, downvotes }) => {
   // const lorem =
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
   let stars = "";
@@ -20,7 +20,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     console.log(reviewId);
   }
 
-  const [upvote, {loading, data}] = useMutation(UPVOTE, 
+  const [upvote, { loading, data }] = useMutation(UPVOTE,
     {
       variables: {
         userId,
@@ -28,13 +28,13 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       }
     });
 
-    const [downvote, {loading: loadingDownvote, data: downvoteData}] = useMutation(DOWNVOTE, 
-      {
-        variables: {
-          userId,
-          reviewId
-        }
-      });
+  const [downvote, { loading: loadingDownvote, data: downvoteData }] = useMutation(DOWNVOTE,
+    {
+      variables: {
+        userId,
+        reviewId
+      }
+    });
 
   const handleReviewClick = (e) => {
     const reviewBox = e.target.closest('.review-box');
@@ -55,7 +55,6 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
     <div className="box review-box" id="edit-tag" data-location={location} data-rating={rating} data-review-text={reviewText} edit-id={editId}
       onClick={handleReviewClick}
     >
-
       <div className=" is-size-6 is-italic has-text-weight-medium">
         {location}
       </div>
@@ -70,7 +69,10 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         </div>
         {imageUrls.length ? <img onClick={renderImages} src={imgSrc} /> : null}
       </div>
-      <div className="is-flex is-justify-content-end">
+      <div className="is-flex is-justify-content-end	">
+        <div className="is-flex is-flex-direction-column is-justify-content-center m-votes">
+          <span>{(upvotes - downvotes > 0) ? `+ ${upvotes - downvotes}` : upvotes - downvotes} votes</span>
+        </div>
         <img onClick={() => upvote()} className="upvote" src={upArrow} />
         <img onClick={() => downvote()} className="downvote" src={downArrow} />
       </div>

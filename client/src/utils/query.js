@@ -63,6 +63,8 @@ export const GET_REVIEWS = gql`
       username
       imageUrls
       userId
+      upvotes
+      downvotes
     }
   }
 `;
