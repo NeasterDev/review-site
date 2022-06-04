@@ -203,34 +203,11 @@ const resolvers = {
     },
 
     // // mutations for voting 
-    // upvote: async (parent, args, context) => {
-    //   if (context.user) {
-    //     console.log(args);
-    //     const user = await User.findOneAndUpdate(
-    //       { _id: args.user_id, "savedReviews._id": args.review_id },
-    //       // increment the value by 1
-    //       { $inc: { "savedReviews.$.upvotes": 1 }},
-    //       { new: true }
-    //     );
 
-    //     return user.savedReviews.id(args.review_id);
-    //   }
-    // },
-    // downvote: async (parent, args, context) => {
-    //   if (context.user) {
-    //     console.log(args);
-    //     const user = await User.findOneAndUpdate(
-    //       { _id: args.user_id, "savedReviews._id": args.review_id },
-    //       { $inc: { "savedReviews.$.downvotes": 1 }},
-    //       { new: true }
-    //     );
-
-    //     return user.savedReviews.id(args.review_id);
-    //   }
-    // },
     likeReview: async (parent, args, context) => {
       if (context.user) {
         let isLiked = false;
+        let isDisliked = false
         const user = await User.findOne({_id: context.user._id});
         //console.log(user);
         // checking if the user has liked the review already
@@ -241,10 +218,35 @@ const resolvers = {
             return;
           }
           return;
-        })
+        });
+
+        user.dislikedReviews.forEach(dislikedReview => {
+          if (dislikedReview === args.review_id) {
+            // the review has been liked already
+            isDisliked = true;
+            return;
+          }
+          return;
+        });
+        
         // if the review is not liked
         // add the review to the liked reviews
         if (!isLiked) {
+          // if they are liking a review they already disliked, remove the dislike
+          if (isDisliked) {
+            await User.findOneAndUpdate(
+              { _id: args.user_id, "savedReviews._id": args.review_id },
+              // increment the value by 1
+              { $inc: { "savedReviews.$.downvotes": -1 }},
+              { new: true }
+            );
+  
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { dislikedReviews: args.review_id}},
+              { new: true }
+            )
+          }
           // if they like the review, +1 upvote
           await User.findOneAndUpdate(
             { _id: args.user_id, "savedReviews._id": args.review_id },
@@ -264,6 +266,20 @@ const resolvers = {
           // if the review has already been liked and they click it again
           // then remove the like
         } else {
+          if (isDisliked) {
+            await User.findOneAndUpdate(
+              { _id: args.user_id, "savedReviews._id": args.review_id },
+              // increment the value by 1
+              { $inc: { "savedReviews.$.downvotes": -1 }},
+              { new: true }
+            );
+  
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { dislikedReviews: args.review_id}},
+              { new: true }
+            )
+          }
           // if they unlike the review, -1 upvotes
           await User.findOneAndUpdate(
             { _id: args.user_id, "savedReviews._id": args.review_id },
@@ -285,6 +301,7 @@ const resolvers = {
     dislikeReview: async (parent, args, context) => {
       if (context.user) {
         let isDisliked = false;
+        let isLiked = false;
         const user = await User.findOne({_id: context.user._id});
         //console.log(user);
         // checking if the user has liked the review already
@@ -295,10 +312,34 @@ const resolvers = {
             return;
           }
           return;
-        })
+        });
+
+        user.likedReviews.forEach(likedReview => {
+          if (likedReview === args.review_id) {
+            // the review has been liked already
+            isLiked = true;
+            return;
+          }
+          return;
+        });
         // if the review is not liked
         // add the review to the liked reviews
         if (!isDisliked) {
+          // if they are disliking a post that they already liked, remove the like
+          if (isLiked) {
+            await User.findOneAndUpdate(
+              { _id: args.user_id, "savedReviews._id": args.review_id },
+              // increment the value by 1
+              { $inc: { "savedReviews.$.upvotes": -1 }},
+              { new: true }
+            );
+  
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { likedReviews: args.review_id}},
+              { new: true }
+            )
+          }
           // if they disliked the review, downvotes +1
           await User.findOneAndUpdate(
             { _id: args.user_id, "savedReviews._id": args.review_id },
@@ -316,6 +357,21 @@ const resolvers = {
           // if the review has already been liked and they click it again
           // then remove the like
         } else {
+          // if they are disliking a post that they already liked, remove the like
+          if (isLiked) {
+            await User.findOneAndUpdate(
+              { _id: args.user_id, "savedReviews._id": args.review_id },
+              // increment the value by 1
+              { $inc: { "savedReviews.$.upvotes": -1 }},
+              { new: true }
+            );
+  
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { likedReviews: args.review_id}},
+              { new: true }
+            )
+          }
           // if they already disliked the review, downvotes -1
           await User.findOneAndUpdate(
             { _id: args.user_id, "savedReviews._id": args.review_id },

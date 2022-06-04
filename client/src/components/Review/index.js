@@ -8,21 +8,12 @@ import { UPVOTE, DOWNVOTE } from '../../utils/mutations';
 
 
 export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId, upvotes, downvotes, refetch }) => {
-  // const lorem =
-  //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
   let stars = "";
   for (let i = 0; i < rating; i++) {
     stars += "★";
   }
 
-  if (userId) {
-    console.log(userId);
-    console.log(reviewId);
-  }
-
-  const [votes, setVotes] = useState(upvotes - downvotes);
-
-  const [likeReview, { loading, data }] = useMutation(UPVOTE,
+  const [likeReview] = useMutation(UPVOTE,
     {
       variables: {
         userId,
@@ -30,7 +21,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       }
     });
 
-  const [dislikeReview, { loading: loadingDownvote, data: downvoteData }] = useMutation(DOWNVOTE,
+  const [dislikeReview] = useMutation(DOWNVOTE,
     {
       variables: {
         userId,
@@ -40,7 +31,6 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
 
   const handleReviewClick = (e) => {
     const reviewBox = e.target.closest('.review-box');
-    console.log(reviewBox.children);
     const descr = reviewBox.querySelector('.descr');
     descr.classList.toggle('rev-max-description');
   }
@@ -54,14 +44,12 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
 
   const upvote = async () => {
     await likeReview();
-    setVotes(upvotes - downvotes);
+    // refetch get reviews query to update votes
     refetch();
-    console.log(upvotes);
   }
 
   const downvote = async () => {
     await dislikeReview();
-    setVotes(upvotes - downvotes);
     refetch();
   }
 
@@ -86,7 +74,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
       </div>
       <div className="is-flex is-justify-content-end	">
         <div className="is-flex is-flex-direction-column is-justify-content-center m-votes">
-          <span>{(votes > 0) ? `+ ${votes}` : votes} votes</span>
+          <span>{(upvotes - downvotes > 0) ? `+ ${upvotes - downvotes}` : upvotes - downvotes} votes</span>
         </div>
         <img onClick={upvote} className="upvote" src={upArrow} />
         <img onClick={downvote} className="downvote" src={downArrow} />
