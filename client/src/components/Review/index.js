@@ -7,7 +7,7 @@ import { useMutation } from "@apollo/client";
 import { UPVOTE, DOWNVOTE } from '../../utils/mutations';
 
 
-export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId, upvotes, downvotes }) => {
+export const Review = ({ editId, location, rating, reviewText, username, imageUrls, setImageLinks, handleEditReview, userId, reviewId, upvotes, downvotes, refetch }) => {
   // const lorem =
   //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor at sem sed facilisis. Vivamus congue arcu dolor, in ornare enim pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse fermentum lectus eget hendrerit sodales. Aliquam bibendum tortor sem, id placerat nunc fermentum.";
   let stars = "";
@@ -54,14 +54,15 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
 
   const upvote = async () => {
     await likeReview();
-    console.log(upvotes);
     setVotes(upvotes - downvotes);
+    refetch();
     console.log(upvotes);
   }
 
-  const downvote = () => {
-    dislikeReview();
+  const downvote = async () => {
+    await dislikeReview();
     setVotes(upvotes - downvotes);
+    refetch();
   }
 
   const imgSrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABvElEQVRoge2Zv0oDMRjAf5UK4igqiLg7uQg+gC6KgoOjo3OfwMVH6Bu4+QKCm5PWRR3EwVWsm1snK8o5XIOxlzRf7o+X2vzgg3KXS75fv0vI3UEkEpk4OkASSFz7Jt/Qfie+F1dMw93kh2bRDiog1x86VXYWdRFFCrALvAJdYEfQXi0AV9IB1AUuloF74BaYk3au0dXGehHkkRiOjUTSeBV41treALPSAQb4ikhzEzfeAN7IrvkXwLR0ENLbqUsqsS3MozSRLaBHVkLFGeXNt8pEDoEP7BIq2t4py/OwzRvjAmDqoAV84ZZQcVzEYEQeXguAfqIBnHgI6NH6AxHbsV8nmsBpTokE+AQORiQ6T3pL3AGLVYqcF5BQ8Q5sWiQetHaPBpnSRMqKHrCu9b8wJKHiCVgKWaRPuh2BbCWGQ69MUCJ9YH/Qr60StsoEI9IH9gZ9uiphqkwwIkc5JYbDS6SKbfwMsAJcAmsV9G9kXJ7ZE9ex+IQYGlEkNKJIaPxLkU5tWWTxfok9LtSyRakFl4h1hxkaps8KJoKXcVUkpEknfok9bkzmZDcR5AIgnewmgpLJU5G4AEQikfr4BvQ2m7ExS3fcAAAAAElFTkSuQmCC";

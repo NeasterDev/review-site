@@ -11,7 +11,7 @@ import { useQuery } from "@apollo/client";
 const Home = (props) => {
   const [imageLinks, setImageLinks] = useState([""]);
 
-  const { loading, error, data } = useQuery(GET_REVIEWS);
+  const { loading, error, data, refetch } = useQuery(GET_REVIEWS);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -41,6 +41,7 @@ const Home = (props) => {
                 userId={review.userId}
                 upvotes={review.upvotes}
                 downvotes={review.downvotes}
+                refetch={refetch}
               />
             );
           })}
@@ -64,6 +65,7 @@ const Home = (props) => {
                   userId={review.userId}
                   upvotes={review.upvotes}
                   downvotes={review.downvotes}
+                  refetch={refetch}
                 />
               );
             }
