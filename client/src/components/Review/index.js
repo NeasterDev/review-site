@@ -99,6 +99,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         </div>
         {imageUrls.length ? <img onClick={renderImages} src={imgSrc} /> : null}
       </div>
+      <Route exact path='/'>
       <div className="is-flex is-justify-content-end	">
         <div className="is-flex is-flex-direction-column is-justify-content-center m-votes">
           <span>{(upvotes - downvotes > 0) ? `+ ${upvotes - downvotes}` : upvotes - downvotes} votes</span>
@@ -106,6 +107,7 @@ export const Review = ({ editId, location, rating, reviewText, username, imageUr
         <img onClick={upvote} className={`upvote`} src={upArrow} />
         <img onClick={downvote} className={`downvote`} src={downArrow} />
       </div>
+      </Route>
       <Route exact path='/profile'>
         <div className="is-flex is-justify-content-end">
           <button className="button" onClick={handleEditReview}>Edit</button>
