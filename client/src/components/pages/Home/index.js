@@ -32,18 +32,20 @@ const Home = (props) => {
       return (
         <>
           {data.reviews.map((review) => {
-            currentUserData.me.likedReviews.forEach(likedReview => {
-              if (likedReview === review._id) {
-                liked = "upvote-active";
-              }
-            
-            });
-
-            currentUserData.me.dislikedReviews.forEach(dislikedReview => {
-              if (dislikedReview === review._id) {
-                disliked = "downvote-active";
-              }
-            });
+            if (currentUserData) {
+              currentUserData.me.likedReviews.forEach(likedReview => {
+                if (likedReview === review._id) {
+                  liked = "upvote-active";
+                }
+              
+              });
+  
+              currentUserData.me.dislikedReviews.forEach(dislikedReview => {
+                if (dislikedReview === review._id) {
+                  disliked = "downvote-active";
+                }
+              });
+            }
             
             return (
               <Review
@@ -71,18 +73,21 @@ const Home = (props) => {
       return (
         <>
           {data.reviews.map((review) => {
-            currentUserData.me.likedReviews.forEach(likedReview => {
-              if (likedReview === review._id) {
-                liked = true;
-              }
+            if (currentUserData) {
+              currentUserData.me.likedReviews.forEach(likedReview => {
+                if (likedReview === review._id) {
+                  liked = true;
+                }
+              
+              });
+  
+              currentUserData.me.dislikedReviews.forEach(dislikedReview => {
+                if (dislikedReview === review._id) {
+                  disliked = true;
+                }
+              });
+            }
             
-            });
-
-            currentUserData.me.dislikedReviews.forEach(dislikedReview => {
-              if (dislikedReview === review._id) {
-                disliked = true;
-              }
-            });
           //  console.log(review);
             if (review.location.toLowerCase().includes(location.toLocaleLowerCase())) {
               return (
