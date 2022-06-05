@@ -109,6 +109,11 @@ a {
   min-height: 100vh;
 }
 
+.m-votes {
+  margin-right: 1rem;
+  margin-top: 0.8rem;
+}
+
 .mb-8 {
   margin-bottom: 4rem;
 }
@@ -186,6 +191,36 @@ a {
 
 .mb-15 {
   margin-bottom: 1.5rem;
+}
+
+.upvote {
+  padding: .5rem;
+  width: 3rem;
+}
+
+.downvote {
+  padding: .5rem;
+  width: 3rem;
+}
+
+.upvote:hover {
+  background-color: #0dc900;
+  border-radius: 10px;
+}
+
+.upvote-active {
+  background-color: #0dc900;
+  border-radius: 10px;
+}
+
+.downvote:hover {
+  background-color: #f74d4d;
+  border-radius: 10px;
+}
+
+.downvote-active {
+  background-color: #f74d4d;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {

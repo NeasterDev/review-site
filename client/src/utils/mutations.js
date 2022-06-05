@@ -100,3 +100,21 @@ export const DELETE_REVIEW = gql`
     }
   }
 `;
+
+
+export const UPVOTE = gql`
+  mutation likeReview($userId: ID!, $reviewId: ID!) {
+    likeReview(user_id: $userId, review_id: $reviewId) {
+      likedReviews
+    }
+}
+`;
+
+export const DOWNVOTE = gql`
+  mutation dislikeReview($userId: ID!, $reviewId: ID!) {
+    dislikeReview(user_id: $userId, review_id: $reviewId) {
+      dislikedReviews
+    }
+  }
+`;
+

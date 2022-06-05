@@ -8,16 +8,21 @@ const typeDefs = gql`
         username: String
         email: String
         savedReviews: [Review]
+        likedReviews: [String]
+        dislikedReviews: [String]
     }
 
     type Review {
-        _id: ID,
+        _id: ID
         reviewText: String
         rating: Int
         location: String
         username: String
         createdAt: String
         imageUrls: [String]
+        userId: ID
+        upvotes: Int
+        downvotes: Int
     }
 
     type Auth {
@@ -39,7 +44,8 @@ const typeDefs = gql`
         addReview(reviewText: String!, rating: Int!, location: String!, imageUrls: [String]): User
         deleteReview(_id: ID!): User
         editReview(_id: ID!, reviewText: String, rating: Int, location: String): Review
-
+        likeReview(user_id: ID!, review_id: ID!): User
+        dislikeReview(user_id: ID!, review_id: ID!): User
     }
 `;
 
